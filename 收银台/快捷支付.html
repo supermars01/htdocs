@@ -16,7 +16,7 @@
         <link href="css/style.min.css?v=4.1.0" rel="stylesheet"/>
         <link href="css/login.css" rel="stylesheet"/>
     </head>
-    <body class="gray-bg  animated fadeInDown">
+    <body class="gray-bg animated fadeInDown">
         <header>
             <div class="login-header-main">
                 <img src="img/logo.png" class="logo" alt="">
@@ -57,26 +57,27 @@
                     <form class="m-t form-horizontal" role="form"  id="payForm" action="支付成功.html">
                         <div class="form-group col-sm-12">
                             <label class="control-label col-sm-3">银行卡</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-6">
                                 <input type="text" class="form-control" name="cardNum" id="cardNum" placeholder="请输入银行卡号" required="" maxlength="19" validate="{required:true, cardNum:true}">
+                                <span class="bankLogo"></span>
                             </div>
-                            
+                            <a class="col-sm-3 aptBank">查看支持的银行卡</a>
                         </div>
                         <div class="form-group col-sm-12">
                             <label class="control-label col-sm-3">持卡人姓名</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-6">
                                 <input type="text" class="form-control" placeholder="请输入持卡人姓名" required="" name="username">
                             </div>
                         </div>
                         <div class="form-group col-sm-12">
                             <label class="control-label col-sm-3">身份证号</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-6">
                                 <input type="text" class="form-control" name="idNum" placeholder="请输入身份证号" required="" maxlength="18">
                             </div>
                         </div>
                         <div class="form-group col-sm-12">
                             <label class="control-label col-sm-3">手机号码</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-6">
                                 <input type="text" class="form-control" name="telphone" id="telphone" placeholder="请输入手机号码" required="" maxlength="11">
                             </div>
                         </div>
@@ -107,6 +108,48 @@
         <footer>
            <p>京公网安备 11000002000088号 | 京ICP 备123456789   号 1  | Copyright © 20</p>
        </footer>
+       <div class="bg" style="display:none"></div>
+       <div class="modelBox" style="display:none">
+        <ul class="tab">
+            <li class="active">借记卡</li>
+            <li>信用卡</li>
+            <ul class="tabContent">
+                <li><div class="PSBC"></div><span>邮政储蓄</span></li>
+                <li><div class="ICBC"></div><span>工商银行</span></li>
+                <li><div class="ABC"></div><span>农业银行</span></li>
+                <li><div class="BOC"></div><span>中国银行</span></li>
+                <li><div class="CCB"></div><span>建设银行</span></li>
+                <li><div class="CITIC"></div><span>中信银行</span></li>
+                <li><div class="CEB"></div><span>光大银行</span></li>
+                <li><div class="HXBANK"></div><span>华夏银行</span></li>
+                <li><div class="CIB"></div><span>兴业银行</span></li>
+                <li><div class="SPDB"></div><span>浦发银行</span></li>
+                <li><div class="SPABANK"></div><span>平安银行</span></li>
+                <li><div class="BJBANK"></div><span>北京银行</span></li>
+                <li><div class="SHBANK"></div><span>上海银行</span></li>
+            </ul>
+            <ul class="tabContent" style="display:none">
+                <li><div class="PSBC"></div><span>邮政储蓄</span></li>
+                <li><div class="ICBC"></div><span>工商银行</span></li>
+                <li><div class="ABC"></div><span>农业银行</span></li>
+                <li><div class="COMM"></div><span>交通银行</span></li>
+                <li><div class="BOC"></div><span>中国银行</span></li>
+                <li><div class="CCB"></div><span>建设银行</span></li>
+                <li><div class="CITIC"></div><span>中信银行</span></li>
+                <li><div class="CEB"></div><span>光大银行</span></li>
+                <li><div class="HXBANK"></div><span>华夏银行</span></li>
+                <li><div class="CMBC"></div><span>民生银行</span></li>
+                <li><div class="GDB"></div><span>广发银行</span></li>
+                <li><div class="CMB"></div><span>招商银行</span></li>
+                <li><div class="CIB"></div><span>兴业银行</span></li>
+                <li><div class="SPDB"></div><span>浦发银行</span></li>
+                <li><div class="SPABANK"></div><span>平安银行</span></li>
+                <li><div class="BJBANK"></div><span>北京银行</span></li>
+                <li><div class="SHBANK"></div><span>上海银行</span></li>
+            </ul>
+        </ul>
+        <button class="closeBtn">我知道了</button>
+       </div>
         <script src="js/jquery.min.js?v=2.1.4"></script>
         <script src="js/bootstrap.min.js?v=3.3.6"></script>
         <script src="js/plugins/iCheck/icheck.min.js"></script>
@@ -114,5 +157,8 @@
         <script src="js/plugins/validate/jquery.validate.min.js"></script>
         <script src="js/common/form-validate-common.js"></script>
         <script src="js/login/pay.js"></script>
+        <!-- <script type="text/javascript">
+            $(".bankLogo").attr("class","bankLogo ICBC");
+        </script> -->
     </body>
 </html>
