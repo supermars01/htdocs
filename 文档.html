@@ -4,19 +4,49 @@
         <meta charset="utf-8"/>
         <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
         <title>
-            
+            文档
         </title>
         <meta content="" name="keywords"/>
         <meta content="" name="description"/>
-        <link href="favicon.ico" rel="shortcut icon"/>
+        <!-- <link href="favicon.ico" rel="shortcut icon"/> -->
         <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
         <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
-        <link href="css/animate.min.css" rel="stylesheet"/>
+        <!-- <link rel="stylesheet" type="text/css" href="css/animate.min.css"> -->
         <link href="css/style.min.css?v=4.1.0" rel="stylesheet"/>
         <link href="css/common.css" rel="stylesheet"/>
+        <script src="js/jquery.min.js?v=2.1.4"></script>
+        <script type="text/javascript" src="js/plugins/slimscroll/jquery-scrolltofixed-min.js"></script>
+       <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
         <!--[if lt IE 9]>
         <meta http-equiv="refresh" content="0;ie.html" />
         <![endif]-->
+        <style type="text/css">
+            body{color:#666;font-size:14px}
+            header.gray-bg2{position:fixed;top:0;background-color:#fff!important;z-index:10;border-bottom:1px solid #e0e0e0}
+            .m-sec{border:0;height:auto;overflow:hidden}
+            .doc-change p{font-size:14px}
+            .doc-change h3{font-size:18px}
+            .doc-l li{font-size:16px}
+            a.doctab{color:#222}
+            section.m-sec{min-height:95%;padding-top:86px}
+            footer.m-sec{text-indent:280px;text-indent:280px;margin:0;padding:0;height:auto}
+            .doc-content{height:100%}
+            .doc-l ul a{font-size:14px}
+            .doc-l li{margin-bottom:7px}
+            h4{font-size:16px;margin-left:8px}
+            dl{margin-left:8px}
+            dt,dd{line-height:25px}
+            dt{font-weight:bold}
+            dd{margin-left:100px}
+            .doc-change ul,.doc-change li{list-style:none;text-indent:30px;color:#c82829}
+            li.noIndent{text-indent:0}
+            ul.stateCode li{color:#616161;line-height:1.6;margin-bottom:.3rem}
+            .doc-l{width:251px;position:fixed;padding:0}
+            .doc-l .doc-cell{overflow:hidden}
+            .caret{margin-left:5px;border-top:6px solid;border-right:6px solid transparent;border-left:6px solid transparent;-webkit-transition:all .5 ease-out}
+            .caret-close{border-top:6px solid;border-left:6px solid;border-top:6px solid transparent;border-bottom:6px solid transparent}
+            .doc-l span.caret{display:inline-block;padding:0}
+        </style>
         <script>
             if(window.top !== window.self){ window.top.location = window.location;}
         </script>
@@ -28,7 +58,7 @@
                 <ul class="nav-menu">
                     <li><a href="">首页</a></li>
                     <li><a href="渠道.html">渠道</a></li>
-                    <li><a class="active">文档</a></li>
+                    <li><a href="文档.html" class="active">文档</a></li>
                     <li><a href="联系我们.html">联系我们</a></li>
                     <li><a href="关于我们.html">关于我们</a></li>
                 </ul>
@@ -41,166 +71,453 @@
         <section class="m-sec">
             <div class="doc-content">
                 <ul class="doc-l">
-                    <!-- <li>
+                    <li  data-index="1">
                         <a class="doctab active">简介</a>
-                    </li> -->
-                    <li>
-                        <a class="doctab active">文档用途</a>
                     </li>
-                    <li>
+                    <li  data-index="2">
+                        <a class="doctab">文档用途</a>
+                    </li>
+                    <li  data-index="3">
                         <a class="doctab">阅读对象</a>
                     </li>
-                    <li>
+                    <li  data-index="4">
                         <a class="doctab">名词解释</a>
                     </li>
-                    <li>
-                        <a class="doctab">接口规范</a>
-                        <ul class="doc-cell">
-                            <li><a class="doctab" href="#doc11">签名机制</a></li>
-                            <li><a class="doctab" href="#doc12">请求返回</a></li>
+                    <li data-index="5">
+                        <a class="doctab" data-toggle="collapse" data-target="#interfaceReg">接口规范<span class="caret"></span></a>
+                        <ul class="doc-cell collapse in" id="interfaceReg">
+                            <li><a class="doctab" href="#interfaceSign">签名机制</a></li>
+                            <li><a class="doctab" href="#interfaceRetrun">请求返回</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="doctab">接口列表</a>
-                        <ul class="doc-cell">
-                            <li>
-                                <a class="doctab" href="#doc21">
-                                    recharge充值
-                                </a>
-                            </li>
-                            <li>
-                                <a class="doctab" href="#doc22">consumptionBypass 消费
-                                </a>
-                            </li>
-                            <li>
-                                <a class="doctab" href="#doc23">consumptionCancel消费撤销/退货
-                                </a>
-                            </li>
-                            <li>
-                                <a class="doctab" href="#doc24">
-                                getState 钱包余额查询
-                                </a>
-                            </li>
-                            <li>
-                                <a class="doctab" href="#doc25">
-                                getBatch 交易流水查询
-                                </a>
-                            </li>
-                            <li>
-                                <a class="doctab" href="#doc26">
-                                frozen 启用/停用钱包
-                                </a>
-                            </li>
-                            <li>
-                                <a class="doctab" href="#doc27">
-                                createVirtualCard 开卡
-                                </a>
-                            </li>
+                    <li  data-index="6">
+                        <a class="doctab" data-toggle="collapse" data-target="#grewInterfaceList">接口列表<span class="caret"></span></a>
+                        <ul class="doc-cell collapse in" id="grewInterfaceList">
+                            <li><a class="doctab" href="#prepay">prepay 预下单</a></li>
+                            <li><a class="doctab" href="#charges">charges支付</a></li>
+                            <li><a class="doctab" href="#query">query查询接口</a></li>
+                            <li><a class="doctab" href="#refund">refund退货接口</a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li  data-index="7">
                         <a class="doctab">返回码</a>
                     </li>
-                    <li>
-                        <a class="doctab">交易类型</a>
-                    </li>
                 </ul>
-
                 <div class="doc-r">
-                    <div class="doc-change" style="display:block">
+                    <div class="doc-change" data-index="1" style="display:block">
+                        <h3>欢迎使用成长支付</h3>
+                        <p>成长支付作为国内领先的聚合支付平台，为移动APP、移动网页、PC网页等多种支付场景提供快速、安全、稳定的支付服务，并适配Android和iOS。开发者只需调用成长支付SDK 即可快速部署，为您节约成本、聚焦核心业务。</p>
+                        <hr />
+                        <h4>接入成长支付步骤</h4>
+                        <ol>
+                            <li>第一步：注册成长支付并实名认证用户信息；</li>
+                            <li>第二步：系统将生成加密Key，您也可手动更新加密Key的值；</li>
+                            <li>第三步：接口参数将使用Key进行加密，同时生成mac加密参数，并将mac参数封装至请求接口参数中；</li>
+                            <li>第四步：接口将以Http post的方式请求服务器；</li>
+                            <li>第五步：接收服务器回执。</li>
+                        </ol>
+                    </div>
+                    <div class="doc-change" data-index="2">
                         <h3>文档用途</h3>
                         <p>本文档旨在对成长支付接口提供一份详细的规范定义说明， 方便开发者快捷地接入互联网支付服务。</p>
                         <hr />
                     </div>
-                    <div class="doc-change">
+                    <div class="doc-change" data-index="3">
                         <h3>阅读对象</h3>
                         <p>接入成长支付互联网支付的商户的技术架构师、研发工程师、测试工程师，并需要开发者有一定Java基础。
                         </p>
                         <hr />
                     </div>
-                    <div class="doc-change">
+                    <div class="doc-change" data-index="4">
                         <h3>名词解释</h3>
                         <p>在您开始使用本文档之前，需要了解本文档涉及到的部分名词解释，这样方便您更好的理解接口相关内容。</p>
-                        <p>返回：高汇通根据得到的数据处理完成后，以 JSON 数据形式将处理完成的结果信息反馈给调用者</p>
-                        <hr />
+                        <p>返回：高汇通根据得到的数据处理完成后，以JSON数据形式将处理完成的结果信息反馈给调用者</p>
                         <p>请求：通过 HTTP 协议把需要传输的数据发送给接收方的过程(post请求)。</p>
 
                         <p>输入参数：请求参数是调用者在与高汇通进行数据交互时，提供给高汇通的请求数据，以便高汇通根据这些数据进一步处理。</p>
 
                         <p>返回参数：高汇通对调用者提供的请求数据进行处理后，返回给调用者结果数据，以便调用者根据这些数据进一步处理，对于业务正常受理，调用者需要解析响应码以判断业务是否处理成功。</p>
-                        
-                    </div>
-                    <div class="doc-change">
-                        <h3>接口规范</h3>
-                        <p>成长支付对接口规范进行了严格的限制，以保证开发者今后扩展的便利性。所有接口均以Json的形式返回。</p>
                         <hr />
-
-                        <h3 id="doc11">签名机制</h3>
+                    </div>
+                    <div class="doc-change" data-index="5">
+                        <h3 id="interfaceSign">接口规范</h3>
+                        <p>成长支付对接口规范进行了严格的限制，以保证开发者今后扩展的便利性。所有接口均以JSON的形式返回。</p>
+                        <hr />
+                        <h3 id="interfaceSign">签名机制</h3>
                         <p>请求参数按照参数名字符升序排列，如果有重复参数名，那么重复的参数再按照参数值的字符升序排列。所有参数（mac）按照上面的排序用&连接起来，格式是：p1=v1&p2=v2。如聚合支付提供KEY为b570f671cb72b5b4a30725f204bbbf03最后格式为p1=v1&p2=v2&key=b570f671cb72b5b4a30725f204bbbf03</p>
                         <hr />
-                        <p>某接口包含以下参数：</p>
-                        <p>service=directPay,merchantId=403110154110000,terminalId=04031471</p>
-                        <p>那么待签名数据按照规则拼接组装后为：</p>
-                        <p>merchantId=403110154110000&service=quickPay&terminalId=04031471&key=b570f671cb72b5b4a30725f204bbbf03</p>
+                        <h4>实例</h4>
+                        <p>某接口包含以下参数：<br>
+                        service=directPay,merchantId=403110154110000,terminalId=04031471<br>那么待签名数据按照规则拼接组装后为：<br>
+                        merchantId=403110154110000&amp;service=quickPay&amp;terminalId=04031471&amp;key=b570f671cb72b5b4a30725f204bbbf03</p>
                         <hr />
                         <h4>注意事项</h4>
-                        <ul>
-                          <li>没有值的参数无需传递，也无需包含到待签名数据中。</li>
-                          <li> 如果传递参数包含加密信息，则拼接签名原文时应使用加密后的值，而不是加密前的原文。</li>
-                          <li>根据HTTP协议要求，传递的字符串中如果存在特殊字符（如：&amp;、@等），那么该字符串需要做URL Encoding，这样接收方才能接收到正确的参数值。这种情况下，待签名数据应该是原生值而不是encoding之后的值。</li>
-                        </ul>
-                        <hr />
-                        <h3 id="doc12">请求返回</h3>
-                        <p>所有请求均以Json格式返回，格式如下：</p>
                         <p>
-                            {"return_code":"状态码","return_msg":"返回消息"}
-                        </p>
+                        没有值的参数无需传递，也无需包含到待签名数据中。如果传递参数包含加密信息，则拼接签名原文时应使用加密后的值，而不是加密前的原文。根据HTTP协议要求，传递的字符串中如果存在特殊字符（如：&、@等），那么该字符串需要做URL Encoding，这样接收方才能接收到正确的参数值。这种情况下，待签名数据应该是原生值而不是encoding之后的值。</p>
+                        <hr />
+                        <h3 id="interfaceRetrun">请求返回</h3>
+                        <p>所有请求均以JSON格式返回，格式如下：<br/>
+                        { "return_code":"状态码", "return_msg":"返回消息" }</p>
                         <hr />
                         <h4>响应参数</h4>
                         <dl>
-                            <dt>return_code <div style="margin-left:100px;margin-top:-22px;">String</div> </dt>
-                            <!-- <dd>string</dd> -->
-                            <dd style="margin-left: 100px">
-                                <span>返回代码 T00为请求成功返回，其它代表有错误。</span>
-                            </dd>
-                            <div class="clear"></div>
-
-                            <dt>return_msg <div style="margin-left:100px;margin-top:-22px;">String</div></dt>
-                            <dd style="margin-left: 100px">
-                                <span>返回消息 如果return_code不为T00，相应错误说明会在return_msg中出现。</span>
-                            </dd>
+                            <dt>return_code String</dt>
+                            <dd>返回代码 T00为请求成功返回，其它代表有错误。</dd>
+                            <dt>return_msg String</dt>
+                            <dd>返回消息 如果return_code不为T00，相应错误说明会在return_msg中出现。</dt>
                         </dl>
                     </div>
-                    <div class="doc-change">
-                        
+                    <div class="doc-change" data-index="6">
+                        <h3>接口列表</h3>
+                        <p>所有对外开放的接口以列表的形式展示出来，方便查阅、符合开发人员阅读习惯。接口内容我们会不定期更新，届时您可以在网站首页查看更新内容。</p>
+                        <hr />
+                        <br>
+                        <h3 id="prepay">prepay 预下单</h3>
+                        <p>商户系统先调用该接口在成长支付服务后台生成预支付交易单，返回支付网址url</p>
+                        <hr />
+                        <h4>参数</h4>
+                        <dl>
+                            <dt>mer_id String</dt>
+                            <dd>成长支付商户号，32位长度字符串，非空。</dt>
+                            <dt>appid String</dt>
+                            <dd>客户应用ID，32位长度字符串，非空。</dd>
+                            <dt>pay_id String</dt>
+                            <dd>支付渠道ID，2位长度字符串，非空。</dt>
+                            <dt>out_trade_no String</dt>
+                            <dd>订单号，32位长度字符串，非空。</dt>
+                            <dt>debugmode String</dt>
+                            <dd>调试模式（0生产，1调试），1位长度字符串，非空。</dd>
+                            <dt>order_name String</dt>
+                            <dd>订单名称，64位长度字符串，非空。</dt>
+                            <dt>order_detail String</dt>
+                            <dd>订单描述，512位长度字符串，非空。</dt>
+                            <dt>order_amount String</dt>
+                            <dd>订单总金额，单位:分， 20位长度字符串，非空。</dd>
+                            <dt>order_time String</dt>
+                            <dd>交易时间，格式：yyyyMMddHHmmss，14位长度字符串，非空。</dt>
+                            <dt>notify_url String</dt>
+                            <dd>后台回调地址，256位长度字符串，非空。</dt>
+                            <dt>front_notify_url String</dt>
+                            <dd>前台回调地址，256位长度字符串，非空。</dd>
+                            <dt>order_currency String</dt>
+                            <dd>币种（默认固定CNY）16位长度字符串，可空。</dt>
+                            <dt>charset String</dt>
+                            <dd>字符集（默认固定UTF-8），32位长度字符串，可空。</dd>
+                            <dt>sign String</dt>
+                            <dd>签名，32位长度字符串，非空。</dt>
+                        </dl>
+                        <hr />
+                        <h4>返回</h4>
+                        <dl>
+                            <dt>支付网址url String</dt>
+                            <dd>支付网址url,非空。</dd>
+                        </dl>
+                        <hr />
+                        <h4>请求示例</h4>
+                        <ul>
+                            <li>Map<String, String> rMap2 = new HashMap<String, String>();</li>
+                            <li>rMap2.put("mer_id","10005296")</li>
+                            <li>rMap2.put("appid","3a16f917ebf345a29eeb87bc3aa35dc7");</li>
+                            <li>rMap2.put("pay_id","03");</li>
+                            <li>rMap2.put("out_trade_no","1217752501201407033233368018");</li>
+                            <li>rMap2.put("debugmode","0");</li>
+                            <li>rMap2.put(“order_name","Test商品");</li>
+                            <li>rMap2.put(“order_detail","Test");</li>
+                            <li>rMap2.put(“order_amount”,”100");</li>
+                            <li>rMap2.put(“order_time”,”20160726153216”);</li>
+                            <li>rMap2.put(“notify_url”,”http://api.growpay.cn/v1/charges_page/prepay_notify”);</li>
+                            <li>rMap2.put(“front_notify_url”,”https://api.growpay.cn/v1/charges_page/prepay_front_notify.html”);</li>
+                            <li>rMap2.put(“order_currency”,”CNY”);</li>
+                            <li>rMap2.put(“charset”,”UTF-8”);</li>
+                            <li>rMap2.put(“sign”,”730ab772f29f7b587cdd08b7578aeb05”);</li>
+                            <li>String mac=SignUtils.calMac(rMap2,"商户KEY");</li>
+                            <li>rMap2.put("sign", sign);</li>
+                            <li>String&nbsp;respMsg=HttpRequestTool.postRequest("https://api.growpay.cn/v1/charges/wxpay/prepay",  rMap2,"UTF-8", "UTF-8");</li>
+                        </ul> 
+                        <hr />
+                        <h4>请求返回格式</h4>
+                        <ul>
+                            <li class="noIndent">{</li>
+                            <li>"支付网址url":"https://api.growpay.cn/v1/charges_page/prepay?key=A8382B0B3BFF9F07511605D70342BB0C"</li>
+                            <li class="noIndent">}</li>
+                        </ul> 
+                        <hr />
+                        <h3 id="charges">charges支付</h3>
+                        <p>商户系统在网页上重定向到预下单返回的支付网址url(成长支付收银台)完成交易</p>
+                        <hr />
+                        <h4>参数</h4>
+                        <dl>
+                            <dt>支付网址url String</dt>
+                            <dd>支付网址url，非空。</dt>
+                        </dl>
+                        <hr />
+                        <h4>前台返回参数</h4>
+                        <dl>
+                            <dt>app_id String</dt>
+                            <dd>客户应用ID，32位长度字符串,非空。</dd>
+                            <dt>mer_id String</dt>
+                            <dd>成长支付商户号，32位长度字符串，非空。</dt>
+                            <dt>trade_no String</dt>
+                            <dd>成长支付订单号，32位长度字符串，非空。</dt>
+                            <dt>out_trade_no String</dt>
+                            <dd>订单号，32位长度字符串,非空。</dd>
+                            <dt>return_code String</dt>
+                            <dd>返回码，4位长度字符串，非空。</dt>
+                            <dt>return_msg String</dt>
+                            <dd>回执信息，32位长度字符串，非空。</dt>
+                            <dt>sign String</dt>
+                            <dd>签名，32位长度字符串，非空。</dt>
+                        </dl>
+                        <hr />
+                        <h4>后台返回参数</h4>
+                        <dl>
+                            <dt>return_code String</dt>
+                            <dd>返回码，4位长度字符串，非空。</dt>
+                            <dt>return_msg String</dt>
+                            <dd>回执信息，32位长度字符串，非空。</dd>
+                            <dt>trade_no String</dt>
+                            <dd>成长支付订单号，32位长度字符串，非空。</dd>
+                            <dt>out_trade_no String</dt>
+                            <dd>订单号，32位长度字符串,非空。</dd>
+                            <dt>mer_id String</dt>
+                            <dd>成长支付商户号，32位长度字符串，非空。</dd>
+                            <dt>app_id String</dt>
+                            <dd>客户应用ID，32位长度字符串,非空。</dd>
+                            <dt>order_amount String</dt>
+                            <dd>订单总金额，20位长度字符串，非空。</dd>
+                            <dt>trade_state String</dt>
+                            <dd>交易状态，32位长度字符串,非空。</dd>
+                            <dt>front_notify_url String</dt>
+                            <dd>前台回调地址，256位长度字符串，非空。</dd>
+                            <dt>sign String</dt>
+                            <dd>签名，32位长度字符串，非空。</dd>
+                        </dl>
+                        <hr />
+                        <h4>请求示例</h4>
+                        <ul>
+                            <li>Map<String, String> rMap2 = new HashMap<String, String>();</li>
+                            <li>rMap2.put(“支付网址url","https://api.growpay.cn/v1/charges_page/prepay?key=A8382B0B3BFF9F07511605D70342BB0C")</li>
+                            <li>String mac=SignUtils.calMac(rMap2,"商户KEY");</li>
+                            <li>rMap2.put("sign", sign);</li>
+                            <li>String&nbsp;respMsg=HttpRequestTool.postRequest("https://api.growpay.cn/v1/charges/wxpay/prepay",  rMap2,"UTF-8", "UTF-8");</li>
+                        </ul> 
+                        <hr />
+                        <h4>前台请求返回格式</h4>
+                        <ul>
+                            <li class="noIndent">{</li>
+                            <li>“app_id":"3a16f917ebf345a29eeb87bc3aa35dc7”,</li>
+                            <li>“mer_id":"10005296”,</li>
+                            <li>“trade_no":"20160727144059284870”,</li>
+                            <li>“out_trade_no":"1217752501201407033233368018",</li>
+                            <li>“return_code":"T00”,</li>
+                            <li>“return_msg":"成功”,</li>
+                            <li>“sign":"730ab772f29f7b587cdd08b7578aeb05”</li>
+                            <li class="noIndent">}</li>
+                        </ul> 
+                        <hr />
+                        <h4>后台请求返回格式</h4>
+                        <ul>
+                            <li class="noIndent">{</li>
+                            <li>“return_code":"T00”,</li>
+                            <li>“return_msg":"操作完成”,</li>
+                            <li>“trade_no":"2016071918330303842001”,</li>
+                            <li>“out_trade_no":"20160726153216”,</li>
+                            <li>“mer_id":"10005296”,</li>
+                            <li>“app_id":"3a16f917ebf345a29eeb87bc3aa35dc7”,</li>
+                            <li>“order_amount":"100”,</li>
+                            <li>“trade_state":"SUCCESS,FAIL”,</li>
+                            <li>“front_notify_url":"https://api.growpay.cn/v1/charges_page/prepay_front_notify.html”,</li>
+                            <li>“sign":"730ab772f29f7b587cdd08b7578aeb05”</li>
+                            <li class="noIndent">}</li>
+                        </ul> 
+                        <hr />
+                        <h3 id="query">query查询接口</h3>
+                        <p>查询单笔交易状态</p>
+                        <hr />
+                        <h4>参数</h4>
+                        <dl>
+                            <dt>trade_no String</dt>
+                            <dd>成长支付订单号，32位长度字符串，非空。</dd>
+                            <dt>appid String</dt>
+                            <dd>应用id，32位长度字符串，非空。</dd>
+                            <dt>sign String</dt>
+                            <dd>签名，32位长度字符串，非空。</dd>
+                        </dl>
+                        <hr />
+                        <h4>返回</h4>
+                        <dl>
+                            <dt>return_code String</dt>
+                            <dd>返回码，4位长度字符串,非空。</dd>
+                            <dt>return_msg String</dt>
+                            <dd>回执信息，50位长度字符串，非空。</dt>
+                            <dt>out_trade_no String</dt>
+                            <dd>订单号，32位长度字符串，非空。</dt>
+                            <dt>trade_no String</dt>
+                            <dd>成长支付订单号，32位长度字符串,非空。</dd>
+                            <dt>mer_id String</dt>
+                            <dd>成长支付商户号，32位长度字符串，非空。</dt>
+                            <dt>app_id String</dt>
+                            <dd>客户应用ID，32位长度字符串，非空。</dt>
+                            <dt>order_amount String</dt>
+                            <dd>订单总金额，20位长度字符串,非空。</dd>
+                            <dt>trade_state String</dt>
+                            <dd>交易状态，32位长度字符串，非空。</dt>
+                            <dt>sign String</dt>
+                            <dd>签名，32位长度字符串，非空。</dt>
+                        </dl>
+                        <hr />
+                        <h4>请求示例</h4>
+                        <ul>
+                            <li>Map<String, String> rMap2 = new HashMap<String, String>();</li>
+                            <li>rMap2.put("trade_no","2016071918330303842001");</li>
+                            <li>rMap2.put("app_id","3a16f917ebf345a29eeb87bc3aa35dc7");</li>
+                            <li>rMap2.put("sign","730ab772f29f7b587cdd08b7578aeb05");</li>
+                            <li>String mac=SignUtils.calMac(rMap2,"商户KEY");</li>
+                            <li>rMap2.put("sign", sign);</li>
+                            <li>String&nbsp;respMsg=HttpRequestTool.postRequest("https://api.growpay.cn/v1/charges/wxpay/prepay",  rMap2,"UTF-8", “UTF-8");</li>
+                        </ul> 
+                        <hr />
+                        <h4>请求返回格式</h4>
+                        <ul>
+                            <li class="noIndent">{</li>
+                            <li>“return_code":"T00",</li>
+                            <li>“return_msg”:"操作完成",</li>
+                            <li>“out_trade_no":"2016071918330303842001",</li>
+                            <li>“trade_no":"2016071918330303842001”,</li>
+                            <li>“mer_id":"10005296”,</li>
+                            <li>“app_id":"3a16f917ebf345a29eeb87bc3aa35dc7”,</li>
+                            <li>“order_amount":"100”,</li>
+                            <li>“trade_state":"SUCCESS,FAIL”,</li>
+                            <li>“sign":"730ab772f29f7b587cdd08b7578aeb05”</li>
+                            <li class="noIndent">}</li>
+                        </ul> 
+                        <hr />
+                        <h3 id="refund">refund退货接口</h3>
+                        <p>退货时调用该接口</p>
+                        <hr />
+                        <h4>参数</h4>
+                        <dl>
+                            <dt>appid String</dt>
+                            <dd>应用id，32位长度字符串，非空。</dd>
+                            <dt>trade_no String</dt>
+                            <dd>成长支付订单号，32位长度字符串，非空。</dd>                 
+                            <dt>out_refund_no String</dt>
+                            <dd>客户退款单号，32位长度字符串，非空。</dd>
+                            <dt>order_amount String</dt>
+                            <dd>订单总金额，20位长度字符串，非空。</dd>
+                            <dt>refund_amount String</dt>
+                            <dd>退款金额，20位长度字符串，非空。</dd>
+                            <dt>debugmode String</dt>
+                            <dd>调试模式（0生产，1调试），1位长度字符串，非空。</dd>
+                            <dt>sign String</dt>
+                            <dd>签名，32位长度字符串，非空。</dd>
+                        </dl>
+                        <hr />
+                        <h4>返回</h4>
+                        <dl>
+                            <dt>return_code String</dt>
+                            <dd>返回码，4位长度字符串,非空。</dd>
+                            <dt>return_msg String</dt>
+                            <dd>回执信息，50位长度字符串，非空。</dd>
+                            <dt>app_id String</dt>
+                            <dd>客户应用ID，32位长度字符串，非空。</dd>
+                            <dt>mer_id String</dt>
+                            <dd>成长支付商户号，32位长度字符串，非空。</dd>
+                            <dt>trade_no String</dt>
+                            <dd>成长支付订单号，32位长度字符串,非空。</dd>
+                            <dt>out_trade_no String</dt>
+                            <dd>订单号，32位长度字符串，非空。</dd>
+                            <dt>out_refund_no String</dt>
+                            <dd>客户退款单号，32位长度字符串,非空。</dd>
+                            <dt>refund_no String</dt>
+                            <dd>成长支付退款单号，32位长度字符串，非空。</dd>
+                            <dt>order_amount String</dt>
+                            <dd>订单总金额，20位长度字符串,非空。</dd>
+                            <dt>refund_amount String</dt>
+                            <dd>退款金额，20位长度字符串，非空。</dd>
+                            <dt>sign String</dt>
+                            <dd>签名，32位长度字符串，非空。</dd>
+                        </dl>
+                        <hr />
+                        <h4>请求示例</h4>
+                        <ul>                 
+                            <li>Map<String, String> rMap2 = new HashMap<String, String>();</li>
+                            <li>rMap2.put("app_id","3a16f917ebf345a29eeb87bc3aa35dc7");</li>
+                            <li>rMap2.put(“trade_no","20160922121331206163");</li>
+                            <li>rMap2.put("out_refund_no","730ab772f29f7b587cdd08b7578aeb05");</li>
+                            <li>rMap2.put("order_amount","100");</li>
+                            <li>rMap2.put("refund_amount","100");</li>
+                            <li>rMap2.put(“debugmode","0");</li>
+                            <li>rMap2.put(“sign","730ab772f29f7b587cdd08b7578aeb05");</li>
+                            <li>String mac=SignUtils.calMac(rMap2,"商户KEY");</li>
+                            <li>rMap2.put("sign", sign);</li>
+                            <li>String&nbsp;respMsg=HttpRequestTool.postRequest("https://api.growpay.cn/v1/charges/wxpay/prepay",  rMap2,"UTF-8", “UTF-8");</li>
+                        </ul> 
+                        <hr />
+                        <h4>请求返回格式</h4>
+                        <ul>
+                            <li class="noIndent">{</li>
+                            <li>“return_code":"T00”,</li>
+                            <li>“return_msg":"操作完成”,</li>
+                            <li>“app_id":"01正常02停用”,</li>
+                            <li>“mer_id":"10005296”,</li>
+                            <li>“trade_no":"2016071918330303842001”,</li>
+                            <li>“out_trade_no":"2016071918330303842001”,</li>
+                            <li>“out_refund_no":"20160922121331206163”,</li>
+                            <li>“refund_no":"20160922121331206163”,</li>
+                            <li>“order_amount":"100”,</li>
+                            <li>“refund_amount":"100”,</li>
+                            <li>“sign":"730ab772f29f7b587cdd08b7578aeb05”</li>
+                            <li class="noIndent">}</li>
+                        </ul> 
+                        <hr />
                     </div>
-                    <div class="doc-change">
-                        
+                    <div class="doc-change" data-index="7">
+                        <h3>返回码</h3>
+                        <p>返回码机制可以让您快速查看接口返回的信息</p>
+                        <hr />
+                        <br>
+                        <ul class="stateCode">
+                            <li>T00成功</li>
+                            <li>T02失败</li>
+                            <li>T03无效商户</li>
+                            <li>T12无效的关联交易</li>
+                            <li>T13无效金额</li>
+                            <li>C14无此账号</li>
+                            <li>C27钱包已停用</li>
+                            <li>T30报文格式错误</li>
+                            <li>T31原交易不存在</li>
+                            <li>T32原交易已经退过货</li>
+                            <li>T37其他错误</li>
+                            <li>T51金额不足</li>
+                            <li>T61超出金额限制</li>
+                            <li>T64原始金额错误</li>
+                            <li>T97POS终端号找不到</li>
+                        </ul>
                     </div>
-                    
                 </div>
                 <div class="clearfix"></div>
             </div>
         </section>
         <footer class="m-sec">
-            <ul>
-                <li><a href="">帮助中心</a></li>
-                <li><a href="">招聘</a></li>
-                <li><a href="">联系我们</a></li>
-                <li><a href="">关于我们</a></li>
-            </ul>
-           <p>京公网安备 11000002000088号 | 京ICP 备123456789   号 1  | Copyright © 2004 - 2016  成长支付 版权所有</p>
-       </footer>
-       <script src="js/jquery.min.js?v=2.1.4"></script>
+                <ul>
+                    <li><a href="">帮助中心</a></li>
+                    <li><a href="">招聘</a></li>
+                    <li><a href="">联系我们</a></li>
+                    <li><a href="">关于我们</a></li>
+                </ul>
+               <p>京公网安备 11000002000088号 | 京ICP 备123456789   号 1  | Copyright © 2004 - 2016  成长支付 版权所有</p>
+        </footer>
        <script type="text/javascript">
            $(function(){
                 $('.doctab').click(function(event) {
+                    $(this).find("span").toggleClass('caret-close');
                     $('.doctab').removeClass('active');
                     $(this).addClass('active');
                 });
-                $('.doc-l>li').click(function(event) {
-                    var index=$(this).index();
-                    $('.doc-change').eq(index).show().siblings('.doc-change').hide();
+                $('.doc-l>li').click(function(){
+                    var Index=$(this).attr('data-index');
+                    $('.doc-change[data-index='+ Index +']').show().siblings('.doc-change').hide();
                 });
            })
        </script>
