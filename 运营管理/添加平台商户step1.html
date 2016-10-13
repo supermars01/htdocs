@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" /> 
+  <meta content="webkit" name="renderer" /> 
+  <meta content="no-siteapp" http-equiv="Cache-Control" /> 
+  <title>添加平台商户step1</title> 
+  <meta content="" name="keywords" /> 
+  <meta content="" name="description" /> 
+  <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]--> 
+  <link href="favicon.ico" rel="shortcut icon" /> 
+  <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet" /> 
+  <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet" /> 
+  <link href="../css/plugins/sweetalert/sweetalert.css" rel="stylesheet" /> 
+  <link href="../js/plugins/layer/laydate/need/laydate.css" /> 
+  <link href="../css/plugins/dataTables/dataTables.bootstrap.css" /> 
+  <link href="../css/animate.min.css" rel="stylesheet" /> 
+  <link href="../css/style.min.css?v=4.1.0" rel="stylesheet" /> 
+  <link rel="stylesheet" type="text/css" href="../css/platform.css">
+ </head> 
+ <body class="gray-bg"> 
+  <div class="wrapper wrapper-content animated fadeInRight"> 
+   <div class="row"> 
+    <form action="1.php" method="get" name="a" id="merchant-form"> 
+     <div class="ibox"> 
+      <div class="ibox-title"> 
+       <h5>证件上传：</h5> 
+       <span>请上传“营业执照”、“法人身份证”、“开户许可证”，支持jpg/jpeg/png格式，图片大小不超过2M</span> 
+      </div> 
+      <div class="ibox-content ibox-reversion"> 
+       <!-- <form action="" class=""> --> 
+       <div class="img form-group col-sm-4"> 
+        <label title="上传图片" for="inputImage1" class="imgLabel"> <input type="file" accept="image/*" name="file" id="inputImage1" class="hide" /> <span>上传图片</span> 
+         <div class="uploadBox"></div> </label> 
+       </div> 
+       <div class="img form-group col-sm-4"> 
+        <label title="上传图片" for="inputImage2" class="imgLabel"> <input type="file" accept="image/*" name="file" id="inputImage2" class="hide" /> <span>上传图片</span> 
+         <div class="uploadBox"></div> </label> 
+       </div> 
+       <div class="img form-group col-sm-4"> 
+        <label title="上传图片" for="inputImage3" class="imgLabel"> <input type="file" accept="image/*" name="file" id="inputImage3" class="hide" /> <span>上传图片</span> 
+         <div class="uploadBox"></div> </label> 
+       </div> 
+       <div class="clearfix"></div> 
+       <!-- </form> --> 
+      </div> 
+     </div> 
+     <div class="ibox col-sm-8"> 
+      <div class="ibox-title"> 
+       <h5>资格信息</h5> 
+      </div> 
+      <div class="ibox-content"> 
+       <!-- <form action="" class="form-horizontal"> --> 
+       <div class="form-group col-sm-6"> 
+        <label class="col-sm-3 control-label">营业执照号:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="businessLicence" placeholder="请输入营业执照号" class="form-control" /> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-6"> 
+        <label class="col-sm-3 control-label">组织机构代码:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="organizations" placeholder="请输入组织机构代码" class="form-control" /> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-6"> 
+        <label class="col-sm-3 control-label">法人姓名:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="legalName" placeholder="请输入法人姓名" class="form-control" /> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-6"> 
+        <label class="col-sm-3 control-label">法人身份证:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="legalIdCard" placeholder="请输入发人身份证号码" class="form-control" /> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-6"> 
+        <label class="col-sm-3 control-label">商户经营地址:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="businessAddress" placeholder="请输入商户经营地址" class="form-control" /> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-6"> 
+        <label class="col-sm-3 control-label">注册地址:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="registeredAddress" placeholder="请输入注册地址" class="form-control" /> 
+        </div>
+       </div>
+       <div class="form-group col-sm-6"> 
+        <label class="col-sm-3 control-label">商户名称:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="shName" placeholder="请输入商户名称" class="form-control" /> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-6"> 
+        <label class="col-sm-3 control-label">AppID:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="appid" placeholder="请输入AppID" class="form-control" /> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-6"> 
+        <label class="col-sm-3 control-label">联系人:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="contactPeople" placeholder="请输入联系人" class="form-control" /> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-6"> 
+        <label class="col-sm-3 control-label">联系电话:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="contactPhone" placeholder="请输入电话号码" class="form-control" /> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-6"> 
+        <label class="col-sm-3 control-label">邮箱:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="contactEmail" placeholder="请输入电子邮箱号" class="form-control" /> 
+        </div> 
+       </div> 
+       <div class="clearfix"></div> 
+       <!-- </form> --> 
+       <div class="clearfix"></div> 
+      </div> 
+     </div> 
+     <div class="ibox col-sm-4 col-right"> 
+      <div class="ibox-title"> 
+       <h5>开户信息</h5> 
+      </div> 
+      <div class="ibox-content"> 
+       <!-- <form action="" class="form-horizontal"> --> 
+       <div class="form-group col-sm-12"> 
+        <label class="col-sm-3 control-label">开户名称:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="accountName" placeholder="请输入开户名称" class="form-control" /> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-12"> 
+        <label class="col-sm-3 control-label">银行账号:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="bankAccount" placeholder="请输入银行账号" class="form-control" /> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-12"> 
+        <label class="col-sm-3 control-label">开户行支行:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="bankBranch" placeholder="请输入开户行支行" class="form-control" /> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-12"> 
+        <label class="col-sm-3 control-label">开户行:</label> 
+        <div class="col-sm-9"> 
+         <input type="text" name="openingBank" placeholder="请输入开户行" class="form-control" /> 
+        </div> 
+       </div>
+       <div class="form-group col-sm-12 r-table"> 
+       </div> 
+       <div class="clearfix"></div> 
+      </div> 
+     </div> 
+     <div class="col-sm-12 col-sm-offset-5"> 
+      <button class="col-sm-2 btn btn-submit" id="submitBtn" type="submit">提交</button> 
+     </div> 
+    </form> 
+   </div> 
+  </div> 
+  <script src="../js/jquery.min.js?v=2.1.4"></script> 
+  <script src="../js/bootstrap.min.js?v=3.3.6"></script> 
+  <script src="../js/plugins/sweetalert/sweetalert.min.js"></script> 
+  <script src="../js/plugins/validate/jquery.validate.min.js"></script> 
+  <script src="../js/plugins/validate/jquery.validate.methods.min.js"></script> 
+  <script src="../js/plugins/validate/messages_zh.min.js"></script> 
+  <script src="../js/plugins/myPlugins/uploadeImg.js"></script> 
+  <script>
+        $(function(){
+
+            //上传图片Start
+            $(document).find('.hide') && $(".hide").each(function(index){
+                $(this).click(function(){
+                    new uplodeImg().init({
+                        fileBtn:$('.hide').eq(index), // file表单
+                        imgBox:$('.imgLabel').eq(index), // label元素，父级box
+                        maxSize:2048  //上传图片大小配置 （单位kb）
+                    })
+                })
+            });
+            // 上传图片End
+
+            //判断图片是否上传start
+            function isupImg(){
+                var oBt=false;
+                $("input[name='file']").each(function(index){
+                    if($(this).val()!=0){
+                        oBt=true;
+                    }else{
+                        $(".imgLabel").eq(index).addClass("imgLabelError");
+                        oBt=false;
+                    }
+                });
+                return oBt;
+            }
+            //判断图片是否上传end
+
+            $().ready(function() {
+                $("#merchant-form").validate({
+                    rules: {  
+                    file:{
+                       required:true, 
+                    },
+                    businessLicence: {  
+                        required:true,  
+                        maxlength:18,
+                        isDigitsEnglish:true  
+                    },  
+                    organizations: {  
+                        required: true,
+                        maxlength:18,  
+                        isDigitsEnglish: true  
+                    },  
+                    legalName: {  
+                        required: true,  
+                        maxlength:20, 
+                        isDigitsEnglishchinese:true
+                    },  
+                    legalIdCard: {  
+                        required: true,  
+                        maxlength:18, 
+                        idNum:true,   
+                    },
+                    businessAddress:{
+                        required: true,  
+                        maxlength:50, 
+                    },
+                    registeredAddress:{
+                        required: true,  
+                        maxlength:50, 
+                    },
+                    shName:{
+                        required: true,  
+                        maxlength:20,
+                    },
+                    contactPeople: {  
+                        required: true,  
+                        maxlength:20, 
+                        isDigitsEnglishchinese:true
+                    }, 
+                    contactPhone:{
+                        required: true, 
+                        maxlength:11, 
+                        telphone:true
+                    },
+                    contactEmail:{
+                        required: true,  
+                        maxlength:11, 
+                        email:true
+                    },
+                    appid:{
+                        required: true,
+                        maxlength:18,  
+                        isDigitsEnglish: true
+                    },
+                    accountName:{
+                        required: true,  
+                        maxlength:20, 
+                        isDigitsEnglishchinese:true
+                    },
+                    bankAccount:{
+                        required: true,  
+                        maxlength:19,
+                        creditcard: true
+                    },
+                    bankBranch:{
+                        required: true,  
+                        maxlength:20, 
+                        isDigitsEnglishchinese:true
+                    },
+                    openingBank:{
+                        required: true,  
+                        maxlength:20, 
+                        isDigitsEnglishchinese:true
+                    }
+                },  
+                submitHandler: function(form) {
+                  (isupImg()) && (form.submit());
+                }
+              });
+            });
+
+        });
+        
+    </script>   
+ </body>
+</html>

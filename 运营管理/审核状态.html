@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            审核状态
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
+        <link href="../js/plugins/layer/laydate/need/laydate.css" />
+        <link href="../css/plugins/dataTables/dataTables.bootstrap.css" />
+        <link href="../css/animate.min.css" rel="stylesheet"/>
+        <link href="../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        <style type="text/css">
+            body{line-height: 34px;}
+            .btn-success{background-color: #1fb56d;border: 1px solid #1fb56d}
+            .btn-success:hover{background-color: #00984f;border: 1px solid #00984f}
+            .top-navigation .wrapper.wrapper-content{padding:28px;}
+            .reviewing{text-align: right;margin-bottom: 15px}
+            .unreview{margin-bottom: 15px;background-color: #ffefcd;font-size: 16px;text-indent: 12px}
+            .reviewing .btn{margin:0 5px;padding:6px 25px;}
+            .ibox-title {background-color: #fbfbfb;}
+            .imgLabel{display: inline-block;}
+            .smImg{max-width: 100%;height: 180px;}
+            .imgLabel{width: 100%;height: 100%;overflow:hidden;background-color: #f1f1f1;}
+            .imgLabel img{display: inline-block;height: 100%;max-width: 100%;position: absolute;left: 50%;top:50%;transform: translate3d(-50%,-50%,0);}
+            .uploadBox{height: 100%;position: absolute;left: 0;top: 0}
+            div.btn{padding:0;}
+            .wx{background-image: url(../img/addmerchat/WeixinPay.png);background-position: 35px center;background-size: 24px auto}
+            .alipay{background-image: url(../img/addmerchat/AliPay.png);background-position: 35px center;background-size: 24px auto}
+            .unionpay{background-image: url(../img/addmerchat/UnionPay.png);background-position: 35px center;background-size: 24px auto}
+            .col-md-2 img{display: inline-block;width:24px;}
+            .title{color: #989898}
+            .cm-pl{padding-left: 0}
+            .col-md-5,.col-md-3,.col-xs-2{text-align: right}
+            .sweet-alert input{height: 50px;line-height: 50px}
+            .modal{width: 400px;height: 500px}
+        </style>
+</head>
+<body class="gray-bg top-navigation">
+            <div class="wrapper wrapper-content">
+                    <!-- 添加平台商户：审核中 -->
+                    <div class="reviewing"><button class="btn btn-default">平台审核中</button></div>
+                    <!-- 添加平台商户：已驳回 -->
+                    <div class="unreview">驳回理由:aaaaa</div>
+                    <!-- 审核平台商户：待审核 -->
+                    <div class="reviewing"><button class="btn btn-success pass-btn">通过</button><button class="btn btn-warning refused-btn">拒绝</button></div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox">
+                                <div class="ibox-title"> 
+                                    <h5>证件图片</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="col-sm-4 smImg">
+                                        <div class="imgLabel"><img src="../img/addmerchat/1.jpg" class="img-responsive"></div>
+                                    </div>
+                                    <div class="col-sm-4 smImg">
+                                        <div class="imgLabel"><img src="../img/addmerchat/2.jpg" class="img-responsive"></div>
+                                    </div>
+                                    <div class="col-sm-4 smImg">
+                                        <div class="imgLabel"><img src="../img/addmerchat/4.jpg" class="img-responsive"></div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 clg8">
+                            <div class="ibox">
+                                <div class="ibox-title"> 
+                                    <h5>资格信息</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="col-xs-6">
+                                        <div class="col-md-5">营业执照号:</div>
+                                        <div class="col-md-7">22222</div>
+                                        <div class="col-md-5">法人姓名:</div>
+                                        <div class="col-md-7">22222</div>
+                                        <div class="col-md-5">商户经营地址:</div>
+                                        <div class="col-md-7">22222</div>
+                                        <div class="col-md-5">联系人:</div>
+                                        <div class="col-md-7">22222</div>
+                                        <div class="col-md-5">邮箱:</div>
+                                        <div class="col-md-7">22222</div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="col-md-5">组织机构代码:</div>
+                                        <div class="col-md-7">22222</div>
+                                        <div class="col-md-5">法人身份证号:</div>
+                                        <div class="col-md-7">22222</div>
+                                        <div class="col-md-5">注册地址:</div>
+                                        <div class="col-md-7">22222</div>
+                                        <div class="col-md-5">联系电话:</div>
+                                        <div class="col-md-7">22222</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 clg4">
+                            <div class="ibox">
+                            <div class="ibox-title"> 
+                                <h5>账户信息</h5>
+                            </div>
+                            <div class="ibox-content pb">
+                                <div class="col-xs-12">
+                                    <div class="col-md-5">开户名称:</div>
+                                    <div class="col-md-7">22222</div>
+                                    <div class="col-md-5">银行账号:</div>
+                                    <div class="col-md-7">22222</div>
+                                    <div class="col-md-5">开户行支行:</div>
+                                    <div class="col-md-7">22222</div>
+                                    <div class="col-md-5">开户行:</div>
+                                    <div class="col-md-7">22222</div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>协议信息</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="col-xs-2">协议有效期:</div>
+                                    <div class="col-xs-10">2016-09-01 <span>至</span> 2016-09-03</div>
+                                    <div class="col-xs-2">协渠道手续费:</div>
+                                        <div class="col-md-2">
+                                            <img src="../img/addmerchat/WeixinPay.png">
+                                            <span>微信 6%</span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <img src="../img/addmerchat/AliPay.png">
+                                            <span>支付宝 7%</span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <img src="../img/addmerchat/UnionPay.png">
+                                            <span>银联 8%</span>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    <div class="col-xs-2">返佣周期:</div>
+                                    <div class="col-xs-10">月</div>
+                                    <div class="col-xs-2">返佣阶梯:</div>
+                                    <div class="col-xs-10">
+                                        <div class="col-md-4 cm-pl">
+                                            <div class="title">返佣渠道:微信</div>
+                                            <div class="col-md-4">返佣条件:</div>
+                                            <div class="col-md-8">交易笔数</div>
+                                            <div class="col-md-4">统计类型:</div>
+                                            <div class="col-md-8">单一渠道</div>
+                                            <div class="col-md-4">统计渠道:</div>
+                                            <div class="col-md-8">微信</div>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-md-4">返佣比例</th>
+                                                        <th class="col-md-8">返佣条件</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>50%</td>
+                                                        <td>4000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>60%</td>
+                                                        <td>5000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>70%</td>
+                                                        <td>6000</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="title">返佣渠道:支付宝</div>
+                                            <div class="col-md-4">返佣条件:</div>
+                                            <div class="col-md-8">交易笔数</div>
+                                            <div class="col-md-4">统计类型:</div>
+                                            <div class="col-md-8">单一渠道</div>
+                                            <div class="col-md-4">统计渠道:</div>
+                                            <div class="col-md-8">微信</div>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-md-4">返佣比例</th>
+                                                        <th class="col-md-8">返佣条件</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>50%</td>
+                                                        <td>4000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>60%</td>
+                                                        <td>5000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>70%</td>
+                                                        <td>6000</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="title">返佣渠道:银联</div>
+                                            <div class="col-md-4">返佣条件:</div>
+                                            <div class="col-md-8">交易笔数</div>
+                                            <div class="col-md-4">统计类型:</div>
+                                            <div class="col-md-8">单一渠道</div>
+                                            <div class="col-md-4">统计渠道:</div>
+                                            <div class="col-md-8">微信</div>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-md-4">返佣比例</th>
+                                                        <th class="col-md-8">返佣条件</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>50%</td>
+                                                        <td>4000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>60%</td>
+                                                        <td>5000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>70%</td>
+                                                        <td>6000</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal inmodal" id="refuseModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <p>审核未通过</p>
+                            <textarea  name="pojo.MAU_MSG" placeholder="未通过原因。100字以内" maxlength="100" class="r-reason" id="tex"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" id="reasonBtn">提交</button>
+                    </div>
+                </div>
+            </div>
+            <script src="../js/jquery.min.js?v=2.1.4"></script> 
+            <script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
+            <script type="text/javascript">
+            $(function(){
+                $(".clg4 .ibox-content").height($(".clg8 .ibox-content").height());
+                $(".refused-btn").click(function(){
+                    swal(
+                        {
+                            title: "",
+                            text: "请输入拒绝理由!",
+                            type: "input",
+                            showCancelButton:true,
+                            confirmButtonColor:"#00bfa9",
+                            confirmButtonText:"提交",
+                            cancelButtonText:"取消",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            animation: "slide-from-top",
+                            inputPlaceholder: "请输入拒绝理由"
+                        },
+                        function(inputValue){
+                            if (inputValue === false) return false;
+                            if (inputValue === "") {
+                                swal.showInputError("请输入拒绝理由！");
+                            }else{
+                                alert($(".sweet-alert input").val())
+                                swal("已拒绝!", "", "success")
+                            }
+                        }
+                    )
+                });
+            })
+            </script>
+</body>
+
+</html>

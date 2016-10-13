@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" /> 
+  <meta content="webkit" name="renderer" /> 
+  <meta content="no-siteapp" http-equiv="Cache-Control" /> 
+  <title>添加平台商户step2</title> 
+  <meta content="" name="keywords" /> 
+  <meta content="" name="description" /> 
+  <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]--> 
+  <link href="favicon.ico" rel="shortcut icon" /> 
+  <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet" /> 
+  <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet" /> 
+  <link href="../css/plugins/sweetalert/sweetalert.css" rel="stylesheet" /> 
+  <link href="../js/plugins/layer/laydate/need/laydate.css" /> 
+  <link href="../css/plugins/dataTables/dataTables.bootstrap.css" /> 
+  <link href="../css/animate.min.css" rel="stylesheet" /> 
+  <link href="../css/style.min.css?v=4.1.0" rel="stylesheet" /> 
+  <link rel="stylesheet" type="text/css" href="../css/platform.css">
+ </head> 
+ <body class="gray-bg"> 
+  <div class="wrapper wrapper-content animated fadeInRight"> 
+   <div class="row"> 
+    <form action="" class="form-horizontal" id="merchant-form2"> 
+     <div class="ibox"> 
+      <div class="ibox-content ibox-reversion"> 
+       <div class="ibox-title ib-title"> 
+        <h5>协议信息</h5> 
+       </div> 
+       <div class="form-group col-sm-3"> 
+        <label class="col-sm-5 control-label">协议有效期:</label> 
+        <div class="col-sm-7"> 
+         <input placeholder="开始日期" class="form-control layer-date pull-left" id="start" name="startTime" required date='true' /> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-3"> 
+        <div class="col-sm-1 m-text-1">
+         至
+        </div> 
+        <div class="col-sm-7"> 
+         <input placeholder="结束日期" class="form-control layer-date pull-left" id="end" name="endTime" required date='true' /> 
+        </div> 
+       </div> 
+       <div class="clearfix"></div> 
+       <div class="form-group col-sm-2"> 
+        <label class="col-sm-8 control-label">渠道手续费:</label> 
+       </div> 
+       <div class="col-md-10 col-md-ml">
+       <div class="form-group col-sm-3 ml"> 
+        <div class="input-group"> 
+         <label class="input-group-addon wx">微信</label> 
+         <input type="text" class="form-control text-right" name="wxPay" required isDigits='true' /> 
+         <span class="per">%</span> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-3 ml"> 
+        <div class="input-group"> 
+         <label class="input-group-addon alipay">支付宝</label> 
+         <input type="text" class="form-control text-right" name="aliPay" required isDigits='true' /> 
+         <span class="per">%</span> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-3 ml"> 
+        <div class="input-group"> 
+         <label class="input-group-addon unionpay">银联</label> 
+         <input type="text" class="form-control text-right" name="unionPay" required isDigits='true' /> 
+         <span class="per">%</span> 
+        </div> 
+       </div> 
+       <div class="form-group col-sm-3 ml"> 
+        <div class="input-group"> 
+         <label class="input-group-addon others">扩展</label> 
+         <input type="text" class="form-control text-right" name="othersPay" required isDigits='true' /> 
+         <span class="per">%</span> 
+        </div> 
+       </div>
+       <div class="clearfix"></div>  
+       </div>
+       
+       <div class="clearfix"></div> 
+       <div class="form-group col-sm-3"> 
+        <label class="col-sm-5 control-label">返佣周期:</label> 
+        <div class="col-sm-7"> 
+         <select class="form-control" name="periodSle" required> <option>月</option> <option>周</option> <option>日</option> </select> 
+        </div> 
+       </div> 
+       <div class="clearfix"></div> 
+       <div class="form-group col-sm-2"> 
+        <label class="col-sm-8 control-label">渠道手续费:</label> 
+       </div> 
+       <div class="clearfix"></div> 
+       <div class="col-sm-12 col-sm-offset-1"> 
+        <div class="form-group col-sm-4 channel"> 
+         <label class="col-sm-4 control-label">返佣渠道:微信</label> 
+        </div> 
+        <div class="form-group col-sm-4 channel"> 
+         <label class="col-sm-4 control-label">返佣渠道:支付宝</label> 
+        </div> 
+        <div class="form-group col-sm-4 channel"> 
+         <label class="col-sm-4 control-label">返佣渠道:银联</label> 
+        </div> 
+        <div class="clearfix"></div> 
+        <div class="form-group col-sm-4"> 
+         <div class="col-sm-10"> 
+          <select class="form-control tradeType"> <option>请选择返佣条件</option> <option>交易笔数</option> <option>交易金额</option> </select> 
+         </div> 
+        </div> 
+        <div class="form-group col-sm-4"> 
+         <div class="col-sm-10"> 
+          <select class="form-control tradeType"> <option>请选择返佣条件</option> <option>交易笔数</option> <option>交易金额</option> </select> 
+         </div> 
+        </div> 
+        <div class="form-group col-sm-4"> 
+         <div class="col-sm-10"> 
+          <select class="form-control tradeType"> <option>请选择返佣条件</option> <option>交易笔数</option> <option>交易金额</option> </select> 
+         </div> 
+        </div> 
+        <div class="clearfix"></div> 
+        <div class="form-group col-sm-4"> 
+         <div class="col-sm-10"> 
+          <select class="form-control canals"> <option>请选择统计类型</option> <option>单一渠道</option> <option>所有渠道</option> </select> 
+         </div> 
+        </div> 
+        <div class="form-group col-sm-4"> 
+         <div class="col-sm-10"> 
+          <select class="form-control canals"> <option>请选择统计类型</option> <option>单一渠道</option> <option>所有渠道</option> </select> 
+         </div> 
+        </div> 
+        <div class="form-group col-sm-4"> 
+         <div class="col-sm-10"> 
+          <select class="form-control canals"> <option>请选择统计类型</option> <option>单一渠道</option> <option>所有渠道</option> </select> 
+         </div> 
+        </div> 
+        <div class="clearfix"></div> 
+        <div class="form-group col-sm-4"> 
+         <div class="col-sm-10"> 
+          <select class="form-control platform"> <option>请选择返佣渠道</option> <option>微信</option> <option>支付宝</option> <option>银联</option> </select> 
+         </div> 
+        </div> 
+        <div class="form-group col-sm-4"> 
+         <div class="col-sm-10"> 
+          <select class="form-control platform"> <option>请选择返佣渠道</option> <option>微信</option> <option>支付宝</option> <option>银联</option> </select> 
+         </div> 
+        </div> 
+        <div class="form-group col-sm-4"> 
+         <div class="col-sm-10"> 
+          <select class="form-control platform"> <option>请选择返佣渠道</option> <option>微信</option> <option>支付宝</option> <option>银联</option> </select> 
+         </div> 
+        </div> 
+        <div class="clearfix"></div> 
+        <div class="form-group col-sm-4"> 
+         <div class="col-sm-10"> 
+          <table class="table table-bordered"> 
+           <thead> 
+            <tr> 
+             <th>返佣比例</th> 
+             <th class="condition">返佣条件(单位：笔数)</th> 
+            </tr> 
+           </thead> 
+           <tbody> 
+           </tbody> 
+           <tfoot> 
+            <tr> 
+             <td class="add-item" colspan="2"> <button type="button" class="btn btn-add">新增条件</button> </td> 
+            </tr> 
+           </tfoot> 
+          </table> 
+         </div> 
+        </div> 
+        <div class="form-group col-sm-4"> 
+         <div class="col-sm-10"> 
+          <table class="table table-bordered"> 
+           <thead> 
+            <tr> 
+             <th>返佣比例</th> 
+             <th class="condition">返佣条件(单位：笔数)</th> 
+            </tr> 
+           </thead> 
+           <tbody> 
+           </tbody> 
+           <tfoot> 
+            <tr> 
+             <td class="add-item" colspan="2"> <button type="button" class="btn btn-add">新增条件</button> </td> 
+            </tr> 
+           </tfoot> 
+          </table> 
+         </div> 
+        </div> 
+        <div class="form-group col-sm-4"> 
+         <div class="col-sm-10"> 
+          <table class="table table-bordered"> 
+           <thead> 
+            <tr> 
+             <th>返佣比例</th> 
+             <th class="condition">返佣条件(单位：笔数)</th> 
+            </tr> 
+           </thead> 
+           <tbody> 
+           </tbody> 
+           <tfoot> 
+            <tr> 
+             <td class="add-item" colspan="2"> <button type="button" class="btn btn-add">新增条件</button> </td> 
+            </tr> 
+           </tfoot> 
+          </table> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="clearfix"></div> 
+      </div>
+      <div class="form-group col-md-12 col-sm-offset-5 text-center submit-form"> 
+        <button type="submit" id="del" class="btn col-sm-2 btn-submit">提交</button> 
+       </div> 
+       <div class="clearfix"></div>  
+     </div> 
+    </form> 
+   </div> 
+  </div> 
+  <script src="../js/jquery.min.js?v=2.1.4"></script> 
+  <script src="../js/bootstrap.min.js?v=3.3.6"></script> 
+  <script src="../js/plugins/layer/laydate/laydate.js"></script> 
+  <script src="../js/plugins/sweetalert/sweetalert.min.js"></script> 
+  <script src="../js/plugins/validate/jquery.validate.min.js"></script> 
+  <script src="../js/plugins/validate/jquery.validate.methods.min.js"></script> 
+  <script src="../js/plugins/validate/messages_zh.min.js"></script> 
+  <script>
+        $(function(){
+            // 开始时间和结束时间
+            var start={elem:"#start",format:"YYYY/MM/DD",min:laydate.now(),max:"2099-06-16",istime:true,istoday:false,choose:function(datas){end.min=datas;end.start=datas}};
+            var end={elem:"#end",format:"YYYY/MM/DD",min:laydate.now(),max:"2099-06-16",istime:true,istoday:false,choose:function(datas){start.max=datas}};laydate(start);laydate(end);
+            // 表单验证
+            $().ready(function() {
+                $("#merchant-form2").validate({ 
+                  submitHandler: function(form) {
+                    swal({title:"已成功提交，待审核",type:"success"});
+                    form.submit()
+                  }
+                });
+            });
+            // 表单验证end
+
+            // select联动
+            $(".tradeType").each(function(index) {
+                $(this).change(function() {
+                    ($(this).prop('selectedIndex') == 1) && ($(".condition").eq(index).html("返佣条件(单位：笔数)"));
+                    ($(this).prop('selectedIndex') == 2) && ($(".condition").eq(index).html("返佣条件(单位：元)"));
+                })
+            })
+            $(".canals").each(function(index) {
+                $(this).change(function() {
+                    ($(this).prop('selectedIndex') == 1) && ($(".platform").eq(index).removeAttr("disabled"));
+                    ($(this).prop('selectedIndex') == 2) && ($(".platform").eq(index).attr("disabled", "disabled"));
+                })
+            });
+
+            // 表单新增行
+            var item = [0, 0, 0];
+            var arr = ["WX","ALI","UNION"];
+            $(".btn-add").each(function(index) {
+                $(this).click(function() {
+                    switch (index) {
+                        case 0:
+                            item[0] += 1;
+                            break;
+                        case 1:
+                            item[1] += 1;
+                            break;
+                        case 2:
+                            item[2] += 1;
+                            break;
+                        default:
+                            break;
+                    }
+                    console.log(item);
+                    var myTable = $(this).parents('table')[0];
+                    var rows = myTable.rows.length;
+                    if (rows < 12) {
+                        var newTr = myTable.insertRow(rows - 1);
+                        newTr.insertCell(0).innerHTML = '<input name="pojo' + arr[index] + '.key' + item[index] + '" />';
+                        newTr.insertCell(1).innerHTML = '<input name="pojo' + arr[index] + '.value' + item[index] + '"/>';
+                    } else {
+                        swal({
+                            title: "最多可新增加10条",
+                            type: "success"
+                        });
+                    }
+                })
+            })
+        });
+        
+    </script>   
+ </body>
+</html>
