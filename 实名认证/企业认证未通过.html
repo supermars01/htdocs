@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            企业认证
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
+        <link href="../css/animate.min.css" rel="stylesheet"/>
+        <link href="../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+           <div class="ibox">
+               <div class="ibox-content">
+	               	<h3 class="text-danger">实名认证未通过！</h3>
+	               	<p class="text-warning m-b-lg">您的实名认证未通过。具体原因：{***************###############2@@@@@@@@@@@2}</p>
+	               	<p>
+	               		完成实名认证，您只需上传
+	               		<a class="btn btn-primary btn-outline">营业执照</a>
+	               		<a class="btn btn-primary btn-outline">组织机构代码</a>
+	               		<a class="btn btn-primary btn-outline">开户行许可证</a>
+	               		<a class="btn btn-primary btn-outline">法人身份证</a>
+	               		<a class="btn btn-primary btn-outline">照片</a>
+	               	</p>
+	               	<div class="row">
+	               		<div class="col-sm-12">
+	               			<div class="ibox-title ibox-border pl0">
+		                        <h3>批量上传资料</h3>
+		                    </div>
+	               			<div class="col-sm-12">
+		                        <ul class="upload-img">
+	                            	<li>
+	                            		<img src="../img/temp/profile_small.jpg" alt="" id="img1">
+	                            		<input type="file"  name="file" multiple="multiple" accept="image/*" onchange="setImagePreviews(this,'img1')"/>
+	                            		<p>营业执照</p>
+	                            	</li>
+	                            	<li>
+	                            		<img src="../img/temp/profile_small.jpg" alt="" id="img2">
+	                            		<input type="file"  name="file" multiple="multiple" accept="image/*" onchange="setImagePreviews(this,'img2')"/>
+	                            		<p>组织机构代码</p>
+	                            	</li>
+	                            	<li>
+	                            		<img src="../img/temp/profile_small.jpg" alt="" id="img3">
+	                            		<input type="file"  name="file" multiple="multiple" accept="image/*" onchange="setImagePreviews(this,'img3')"/>
+	                            		<p>开户行许可证</p>
+	                            	</li>
+	                            	<li>
+	                            		<img src="../img/temp/profile_small.jpg" alt="" id="img4">
+	                            		<input type="file"  name="file" multiple="multiple" accept="image/*" onchange="setImagePreviews(this,'img4')"/>
+	                            		<p>法人身份证</p>
+	                            	</li>
+	                            </ul>
+	               			</div>
+	               			<div class="clearfix"></div>
+	               			<div class="m-t-sm">
+	               				<p class="pull-left">图片上传说明：<br />1、所有证件照均上传复印件，必须加盖公章；<br />2、法人身份证照需要有正、反面身份证照片；<br />3、证件照格式为：jpg、png、gif、jpeg；<br />4、图片大小请在2M以内5、请上传最新年份的证件照片</p>
+	               			</div>
+	               			<div class="form-group col-md-12 text-center">
+	                            <button type="button" class="btn btn-primary pl20 pr20" id="confirm">提交认证</button>
+	                        </div>
+	               		</div>
+	               		
+	               	</div>
+               </div>
+           </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../js/authenticate/uploadImg.js"></script>
+    
+    <script>
+    	$(function(){
+    		// 提交认证 验证表单
+    		$('#confirm').click(function(event) {
+    			imgUploadReg();
+    		});
+    	});
+    	//下面用于多图片上传预览功能
+	    function setImagePreviews(docObj,imgEle) {
+	        var imgObjPreview = document.getElementById(imgEle);
+	        var fileList = docObj.files;
+	        for (var i = 0; i < fileList.length; i++) {            
+	            if (docObj.files && docObj.files[i]) {
+	                //imgObjPreview.src = docObj.files[0].getAsDataURL();
+	                //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+	                imgObjPreview.src = window.URL.createObjectURL(docObj.files[i]);
+	            }
+	            else {
+	                //IE下，使用滤镜
+	                docObj.select();
+	                var imgSrc = document.selection.createRange().text;
+	                // alert(imgSrc)
+	                var localImagId = document.getElementById(imgEle);
+	                //图片异常的捕捉，防止用户修改后缀来伪造图片
+	                try {
+	                    localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+	                    localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+	                }
+	                catch (e) {
+	                    alert("您上传的图片格式不正确，请重新选择!");
+	                    return false;
+	                }
+	                document.selection.empty();
+	            }
+	        }
+	        return true;
+	    }
+    </script>
+</body>
+
+</html>

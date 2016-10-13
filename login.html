@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>
+            登录
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="css/animate.min.css" rel="stylesheet"/>
+        <link href="css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        <link href="css/common.css" rel="stylesheet"/>
+        <link href="css/login.css" rel="stylesheet"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <script>
+            if(window.top !== window.self){ window.top.location = window.location;}
+        </script>
+    </head>
+    <body class="gray-bg  animated fadeInDown">
+        <header>
+            <div class="login-header-main">
+                <img src="img/logo.png" class="logo" alt="">
+                <ul class="nav-menu">
+                    <li><a href="">首页</a></li>
+                    <li><a href="">渠道</a></li>
+                    <li><a href="">文档</a></li>
+                    <li><a href="">联系我们</a></li>
+                    <li><a href="">关于我们</a></li>
+                </ul>
+                <ul class="nav-btn">
+                    <li><a href="">登录</a></li>
+                    <li><a href="">注册</a></li>
+                </ul>
+            </div>
+        </header>
+        <section>
+            <div class="container">
+                <div class="loginscreen">
+                    <div class="login-type">
+                        <img src="img/login-tip.png" alt="" />
+                        <i class="icon-tab icon-tab-1"></i>
+                    </div>
+                    <div class="login-main animated fadeIn">
+                        <h3>电脑登录</h3>
+                        <form action="index.html" id="loginForm" role="form">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="请输入登录账号" type="text" name="username" />
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="请输入密码" type="password" name="password" />
+                            </div>
+                            <button class="btn block full-width" type="submit" disabled="disabled">
+                                完 成
+                            </button>
+                            <p class="text-muted text-center">
+                                <a href="忘记密码.html" class="pull-left">忘记密码</a>
+                                <a href="register.html" class="pull-right">注册账号</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                <div class="loginscreen"  style="display:none;">
+                    <div class="login-type">
+                        <i class="icon-tab icon-tab-2"></i>
+                    </div>
+                    <div class="login-main animated fadeIn">
+                        <h3>扫码登录</h3>
+                        <img src="img/temp/erweima.png" />
+                        <p class="text-wechat text-center">打开<span>微信</span> 扫一扫登录</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+       <footer>
+            <ul>
+                <li><a href="">帮助中心</a></li>
+                <li><a href="">招聘</a></li>
+                <li><a href="">联系我们</a></li>
+                <li><a href="">关于我们</a></li>
+            </ul>
+           <p>京公网安备 11000002000088号 | 京ICP 备123456789   号 1  | Copyright © 2004 - 2016  成长支付 版权所有</p>
+       </footer>
+        <script src="js/jquery.min.js?v=2.1.4"></script>
+        <script src="js/bootstrap.min.js?v=3.3.6"></script>
+        <script src="js/plugins/validate/jquery.validate.min.js"></script>
+        <script src="js/plugins/validate/messages_zh.min.js"></script>
+        <script src="js/common/form-validate-common.js"></script>
+         <script src="js/login/login.js"></script>
+    </body>
+</html>

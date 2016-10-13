@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>
+            
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="css/animate.min.css" rel="stylesheet"/>
+        <link href="css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        <link href="css/common.css" rel="stylesheet"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <script>
+            if(window.top !== window.self){ window.top.location = window.location;}
+        </script>
+    </head>
+    <body class="gray-bg2  animated fadeInDown">
+        <header class="gray-bg2">
+            <div class="login-header-main">
+                <img src="img/logo.png" class="logo" alt="">
+                <ul class="nav-menu">
+                    <li><a href="">首页</a></li>
+                    <li><a href="渠道.html">渠道</a></li>
+                    <li><a class="active">文档</a></li>
+                    <li><a href="联系我们.html">联系我们</a></li>
+                    <li><a href="关于我们.html">关于我们</a></li>
+                </ul>
+                <ul class="nav-btn">
+                    <li><a href="">登录</a></li>
+                    <li><a href="">注册</a></li>
+                </ul>
+            </div>
+        </header>
+        <section class="m-sec">
+            <div class="doc-content">
+                <ul class="doc-l">
+                    <!-- <li>
+                        <a class="doctab active">简介</a>
+                    </li> -->
+                    <li>
+                        <a class="doctab active">文档用途</a>
+                    </li>
+                    <li>
+                        <a class="doctab">阅读对象</a>
+                    </li>
+                    <li>
+                        <a class="doctab">名词解释</a>
+                    </li>
+                    <li>
+                        <a class="doctab">接口规范</a>
+                        <ul class="doc-cell">
+                            <li><a class="doctab" href="#doc11">签名机制</a></li>
+                            <li><a class="doctab" href="#doc12">请求返回</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="doctab">接口列表</a>
+                        <ul class="doc-cell">
+                            <li>
+                                <a class="doctab" href="#doc21">
+                                    recharge充值
+                                </a>
+                            </li>
+                            <li>
+                                <a class="doctab" href="#doc22">consumptionBypass 消费
+                                </a>
+                            </li>
+                            <li>
+                                <a class="doctab" href="#doc23">consumptionCancel消费撤销/退货
+                                </a>
+                            </li>
+                            <li>
+                                <a class="doctab" href="#doc24">
+                                getState 钱包余额查询
+                                </a>
+                            </li>
+                            <li>
+                                <a class="doctab" href="#doc25">
+                                getBatch 交易流水查询
+                                </a>
+                            </li>
+                            <li>
+                                <a class="doctab" href="#doc26">
+                                frozen 启用/停用钱包
+                                </a>
+                            </li>
+                            <li>
+                                <a class="doctab" href="#doc27">
+                                createVirtualCard 开卡
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="doctab">返回码</a>
+                    </li>
+                    <li>
+                        <a class="doctab">交易类型</a>
+                    </li>
+                </ul>
+
+                <div class="doc-r">
+                    <div class="doc-change" style="display:block">
+                        <h3>文档用途</h3>
+                        <p>本文档旨在对成长支付接口提供一份详细的规范定义说明， 方便开发者快捷地接入互联网支付服务。</p>
+                        <hr />
+                    </div>
+                    <div class="doc-change">
+                        <h3>阅读对象</h3>
+                        <p>接入成长支付互联网支付的商户的技术架构师、研发工程师、测试工程师，并需要开发者有一定Java基础。
+                        </p>
+                        <hr />
+                    </div>
+                    <div class="doc-change">
+                        <h3>名词解释</h3>
+                        <p>在您开始使用本文档之前，需要了解本文档涉及到的部分名词解释，这样方便您更好的理解接口相关内容。</p>
+                        <p>返回：高汇通根据得到的数据处理完成后，以 JSON 数据形式将处理完成的结果信息反馈给调用者</p>
+                        <hr />
+                        <p>请求：通过 HTTP 协议把需要传输的数据发送给接收方的过程(post请求)。</p>
+
+                        <p>输入参数：请求参数是调用者在与高汇通进行数据交互时，提供给高汇通的请求数据，以便高汇通根据这些数据进一步处理。</p>
+
+                        <p>返回参数：高汇通对调用者提供的请求数据进行处理后，返回给调用者结果数据，以便调用者根据这些数据进一步处理，对于业务正常受理，调用者需要解析响应码以判断业务是否处理成功。</p>
+                        
+                    </div>
+                    <div class="doc-change">
+                        <h3>接口规范</h3>
+                        <p>成长支付对接口规范进行了严格的限制，以保证开发者今后扩展的便利性。所有接口均以Json的形式返回。</p>
+                        <hr />
+
+                        <h3 id="doc11">签名机制</h3>
+                        <p>请求参数按照参数名字符升序排列，如果有重复参数名，那么重复的参数再按照参数值的字符升序排列。所有参数（mac）按照上面的排序用&连接起来，格式是：p1=v1&p2=v2。如聚合支付提供KEY为b570f671cb72b5b4a30725f204bbbf03最后格式为p1=v1&p2=v2&key=b570f671cb72b5b4a30725f204bbbf03</p>
+                        <hr />
+                        <p>某接口包含以下参数：</p>
+                        <p>service=directPay,merchantId=403110154110000,terminalId=04031471</p>
+                        <p>那么待签名数据按照规则拼接组装后为：</p>
+                        <p>merchantId=403110154110000&service=quickPay&terminalId=04031471&key=b570f671cb72b5b4a30725f204bbbf03</p>
+                        <hr />
+                        <h4>注意事项</h4>
+                        <ul>
+                          <li>没有值的参数无需传递，也无需包含到待签名数据中。</li>
+                          <li> 如果传递参数包含加密信息，则拼接签名原文时应使用加密后的值，而不是加密前的原文。</li>
+                          <li>根据HTTP协议要求，传递的字符串中如果存在特殊字符（如：&amp;、@等），那么该字符串需要做URL Encoding，这样接收方才能接收到正确的参数值。这种情况下，待签名数据应该是原生值而不是encoding之后的值。</li>
+                        </ul>
+                        <hr />
+                        <h3 id="doc12">请求返回</h3>
+                        <p>所有请求均以Json格式返回，格式如下：</p>
+                        <p>
+                            {"return_code":"状态码","return_msg":"返回消息"}
+                        </p>
+                        <hr />
+                        <h4>响应参数</h4>
+                        <dl>
+                            <dt>return_code <div style="margin-left:100px;margin-top:-22px;">String</div> </dt>
+                            <!-- <dd>string</dd> -->
+                            <dd style="margin-left: 100px">
+                                <span>返回代码 T00为请求成功返回，其它代表有错误。</span>
+                            </dd>
+                            <div class="clear"></div>
+
+                            <dt>return_msg <div style="margin-left:100px;margin-top:-22px;">String</div></dt>
+                            <dd style="margin-left: 100px">
+                                <span>返回消息 如果return_code不为T00，相应错误说明会在return_msg中出现。</span>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="doc-change">
+                        
+                    </div>
+                    <div class="doc-change">
+                        
+                    </div>
+                    
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </section>
+        <footer class="m-sec">
+            <ul>
+                <li><a href="">帮助中心</a></li>
+                <li><a href="">招聘</a></li>
+                <li><a href="">联系我们</a></li>
+                <li><a href="">关于我们</a></li>
+            </ul>
+           <p>京公网安备 11000002000088号 | 京ICP 备123456789   号 1  | Copyright © 2004 - 2016  成长支付 版权所有</p>
+       </footer>
+       <script src="js/jquery.min.js?v=2.1.4"></script>
+       <script type="text/javascript">
+           $(function(){
+                $('.doctab').click(function(event) {
+                    $('.doctab').removeClass('active');
+                    $(this).addClass('active');
+                });
+                $('.doc-l>li').click(function(event) {
+                    var index=$(this).index();
+                    $('.doc-change').eq(index).show().siblings('.doc-change').hide();
+                });
+           })
+       </script>
+    </body>
+</html>

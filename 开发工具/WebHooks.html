@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            WebHooks
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
+        <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../css/plugins/iCheck/custom.css" rel="stylesheet"/>
+        <link href="../css/animate.min.css" rel="stylesheet"/>
+        <link href="../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+           <div class="ibox">
+               <div class="ibox-content">
+                    <button class="btn btn-primary pl20 pr20" data-toggle="modal" data-target="#addModal">添加</button>
+                    <!-- 表格分页 -->
+                    <div class="table-content">
+                        <!-- 表格开始 -->
+                        <table class="table table-bordered table-striped dataTables">
+                            <thead>
+                                <tr>
+                                    <th>接收地址</th>
+                                    <th>模式</th>
+                                    <th>通知事件</th>
+                                    <th>应用</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>http://www.zhaobianag.com</td>
+                                    <td>调试</td>
+                                    <td>一个事件</td>
+                                    <td>百度钱包</td>
+                                    <td>
+                                        <a data-toggle="modal" data-target="#editModal">编辑</a>
+                                        <a data-toggle="modal" data-target="#testModal">测试</a>
+                                        <a class="btn-del">删除</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">无数据</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- 表格结束 -->
+                        <!-- 分页开始 -->
+                        
+                        <!-- 分页结束 -->
+                    </div>
+                    <!-- 表格分页  end-->
+               </div>
+           </div>
+        </div>
+    </div>
+    <!-- 添加 模态框 -->
+    <div class="modal inmodal in" id="addModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-body">
+                    <h3 class="text-center">添加WebHooks</h3>
+                    <form action="" class="form-horizontal">
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-3 control-label">接收URL</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" name="">
+                                    <option>http://</option>
+                                    <option>https://</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5">
+                                <input type="text" placeholder="" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-3 control-label">应用</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" name="">
+                                    <option>全部</option>
+                                    <option>应用1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-3 control-label">通知事件</label>
+                            <div class="col-sm-9">
+                                <div class="checkbox i-checks pull-left">
+                                    <label class="no-padding m-r-sm m-t-sm">
+                                        <input type="checkbox">
+                                            <i class="m-l-sm"></i>日汇总
+                                        </input>
+                                    </label>
+                                    <label class="no-padding m-r-sm m-t-sm">
+                                        <input type="checkbox">
+                                            <i class="m-l-sm"></i>周汇总
+                                        </input>
+                                    </label>
+                                    <label class="no-padding m-r-sm m-t-sm">
+                                        <input type="checkbox">
+                                            <i class="m-l-sm"></i>月汇总
+                                        </input>
+                                    </label>
+                                    <label class="no-padding m-r-sm m-t-sm">
+                                        <input type="checkbox">
+                                            <i class="m-l-sm"></i>支付成功
+                                        </input>
+                                    </label>
+                                    <label class="no-padding m-r-sm m-t-sm">
+                                        <input type="checkbox">
+                                            <i class="m-l-sm"></i>退款成功
+                                        </input>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary pl20 pr20">添加</a>
+                    <a class="btn btn-white pl20 pr20" data-dismiss="modal">
+                        取消
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 编辑 -->
+    <div class="modal inmodal in" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-body">
+                    <h3 class="text-center">详情WebHooks</h3>
+                    <form action="" class="form-horizontal">
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-3 control-label">接收URL</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" name="">
+                                    <option>http://</option>
+                                    <option>https://</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5">
+                                <input type="text" placeholder="" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-3 control-label">应用</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" name="">
+                                    <option>全部</option>
+                                    <option>应用1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-3 control-label">通知事件</label>
+                            <div class="col-sm-9">
+                                <div class="checkbox i-checks pull-left">
+                                    <label class="no-padding m-r-sm m-t-sm">
+                                        <input type="checkbox">
+                                            <i class="m-l-sm"></i>日汇总
+                                        </input>
+                                    </label>
+                                    <label class="no-padding m-r-sm m-t-sm">
+                                        <input type="checkbox">
+                                            <i class="m-l-sm"></i>周汇总
+                                        </input>
+                                    </label>
+                                    <label class="no-padding m-r-sm m-t-sm">
+                                        <input type="checkbox">
+                                            <i class="m-l-sm"></i>月汇总
+                                        </input>
+                                    </label>
+                                    <label class="no-padding m-r-sm m-t-sm">
+                                        <input type="checkbox">
+                                            <i class="m-l-sm"></i>支付成功
+                                        </input>
+                                    </label>
+                                    <label class="no-padding m-r-sm m-t-sm">
+                                        <input type="checkbox">
+                                            <i class="m-l-sm"></i>退款成功
+                                        </input>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary pl20 pr20">保存</a>
+                    <a class="btn btn-white pl20 pr20" data-dismiss="modal">
+                        取消
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 测试 -->
+    <div class="modal inmodal in" id="testModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h3 class="text-center m-b-lg">测试WebHooks</h3>
+                    <form action="" class="form-horizontal">
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-3 control-label">接收URL</label>
+                            <div class="col-sm-9">
+                                http://www.zhaobianag.com
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-3 control-label">应用</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" name="">
+                                    <option>全部</option>
+                                    <option>应用1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-3 control-label">通知事件</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="">
+                                    <option>请选择</option>
+                                    <option>支付成功</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <a class="btn btn-primary  pull-left" id="test-btn">测试</a>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12 test-content" style="display:none">
+                            <h3 class="m-t-sm">请求内容</h3>
+                            <p>成长支付会向你填写的 URL 发送以下请求：</p>
+                            <textarea name="" class="form-control m-t-sm">
+                            {
+                                    "id":"evt_testtestz79mgOE0MCPN21CM",
+                                    "created":1440407565,
+                                    "livemode":true,
+                                    "type":"summary.weekly.available",
+                                    "data":{
+                                        "object":{
+                                            "app_id":"app_urj1WLzvzfTK0OuL",
+                                            "object":"app_weekly_summary",
+                                            "app_display_name":"测试应用",
+                                            "created":1440407565,
+                                            "summary_from":1440407565,
+                                            "summary_to":1440407565,
+                                            "charges_amount":3000,
+                                            "charges_count":300
+                                        }
+                                    },
+                                    "object":"event",
+                                    "pending_webhooks":0,
+                                    "request":null
+                            }
+                            </textarea>
+                            <h3 class="m-t-sm">返回内容</h3>
+                            <p>以下内容为你的服务器向 成长支付 服务器返回的内容：</p>
+                            <textarea name="" class="form-control m-t-sm">
+                            {
+                                    "id":"evt_testtestz79mgOE0MCPN21CM",
+                                    "created":1440407565,
+                                    "livemode":true,
+                                    "type":"summary.weekly.available",
+                                    "data":{
+                                        "object":{
+                                            "app_id":"app_urj1WLzvzfTK0OuL",
+                                            "object":"app_weekly_summary",
+                                            "app_display_name":"测试应用",
+                                            "created":1440407565,
+                                            "summary_from":1440407565,
+                                            "summary_to":1440407565,
+                                            "charges_amount":3000,
+                                            "charges_count":300
+                                        }
+                                    },
+                                    "object":"event",
+                                    "pending_webhooks":0,
+                                    "request":null
+                            }
+                            </textarea>
+                            <h3>测试结果</h3>
+                            <p class="text-danger">接收失败 HTTP CODE:302</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../js/plugins/iCheck/icheck.min.js"></script>
+    <script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".i-checks").iCheck({
+                checkboxClass:"icheckbox_square-green",
+                radioClass:"iradio_square-green"
+            });
+            // 模态框中测试按钮点击
+            $('#test-btn').click(function(event) {
+                $('.test-content').show();
+            });
+            // 删除点击
+            $(document).on('click', '.btn-del', function(event) {
+                event.preventDefault();
+                var _this=$(this);
+                swal(
+                    {
+                        title:"确定删除WebHooks ？",
+                        showCancelButton:true,
+                        confirmButtonColor:"#00bfa9",
+                        confirmButtonText:"确定",
+                        cancelButtonText:"取消",
+                        showCancelButton: true,
+                        closeOnConfirm: false,
+                        showLoaderOnConfirm: true,
+                    },
+                    function(){
+                        swal("删除成功！");
+                    }
+                )
+            });
+        });
+    </script>
+</body>
+
+</html>

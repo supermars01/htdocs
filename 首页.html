@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            主页
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <!-- <link href="js/plugins/echarts/echarts.css" rel="stylesheet"/> -->
+        <link href="css/animate.min.css" rel="stylesheet"/>
+        <link href="css/style.min.css?v=4.1.0" rel="stylesheet"/>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="ibox float-e-margins ibox-shadow">
+                    <div class="ibox-title">
+                        <!-- <span class="label label-success pull-right">今天</span> -->
+                        <h5>历史交易总金额(元)</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">40,886,200</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="ibox float-e-margins ibox-shadow">
+                    <div class="ibox-title">
+                        <!-- <span class="label label-success pull-right">今天</span> -->
+                        <h5>历史交易笔数(笔)</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">40,886,200</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="ibox float-e-margins ibox-shadow">
+                    <div class="ibox-title">
+                        <span class="label label-success pull-right">今天</span>
+                        <h5>交易总金额(元)</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">40,886,200</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="ibox float-e-margins ibox-shadow">
+                    <div class="ibox-title">
+                        <span class="label label-primary pull-right">今天</span>
+                        <h5>交易笔数（笔）</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">1,200</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <!-- 创建应用 显示-->
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>
+                            选择应用
+                            <div class="pos-sel">
+                                <div class="m-ul-sel">
+                                    <a>全部</a>
+                                    <ul class="m-ul-option" style="display:none">
+                                        <li>全部</li>
+                                        <li>应用1</li>
+                                        <li>应用2</li>
+                                        <li>应用3</li>
+                                    </ul>
+                                </div>
+                                <!-- <select class="form-control" name="" id="changeApplication">
+                                    <option value="0">全部</option>
+                                    <option value="1">应用1</option>
+                                    <option value="2">应用2</option>
+                                    <option value="3">应用3</option>
+                                </select> -->
+                            </div>
+                        </h5>
+                    </div>
+                    <div class="ibox-content m-t-lg application">
+                        <div class="row">
+                            <h3 class="m-l-lg">应用1</h3>
+                            <div id="main1" style="width: 100%;height:400px;"></div>
+                        </div>
+                        <div class="row">
+                            <h3  class="m-l-lg">应用2</h3>
+                            <div id="main2" style="width: 100%;height:400px;"></div>
+                        </div>
+                        <div class="row">
+                            <h3  class="m-l-lg">应用3</h3>
+                            <div id="main3" style="width: 100%;height:400px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 未创建应用 显示-->
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <a class="add-apply text-center J_menuTab" data-index="9" href="创建应用.html">
+                            <p class="fa fa-plus"></p>
+                            <p>点击创建您的第一个应用</p>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/echarts/macarons.js"></script>
+    <script src="js/plugins/echarts/echarts-all.js"></script>
+    
+    <script>
+        $(function(){
+            // 下拉框选择应用
+            $(document).on('click', '.m-ul-sel a', function(event) {
+                event.preventDefault();
+                $(this).siblings('.m-ul-option').show();
+                $(this).addClass('active');
+            });
+            $(document).on('click', '.m-ul-option li', function(event) {
+                event.preventDefault();
+                var index=$(this).index();
+                if(index==0) {
+                    $('.application .row').show()
+                }else {
+                    $('.application .row').eq(index-1).show().siblings('.row').hide();
+                }
+                $('.m-ul-option').hide();
+                $('.m-ul-sel a').html($(this).html());
+                $('.m-ul-sel a').removeClass('active');
+            });
+            // 图表
+            var option1 = {
+                title: {
+                    text: '',
+                    subtext: ''
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['微信交易笔数','微信交易总金额','支付宝交易笔数','支付宝交易总金额']
+                },
+                xAxis:  {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['周一','周二','周三','周四','周五','周六','周日'],
+                    
+                },
+
+                
+                yAxis: [
+                        {
+                            type: 'value',
+                            name: '交易笔数（笔）',
+                            min: 0,
+                            max: 25,
+                            interval: 5,
+                            axisLabel: {
+                                formatter: '{value}'
+                            }
+                        },
+                        {
+                            type: 'value',
+                            name: '交易总金额（元）',
+                            min: 0,
+                            max: 100,
+                            interval: 20,
+                            axisLabel: {
+                                formatter: '{value}'
+                            }
+                        }
+                    ],
+                                
+                                
+                series: [
+                    {
+                        name:'微信交易笔数',
+                        type:'line',
+                        data:[11, 11, 15, 13, 12, 13,13]
+                    },
+                    {
+                        name:'微信交易总金额',
+                        type:'line',
+                        yAxisIndex: 1,
+                        data:[1, 6, 2, 5, 3, 2,13]
+                    },
+                    {
+                        name:'支付宝交易笔数',
+                        type:'line',
+                        data:[11, 21, 3, 23, 22, 23,13]
+                    },
+                    {
+                        name:'支付宝交易总金额',
+                        type:'line',
+                        yAxisIndex: 1,
+                        data:[10, 60, 20, 50, 30, 20,13]
+                    }
+                ]
+            };
+            // var option2 = {
+            //     title: {
+            //         text: '',
+            //         subtext: ''
+            //     },
+            //     tooltip: {
+            //         trigger: 'axis'
+            //     },
+            //     legend: {
+            //         data:['微信交易笔数','微信交易总金额','支付宝交易笔数','支付宝交易总金额']
+            //     },
+               
+            //     xAxis:  {
+            //         type: 'category',
+            //         boundaryGap: false,
+            //         data: ['周一','周二','周三','周四','周五','周六','周日'],
+                    
+            //     },
+
+                
+            //     yAxis: [
+            //             {
+            //                 type: 'value',
+            //                 name: '交易笔数（笔）',
+            //                 min: 0,
+            //                 max: 25,
+            //                 interval: 5,
+            //                 axisLabel: {
+            //                     formatter: '{value}'
+            //                 }
+            //             },
+            //             {
+            //                 type: 'value',
+            //                 name: '交易总金额（元）',
+            //                 min: 0,
+            //                 max: 100,
+            //                 interval: 20,
+            //                 axisLabel: {
+            //                     formatter: '{value}'
+            //                 }
+            //             }
+            //         ],
+                                
+                                
+            //     series: [
+            //         {
+            //             name:'微信交易笔数',
+            //             type:'line',
+            //             data:[11, 11, 15, 13, 12, 13],
+            //             markPoint: {
+                          
+            //             },
+            //             markLine: {
+                         
+            //             }
+            //         },
+            //         {
+            //             name:'微信交易总金额',
+            //             type:'line',
+            //             yAxisIndex: 1,
+            //             data:[1, 6, 2, 5, 3, 2],
+            //             markPoint: {
+                           
+            //             },
+            //             markLine: {
+             
+            //             }
+            //         },
+            //         {
+            //             name:'支付宝交易笔数',
+            //             type:'line',
+            //             data:[11, 21, 3, 23, 22, 23],
+            //             markPoint: {
+                          
+            //             },
+            //             markLine: {
+                         
+            //             }
+            //         },
+            //         {
+            //             name:'支付宝交易总金额',
+            //             type:'line',
+            //             yAxisIndex: 1,
+            //             data:[10, 60, 20, 50, 30, 20],
+            //             markPoint: {
+                           
+            //             },
+            //             markLine: {
+             
+            //             }
+            //         }
+            //     ]
+            // };
+            // var option3 = {
+            //     title: {
+            //         text: '',
+            //         subtext: ''
+            //     },
+            //     tooltip: {
+            //         trigger: 'axis'
+            //     },
+            //     legend: {
+            //         data:['微信交易笔数','微信交易总金额','支付宝交易笔数','支付宝交易总金额']
+            //     },
+               
+            //     xAxis:  {
+            //         type: 'category',
+            //         boundaryGap: false,
+            //         data: ['周一','周二','周三','周四','周五','周六','周日'],
+                    
+            //     },
+
+                
+            //     yAxis: [
+            //             {
+            //                 type: 'value',
+            //                 name: '交易笔数（笔）',
+            //                 min: 0,
+            //                 max: 25,
+            //                 interval: 5,
+            //                 axisLabel: {
+            //                     formatter: '{value}'
+            //                 }
+            //             },
+            //             {
+            //                 type: 'value',
+            //                 name: '交易总金额（元）',
+            //                 min: 0,
+            //                 max: 100,
+            //                 interval: 20,
+            //                 axisLabel: {
+            //                     formatter: '{value}'
+            //                 }
+            //             }
+            //         ],
+                                
+                                
+            //     series: [
+            //         {
+            //             name:'微信交易笔数',
+            //             type:'line',
+            //             data:[11, 11, 15, 13, 12, 13],
+            //             markPoint: {
+                          
+            //             },
+            //             markLine: {
+                         
+            //             }
+            //         },
+            //         {
+            //             name:'微信交易总金额',
+            //             type:'line',
+            //             yAxisIndex: 1,
+            //             data:[1, 6, 2, 5, 3, 2],
+            //             markPoint: {
+                           
+            //             },
+            //             markLine: {
+             
+            //             }
+            //         },
+            //         {
+            //             name:'支付宝交易笔数',
+            //             type:'line',
+            //             data:[11, 21, 3, 23, 22, 23],
+            //             markPoint: {
+                          
+            //             },
+            //             markLine: {
+                         
+            //             }
+            //         },
+            //         {
+            //             name:'支付宝交易总金额',
+            //             type:'line',
+            //             yAxisIndex: 1,
+            //             data:[10, 60, 20, 50, 30, 20],
+            //             markPoint: {
+                           
+            //             },
+            //             markLine: {
+             
+            //             }
+            //         }
+            //     ]
+            // };
+
+            var myChart1 = echarts.init(document.getElementById('main1'));
+            myChart1.setOption(option1);
+            myChart1.setTheme(macaronsTheme());
+
+            // var myChart2 = echarts.init(document.getElementById('main2'));
+            // myChart2.setOption(option2);
+            // myChart2.setTheme(macaronsTheme());
+
+            // var myChart3 = echarts.init(document.getElementById('main3'));
+            // myChart3.setOption(option3);
+            // myChart3.setTheme(macaronsTheme());
+    })
+    </script>
+</body>
+
+</html>

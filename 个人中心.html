@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            个人中心
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
+        <link href="css/animate.min.css" rel="stylesheet"/>
+        <link href="css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        <link href="css/u-center.css" rel="stylesheet"/>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+           <div class="ibox">
+               <div class="ibox-content">
+                    <div class="u-center">
+                        <div class="middle-box u-item u-item-1 col-sm-12">
+                            <label class="control-label col-sm-3">头像</label>
+                            <div class="col-sm-9">
+                                <img src="img/temp/profile_small.jpg" class="img-circle" id="photo" />
+                                <a class="btn btn-primary btn-outline m-l-lg">上传新头像
+                                    <input name="file" id="file" class="upload-file" multiple="multiple" size="100" accept="image/*" type="file">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="u-item u-item-2 col-sm-12">
+                            <label class="control-label col-sm-3">微信登陆</label>
+                             <div class="col-sm-9">
+                                 <div class="bind-tab" style="display:none">
+                                    <label class="color-black">未绑定</label>
+                                    <button class="btn btn-primary btn-outline m-l-lg" data-toggle="modal" data-target="#bindWechatModal">绑定</button>
+                                </div>
+                                <div class="bind-tab">
+                                    <label class="color-black">已绑定(微信名称为百ang的账号)</label>
+                                    <button class="btn btn-primary btn-outline" id="cancelBind">取消绑定</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="u-item  col-sm-12">
+                            <label class="control-label col-sm-3">登录账户</label>
+                             <div class="col-sm-9">
+                                 <label class="color-black">zhaobaiang@68000001</label>
+                            </div>
+                        </div>
+                        <div class="u-item  col-sm-12">
+                            <label class="control-label col-sm-3">姓名</label>
+                             <div class="col-sm-9">
+                                 <label class="color-black">zhaobaiang</label>
+                            </div>
+                        </div>
+                        <div class="u-item  col-sm-12">
+                            <label class="control-label col-sm-3">商户号</label>
+                             <div class="col-sm-9">
+                                 <label class="color-black">68000001</label>
+                            </div>
+                        </div>
+                        <div class="u-item  col-sm-12">
+                            <label class="control-label col-sm-3">角色</label>
+                             <div class="col-sm-9">
+                                 <label class="color-black">管理员</label>
+                            </div>
+                        </div>
+                        <div class="u-item u-item-2 col-sm-12">
+                            <label class="control-label col-sm-3">登陆密码</label>
+                            <div class="col-sm-9 tabchange">
+                                 <input name="" type="password" disabled="disabled" value="微笑" class="form-control form-control-1" placeholder="">
+                                 <button class="btn btn-primary btn-outline" id="modifyPwd">修改密码</button>
+                            </div>
+                            <div class="col-sm-9 tabchange" style="display:none">
+                                 <input name="" type="text" value="" class="form-control m-b-sm" placeholder="旧密码">
+                                 <input name="" type="text" value="" class="form-control m-b-sm" placeholder="新密码">
+                                 <input name="" type="text" value="" class="form-control m-b-sm" placeholder="确认新密码">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 m-t-lg text-center">
+                            <button type="button" class="btn btn-primary pl20 pr20">保存</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+               </div>
+           </div>
+        </div>
+    </div>
+    <!-- 绑定弹窗 -->
+    <div class="modal inmodal fade" id="bindWechatModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">成长支付</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="wechat-body">
+                        <img src="img/temp/erweima.png" width="100%" alt="">
+                        <!-- 二维码失效显示 start -->
+                        <div class="wechat-abs wechat-timeout" >
+                            <p class="text-center">二维码已失效</p>
+                            <button class="btn btn-primary" id="refreshBtn">请点击刷新</button>
+                        </div>
+                        <!-- 二维码失效显示 end -->
+                        
+                        <!-- 二维码绑定成功 start -->
+                        <div class="wechat-abs wechat-bind" style="display:none;">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fa fa-check"></i>&nbsp;绑定成功(2s)
+                            </button>
+                        </div>
+                        <!-- 二维码绑定成功 end -->
+                    </div>
+                   <p class="text-center m-t-sm">绑定后，可直接使用微信扫描二维码登录成长支付</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="js/u-center/u-center.js"></script>
+    <script>
+        $(function(){
+            // 取消绑定
+            $('#cancelBind').click(function(event) {
+                var _this=$(this);
+                swal({
+                        title:"取消微信绑定？",
+                        showCancelButton:true,
+                        confirmButtonColor:"#00bfa9",
+                        confirmButtonText:"确定",
+                        cancelButtonText:"取消",
+                        showCancelButton: true,
+                        closeOnConfirm: false,
+                        showLoaderOnConfirm: true,
+                    },
+                    function(){
+                        swal("成功取消绑定！");
+                        _this.parents('.bind-tab').hide().siblings('.bind-tab').show();
+                    })
+            });
+            // 点击刷新
+            $('#refreshBtn').click(function(event) {
+                $('.wechat-timeout').hide();
+            });
+        });
+    </script>
+</body>
+
+</html>

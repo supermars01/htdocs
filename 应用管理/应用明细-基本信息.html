@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            应用管理
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../css/plugins/switchery/switchery.css" rel="stylesheet">
+        <link href="../css/animate.min.css" rel="stylesheet"/>
+        
+        <link href="../css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
+        <link href="../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        <link href="../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+        
+        <style type="text/css">
+            .help-block{
+                display: none;
+            }
+
+            .has-error .help-block{
+                display: block;
+            }
+            .disabled{
+             opacity: 0.5;
+             pointer-events: none;    
+            }
+        </style>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <form id="myform" action="" class="form-horizontal"> 
+                        <!-- <div class="row m-l-sm m-t-sm m-b-sm">
+                            <a class="btn btn-xs btn-primary">
+                                <span class="fa fa-angle-left"></span>&nbsp;&nbsp;返回
+                            </a>
+                        </div> -->
+                        <div class="row"> 
+                            <div class="ibox-title ibox-border">
+                                <h5>
+                                    <a class="btn btn-xs"><span class="fa fa-angle-left"></span> 返回</a>
+                                </h5>
+                            </div>
+                        </div>
+
+                        <div class="row m-t-lg"> 
+                            <div class="col-sm-12">
+                                <div class="tabs-container">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="###" aria-expanded="true"> 基本信息</a>
+                                        </li>
+                                        <li class=""><a   href="应用明细-渠道设置.html" aria-expanded="false">渠道设置</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div id="tab-1" class="tab-pane active">
+                                            <div class="panel-body">
+                                                <div class="form-group col-sm-12">
+                                                    <label class="col-sm-2 control-label">创建时间</label>
+                                                    <div class="col-sm-7">
+                                                        <input readonly type="text" placeholder=""  class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-sm-12">
+                                                    <label class="col-sm-2 control-label">应用ID</label>
+                                                    <div class="col-sm-7">
+                                                        <input readonly type="text" placeholder="" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-sm-12">
+                                                    <label class="col-sm-2 control-label">应用编号</label>
+                                                    <div class="col-sm-7">
+                                                        <input readonly type="text" placeholder="" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div  id="applyName" class="form-group col-sm-12 ">
+                                                    <label class="col-sm-2 control-label">应用名称</label>
+                                                    <div class="col-sm-7">
+                                                        <input type="text" placeholder="" class="form-control">
+                                                        <span errMsg class="help-block m-b-none"><i class="fa fa-times-circle"></i>  必填</span>
+                                                    </div>
+                                                    <div class="col-sm-2 ">
+                                                        <button submit type="button" class="btn btn-primary">保存</button>
+
+                                                    </div>   
+                                                </div>
+
+                                                <div id="applyName1" class="form-group col-sm-12">
+                                                    <label class="col-sm-2 control-label">应用备注</label>
+                                                    <div class="col-sm-7 ">
+                                                        <input type="text" placeholder="" class="form-control" maxlength="50"> 
+                                                    </div>
+                                                    <div class="col-sm-2 ">
+                                                        <button type="button" class="btn btn-primary">保存</button>
+                                                    </div>  
+                                                </div>
+
+                                                <div class="form-group col-sm-12">
+                                                    <label class="col-sm-2 control-label">状态</label>
+                                                    <div class="col-sm-7 ">
+                                                        <p class="p-1">
+                                                            测试 | <span class="text-warning">该状态下可进行调试，支付页面是 成长支付 提供的模拟页面，不需要输入密码，直接点击支付即完成模拟付款。 </span>
+                                                        </p>
+                                                        <p class="p-2">
+                                                            正常 | <span class="text-warning">该状态下可以正常支付</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-sm-2 ">
+                                                        <input type="checkbox" class="js-switch" />
+                                                    </div>
+                                                    <!-- <div class="col-sm-2 replace-box" style="display:none">
+                                                        <input type="checkbox" class="js-switch2" />
+                                                    </div>   -->
+                                                </div>
+
+                                                <div class="form-group col-sm-12">
+                                                    <label class="col-sm-2 control-label">Test Secret Key</label>
+                                                    <div class="col-sm-7  ">
+                                                        <input readonly type="text" placeholder="" class="form-control"> 
+                                                    </div>
+                                                    <div class="col-sm-2 ">
+                                                        <button type="button" class="btn btn-primary">更新</button>
+                                                    </div> 
+                                                </div>
+
+                                                <div class="form-group col-sm-12">
+                                                    <label class="col-sm-2 control-label">Live Secret Key</label>
+                                                    <div class="col-sm-7 ">
+                                                        <input readonly type="text" placeholder="" class="form-control"> 
+                                                    </div>
+                                                    <div class="col-sm-2 ">
+                                                        <button type="button" class="btn btn-primary">更新</button>
+                                                    </div> 
+                                                </div>
+                                                <div class="form-group col-sm-12">
+                                                    <label class="col-sm-2 control-label">删除应用</label>
+                                                    <div class="col-sm-7 ">
+                                                    <p class="m-t-sm">应用删除后无法恢复，但相关数据仍可继续查看。请谨慎操作！</p>
+                                                    </div>
+                                                    <div class="col-sm-2 ">
+                                                        <button type="button" class="btn btn-warning">删除</button>
+                                                    </div> 
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                    <!-- 表格分页 -->
+                     
+                    <!-- 表格分页  end-->
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+    <script src="../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../js/plugins/switchery/switchery.js"></script> 
+    <script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../js/plugins/toastr/toastr.min.js"></script>
+    <script type="text/javascript">
+            $(function(){
+                toastr.options = {
+                  "closeButton": true,
+                  "debug": false,
+                  "progressBar": true,
+                  "positionClass": "toast-top-right",
+                  "onclick": null,
+                  "showDuration": "400",
+                  "hideDuration": "500",
+                  "timeOut": "2000",
+                  "extendedTimeOut": "500",
+                  "showEasing": "swing",
+                  "hideEasing": "linear",
+                  "showMethod": "fadeIn",
+                  "hideMethod": "fadeOut"
+                };
+                if($('.js-switch').attr('checked')=='checked'){
+                    $('.p-1').hide();
+                    $('.p-2').show();
+                }else {
+                    $('.p-1').show();
+                    $('.p-2').hide();
+                }
+                var $applyName = $("#applyName");
+                var $applyName_input = $applyName.find("input");
+                var $applyName_submit = $applyName.find("[submit]");
+                    $applyName_submit.click(function(){
+                        if(!$applyName_input.val()){
+                            $applyName.addClass('has-error')
+                            //.find("[errMsg]");
+                        }else{
+                            // $applyName.removeClass('has-error');
+                            toastr.success("操作成功！", "提示");
+                            // swal({
+                            //     title:'操作成功！',
+                            //     text:'',
+                            //     type:'success',
+                            //     showCancelButton: false,
+                            //     confirmButtonText:'确定'
+                            // });
+                            // submit({
+                            //     'xxx' : $applyName_input.val()
+                            // },function(res){
+
+                            // })
+                        }
+                    })
+
+                var elem = document.querySelector('.js-switch');
+                var changeCheckbox = new Switchery(elem);
+                // var elem2 = document.querySelector('.js-switch2');
+                // var changeCheckbox2 = new Switchery(elem2,{disabled:true});
+                // document.querySelector('.switchery').addEventListener('click', function() {
+                //   changeCheckbox.disable();
+                // });
+                $(elem).change(function(){
+                    // $(this).parent('div').remove();
+                    // $('.replace-box').show();
+                    if(this.checked){
+                        $('.p-2').show();
+                        $('.p-1').hide();
+                    }else {
+                        $('.p-1').show();
+                        $('.p-2').hide();
+                    }
+                    $(".js-switch").attr("disabled", true);
+                    toastr.success("操作成功！", "提示");
+                    submit({
+                        'xxx' : this.checked
+                    },function(res){
+
+                    })
+                    
+                });
+
+                var submit = function(param,callback){
+                        $.ajax({
+                           type: "POST",
+                           url: "some.php",
+                           data: jQuery.param(param),
+                           success: function(res){
+                                callback(res);
+                           }
+                        });
+                }
+            })
+            
+    </script>
+</body>
+
+</html>

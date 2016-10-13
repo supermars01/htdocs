@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>
+            快捷支付
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
+        <link href="css/plugins/iCheck/custom.css" rel="stylesheet"/>
+        <link href="css/animate.min.css" rel="stylesheet"/>
+        <link href="css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        <link href="css/login.css" rel="stylesheet"/>
+    </head>
+    <body class="gray-bg  animated fadeInDown">
+        <header>
+            <div class="login-header-main">
+                <img src="img/logo.png" class="logo" alt="">
+                <span class="s-span-1">收银台</span>
+                <span class="s-span-2">您好，欢迎使用成长支付!</span>
+            </div>
+        </header>
+        <div class="container">
+           <div class="cash">
+               <!-- 订单详情 -->
+               <div class="order-detail">
+                    <h3>小米科技1234567890123号订单<span class="text-danger pull-right">699.00元</span></h3>
+                    <div class="order-detail-slide" style="display:none">
+                        <p>
+                            <label>收款方：</label>小米
+                        </p>
+                        <p>
+                            <label>订单号：</label>1727127127127121
+                        </p>
+                        <p>
+                            <label>商品名称：</label>微笑微笑微笑
+                        </p>
+                        <p>
+                            <label>交易金额：</label>699.0
+                        </p>
+                    </div>
+                    <!-- <a href="" class="btn btn-warning pull-right">订单详情</a> -->
+                    <div class="clearfix"></div>
+                    <div class="slide-toggle">
+                       <span class="slide-tab">
+                            <i class="ico-toggle-down"></i>
+                            加载更多
+                       </span>
+                   </div>
+               </div>
+               <div class="pay-way pay-main">
+                    <h3>仅限持卡本人操作，请如实填写以下信息用于实名身份验证</h3>
+                    <form class="m-t form-horizontal" role="form"  id="payForm" action="支付成功.html">
+                        <div class="form-group col-sm-12">
+                            <label class="control-label col-sm-3">银行卡</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="cardNum" id="cardNum" placeholder="请输入银行卡号" required="" maxlength="19" validate="{required:true, cardNum:true}">
+                            </div>
+                            
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="control-label col-sm-3">持卡人姓名</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="请输入持卡人姓名" required="" name="username">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="control-label col-sm-3">身份证号</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="idNum" placeholder="请输入身份证号" required="" maxlength="18">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="control-label col-sm-3">手机号码</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="telphone" id="telphone" placeholder="请输入手机号码" required="" maxlength="11">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="control-label col-sm-3">付款验证码</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" placeholder="付款验证码" required="" name="capture" maxlength="6">
+                            </div>
+                            <div class="pull-right mr15">
+                                <span class="btn btn-verify" disabled="disabled" status=0>获取验证码</span>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <div class="checkbox i-checks col-sm-offset-3 pl15">
+                                <label class="no-padding">
+                                    <input type="checkbox" id="agree" name="agree"><i></i><a class="a-text">《高汇通快捷支付服务协议》</a></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12 text-center">
+                            <button type="submit" class="btn btn-primary pay-btn" id="payBtn">点击付款</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+               </div>
+               
+           </div>
+        </div>
+        <footer>
+           <p>京公网安备 11000002000088号 | 京ICP 备123456789   号 1  | Copyright © 20</p>
+       </footer>
+        <script src="js/jquery.min.js?v=2.1.4"></script>
+        <script src="js/bootstrap.min.js?v=3.3.6"></script>
+        <script src="js/plugins/iCheck/icheck.min.js"></script>
+        <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+        <script src="js/plugins/validate/jquery.validate.min.js"></script>
+        <script src="js/common/form-validate-common.js"></script>
+        <script src="js/login/pay.js"></script>
+    </body>
+</html>

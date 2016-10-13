@@ -1,0 +1,384 @@
+$title-color:#000;
+
+$text-color:#222;
+
+$tip-color:#ffbb37;
+
+$error-color:#ff0000;
+
+$base-color:#00bfa9;
+
+$color:#00bfa9;
+
+@mixin posCenter($x,$y){
+		transform:translate($x,$y);
+	-o-transform:translate($x,$y);
+	-ms-transform:translate($x,$y);
+	-moz-transform:translate($x,$y);
+	-webkit-transform:translate($x,$y);
+}
+
+header {
+	width: 100%;
+	background: #fff;
+	.login-header-main {
+		position: relative;
+		width: 1080px;
+		height: 86px;
+		margin: 0 auto;
+		img {
+			float: left;
+			width: 120px;
+			height: 41px;
+			display: block;
+			margin-top: 22px;
+			margin-right: 28px;
+		}
+		.nav-menu {
+			float: left;
+			height: 36px;
+			line-height: 36px;
+			margin:25px 0;
+			li {
+				float: left;
+				list-style: none;
+				margin-right: 28px;
+				&:last-child {
+					margin-right: 0;
+				}
+				a {
+					color: $title-color;
+					font-size: 18px;
+					&:hover {
+						color: $color;
+					}
+				}
+			}
+		}
+		.nav-btn {
+			position: absolute;
+			right: 0;
+			top:50%;
+			@include posCenter(0,-50%);
+			li {
+				float: left;
+				list-style: none;
+				a {
+					display: inline-block;
+					padding: 5px 20px;
+					text-align: center;
+					font-size: 18px;
+					color: $title-color;
+					&:hover {
+						border:1px solid $color;
+						color: $color;
+					}
+				}
+			}
+		}
+	}
+}
+section {
+	width: 100%;
+    min-height: 620px;
+    background: url('../img/login_bg.jpg') no-repeat center top;
+    padding: 80px 0;
+    .container {
+    	width: 1080px;
+    	margin: 0 auto;
+    }
+}
+.loginscreen {
+ 	position: relative;
+ 	float: right;
+	width: 400px;
+	height: 450px;
+	background-color: #fff;
+	margin: 0 auto;
+	.login-main {
+		padding: 60px 50px 36px;
+		img {
+			display: block;
+			width: 180px;
+			height: 180px;
+			margin: 0 auto;
+		}
+	}
+	h3 {
+		text-align: center;
+		font-size: 24px;
+		color: $title-color;
+		font-weight: normal;
+		margin-bottom: 30px;
+	}
+	.form-group {
+		margin-bottom: 26px;
+	}
+	.form-control {
+		height: 46px;
+		font-size: 16px;
+		color: $text-color;
+		float: none !important;
+		margin-bottom: 0;
+	}
+	.btn {
+		height: 46px;
+		margin-top: 52px;
+		font-size: 18px;
+	}
+	.text-muted {
+		margin-top: 10px;
+		font-size: 16px;
+		a {
+			color: $title-color;
+			&:hover {
+				color: $color;
+			}
+		}
+	}
+	.text-wechat {
+		margin-top: 18px;
+		font-size: 18px;
+		span {
+			color:$color;
+		}
+	}
+	.login-type {
+		position: absolute;
+		right: 0;
+		img {
+			width: 160px;
+			height: 28px;
+			margin-top: 10px;
+			margin-right: 100px;
+		}
+		.icon-tab {
+			position: absolute;
+			right: 10px;
+			top:10px;
+			display: inline-block;
+			width: 90px;
+			height: 90px;
+			background:url('../img/login-tab.png') no-repeat center;
+			background-size: 90px 180px;
+			cursor: pointer;
+			z-index: 1000;
+			&.icon-tab-1 {
+				background-position: 0 0;
+			}
+			&.icon-tab-2 {
+				background-position: 0 -90px;
+			}
+		}
+	}
+}
+footer {
+	font-size: 14px;
+	text-align: center;
+	color: #999;
+	padding: 30px 0;
+}
+.has-error .help-block {
+	margin-bottom: 10px;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #b5b5b5;  
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #b5b5b5;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: #b5b5b5;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #b5b5b5;
+}
+
+// 忘记密码
+.forget-pwd {
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 50px;
+	h3 {
+		font-size: 20px;
+	    text-align: center;
+	    font-weight: normal;
+	    margin-bottom: 18px;
+	}
+	p {
+		text-align: center;
+		font-size: 13px;
+    	color: #9fa0a1;
+	}
+	.form-control {
+		height: 46px;
+	}
+	.btn {
+		height: 46px;
+		font-size: 18px;
+	}
+}
+// 收银台
+.cash {
+	width: 1080px;
+	padding-top: 24px;
+	margin: 0 auto;
+	.order-detail {
+		padding: 30px 35px;
+		margin-bottom: 12px;
+		background: #fff;
+		h3 {
+			font-size: 16px;
+			color: #000;
+			span {
+				font-family: arial;
+			}
+		}
+		p {
+			font-size: 16px;
+			color: #000;
+			label {
+				color: #666;
+				font-weight: normal;
+			}
+		}
+	}
+	.pay-way {
+		background-color: #fff;
+		h3 {
+			height: 50px;
+			line-height: 50px;
+			padding-left: 35px;
+			color:#000;
+			font-size: 16px;
+			border-bottom: 1px solid #f0f0f0;
+		}
+		.list-way {
+			padding: 5px 35px;
+			margin-bottom: 30px;
+			p {
+				color: #000;
+				font-size: 16px;
+			}
+			img {
+				display: block;
+				width: 80%;
+    			margin: 0 10%;
+			}
+			a {
+				position: relative;
+				display: none;
+				float: left;
+				width: 232px;
+				border: 1px solid #f0f0f0;
+				margin-right: 24px;
+				margin-bottom: 20px;
+				&:last-child,&:nth-child(4n) {
+					margin-right: 0;
+				}
+				span {
+					display: block;
+					height: 30px;
+					line-height: 30px;
+					text-align: center;
+				}
+				.pos-flag {
+					display: inline-block;
+					position: absolute;
+					top: 0px;
+					left: 0px;
+					width: 36px;
+					height: 36px;
+					background: transparent url('../img/pos-flag.png') no-repeat center;
+				}
+			}
+			&.list-way-1 {
+				margin-bottom: 10px;
+				span {
+					color: #fff;
+					background-color: #ed5565;
+				}
+			}
+			&.list-way-2 {
+				span {
+					color: #666;
+					border-top: 1px solid #f0f0f0;
+				}
+			}
+			&.list-way-3 {
+				padding-top: 30px;
+			}
+			.slide-toggle {
+				span {
+					position: absolute;
+					top:0;
+					left: 50%;
+					margin-left: -60px;
+					display: inline-block;
+					width: 120px;
+					height: 40px;
+					padding-top: 20px;
+					background: #fff;
+					text-align: center;
+					cursor: pointer;
+					border: none;
+					color: #999;
+				}
+			}
+		}
+	}
+}
+.slide-toggle {
+	position: relative;
+	height: 40px;
+	&:before {
+		content: '';
+		position: absolute;
+		left: -35px;
+		right: -35px;
+		top: 50%;
+		@include posCenter(0,-50%);
+		height: 1px;
+		background-color: #f0f0f0;
+	}
+	span {
+		position: absolute;
+		top:0;
+		left: 50%;
+		margin-left: -60px;
+		display: inline-block;
+		width: 120px;
+		height: 40px;
+		padding-top: 20px;
+		background: #fff;
+		text-align: center;
+		cursor: pointer;
+		border: none;
+		color: #999;
+		i {
+			position: absolute;
+			top:0;
+			left: 50%;
+			margin-left: -11px;
+			display: inline-block;
+			width: 22px;
+			height: 20px;
+			background: url('../img/ico-toggle.png') no-repeat center;
+			background-size: 22px 40px;
+			&.ico-toggle-up {
+				background-position: 0 0;
+			}
+			&.ico-toggle-down {
+				background-position: 0 -20px;
+			}
+		}
+	}
+}
+.show {
+	display: block !important;
+}

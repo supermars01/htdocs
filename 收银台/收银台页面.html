@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>
+            收银台
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="css/animate.min.css" rel="stylesheet"/>
+        <link href="css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        <link href="css/login.css" rel="stylesheet"/>
+    </head>
+    <style>
+        .inmodal .modal-header {
+            padding: 10px 15px;
+            text-align: left;
+        }
+        .inmodal .modal-title {
+            font-size: 20px;
+            font-weight: normal;
+        }
+    </style>
+    <body class="gray-bg  animated fadeInDown">
+        <header>
+            <div class="login-header-main">
+                <img src="img/logo.png" class="logo" alt="">
+                <span class="s-span-1">收银台</span>
+                <span class="s-span-2">您好，欢迎使用成长支付!</span>
+            </div>
+        </header>
+        <div class="container">
+           <div class="cash">
+               <!-- 订单详情 -->
+               <div class="order-detail">
+                    <h3>小米科技1234567890123号订单<span class="text-danger pull-right">699.00元</span></h3>
+                    <div class="order-detail-slide" style="display:none">
+                        <p>
+                            <label>收款方：</label>小米
+                        </p>
+                        <p>
+                            <label>订单号：</label>1727127127127121
+                        </p>
+                        <p>
+                            <label>商品名称：</label>微笑微笑微笑
+                        </p>
+                        <p>
+                            <label>交易金额：</label>699.0
+                        </p>
+                    </div>
+                    <!-- <a href="" class="btn btn-warning pull-right">订单详情</a> -->
+                    <div class="clearfix"></div>
+                    <div class="slide-toggle">
+                       <span class="slide-tab">
+                            <i class="ico-toggle-down"></i>
+                            加载更多
+                       </span>
+                   </div>
+               </div>
+               <!-- 支付方式 -->
+               <div class="pay-way">
+                   <h3>选择支付方式</h3>
+                   <div class="list-way list-way-1">
+                        <p>支付平台</p>
+                        <a class="show" data-toggle="modal" data-target="#weChatModal">
+                            <img src="img/pay/pay-wechat.png" alt="">
+                            <span>微信支付，领影劵红包</span>
+                        </a>
+                        <a class="show">
+                            <img src="img/pay/pay-zhifubao.png" alt="">
+                            <span>扫码支付，赢1999红包</span>
+                        </a>
+
+                        <div class="clearfix"></div>
+                   </div>
+                    <!-- 银行借记卡及信用卡 -->
+                   <div class="list-way list-way-2">
+                        <p>银行借记卡及信用卡</p>
+                        <div class="bank-all">
+                            <a class="show">
+                                <img src="img/pay/bank-1.png" title="中国银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-2.png" title="中国工商银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-3.png" title="中国建设银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-4.png" title="中国农业银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-5.png" title="招商银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-6.png" title="中信银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-7.png" title="北京银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-8.png" title="中国民生银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <img src="img/pay/bank-9.png" title="交通银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <img src="img/pay/bank-10.png" title="兴业银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <img src="img/pay/bank-11.png" title="华夏银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <img src="img/pay/bank-12.png" title="上海浦东发展银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <img src="img/pay/bank-13.png" title="平安银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <img src="img/pay/bank-14.png" title="中国光大银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="slide-toggle">
+                           <span class="slide-tab">
+                                <i class="ico-toggle-down"></i>
+                                加载更多
+                           </span>
+                       </div>
+                   </div>
+               </div>
+               <!-- 快捷支付 -->
+               <div class="pay-way">
+                    <div class="list-way list-way-2 list-way-3">
+                        <p>快捷支付</p>
+                        <div class="bank-all">
+                            <a class="show" href="快捷支付.html">
+                                <img src="img/pay/bank-1.png" title="中国银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-2.png" title="中国工商银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-3.png" title="中国建设银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-4.png" title="中国农业银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-5.png" title="招商银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-6.png" title="中信银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-7.png" title="北京银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <img src="img/pay/bank-8.png" title="中国民生银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <img src="img/pay/bank-9.png" title="交通银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <img src="img/pay/bank-10.png" title="兴业银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <img src="img/pay/bank-11.png" title="华夏银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <img src="img/pay/bank-12.png" title="上海浦东发展银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <img src="img/pay/bank-13.png" title="平安银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <img src="img/pay/bank-14.png" title="中国光大银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <img src="img/pay/bank-15.png" title="中国邮政储蓄银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="slide-toggle">
+                           <span class="slide-tab">
+                                <i class="ico-toggle-down"></i>
+                                加载更多
+                           </span>
+                       </div>
+                   </div>
+               </div>
+               <!-- 企业银行借记卡 -->
+               <div class="pay-way">
+                    <div class="list-way list-way-2 list-way-3">
+                        <p>企业银行借记卡</p>
+                        <div class="bank-all">
+                            <a class="show">
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-1.png" title="中国银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-2.png" title="中国工商银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-3.png" title="中国建设银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-4.png" title="中国农业银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-5.png" title="招商银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-6.png" title="中信银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-7.png" title="北京银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a class="show">
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-8.png" title="中国民生银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-9.png" title="交通银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-10.png" title="兴业银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-11.png" title="华夏银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-12.png" title="上海浦东发展银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-13.png" title="平安银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-14.png" title="中国光大银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-15.png" title="中国邮政储蓄银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-16.png" title="宁波银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-17.png" title="天津银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-18.png" title="河北银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                            <a>
+                                <i class="pos-flag"></i>
+                                <img src="img/pay/bank-19.png" title="微商银行" />
+                                <span>单笔限额：5000   日累计限额：50000</span>
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="slide-toggle">
+                           <span class="slide-tab">
+                                <i class="ico-toggle-down"></i>
+                                加载更多
+                           </span>
+                       </div>
+                   </div>
+               </div>
+           </div>
+        </div>
+        <footer>
+           <p>京公网安备 11000002000088号 | 京ICP 备123456789   号 1  | Copyright © 20</p>
+       </footer>
+       <div class="modal inmodal in" id="weChatModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content animated fadeIn">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">微信支付</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <img src="http://192.168.103.37:8181/charges_page/httpPay" width="100%" alt=""> -->
+                        <img src="img/temp/profile_small.jpg" alt="" width="100%">
+                        <p class="text-center m-t-sm m-b-sm">请使用<span class="text-warning">微信</span>扫一扫</p>
+                        <p class="text-center m-t-sm m-b-sm">二维码完成支付</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+           
+        <script src="js/jquery.min.js?v=2.1.4"></script>
+        <script src="js/bootstrap.min.js?v=3.3.6"></script>
+        <script>
+            $(function(){
+                $('.slide-tab').click(function(event) {
+                    if($(this).find('i').hasClass('ico-toggle-up')){
+                        $(this).html('<i class="ico-toggle-down"></i>加载更多');
+                        $(this).parents('.slide-toggle').siblings('.bank-all').find('a').hide();
+                        $(this).parents('.slide-toggle').siblings('.order-detail-slide').hide();
+                    }else {
+                        $(this).html('<i class="ico-toggle-up"></i>收起');
+                        $(this).parents('.slide-toggle').siblings('.bank-all').find('a').slideDown();
+                        $(this).parents('.slide-toggle').siblings('.order-detail-slide').slideDown();
+                    }
+                });
+            })
+        </script>
+    </body>
+</html>

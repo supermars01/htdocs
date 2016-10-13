@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            交易明细
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
+        <link href="../js/plugins/layer/laydate/need/laydate.css" />
+        <link href="../css/plugins/dataTables/dataTables.bootstrap.css" />
+        <link href="../css/animate.min.css" rel="stylesheet"/>
+        <link href="../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="ibox-title ibox-border pl0">
+                        <h3>
+                            交易详情
+                            <a class="btn btn-xs m-l-sm" href="">
+                                <span class="fa fa-angle-left"></span> 返回
+                            </a>
+                        </h3>
+                    </div>
+                    <form action="" class="form-horizontal m-t">
+                        <div class="form-group col-sm-4">
+                            <label class="col-sm-5 control-label">订单号</label>
+                            <div class="col-sm-7">
+                                <input type="text" placeholder="请输入订单号" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label class="col-sm-5 control-label">商户号</label>
+                            <div class="col-sm-7">
+                                <input type="text" placeholder="请输入商户号" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label class="col-sm-5 control-label">商户名称</label>
+                            <div class="col-sm-7">
+                                <input type="text" placeholder="请输入商户名称" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-4">
+                            <label class="col-sm-5 control-label">交易渠道</label>
+                            <div class="col-sm-7">
+                                <select class="form-control" name="">
+                                    <option>全部</option>
+                                    <option>充值</option>
+                                    <option>消费</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label class="col-sm-5 control-label">交易渠道</label>
+                            <div class="col-sm-7">
+                                <select class="form-control" name="">
+                                    <option>全部</option>
+                                    <option>百度钱包</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-4">
+                            <label class="col-sm-5 control-label">结算日期</label>
+                            <div class="col-sm-7">
+                                <input placeholder="开始日期" class="form-control layer-date pull-left" id="start">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <div class="col-sm-1 m-text-1">至</div>
+                            <div class="col-sm-7">
+                                <input placeholder="结束日期" class="form-control layer-date pull-left" id="end">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <button type="button" class="btn btn-primary" id="find">查询</button>
+                            <button type="button" class="btn btn-warning">导出</button>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                    <!-- 表格分页 -->
+                    <div class="table-content" id="table-content">
+                        <!-- 表格开始 -->
+                        <table class="table table-bordered table-striped dataTables" id="list">
+                            <thead>
+                                <tr>
+                                    <th>交易日期</th>
+                                    <th>商户号</th>
+                                    <th>商品名称</th>
+                                    <th>订单号</th>
+                                    <th>交易渠道</th>
+                                    <th>交易类型</th>
+                                    <th>交易状态</th>
+                                    <th>交易金额</th>
+                                    <th>手续费</th>
+                                    <th>结算金额</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                            </tbody>
+                        </table>
+                        <!-- 表格结束 -->
+                    </div>
+                    <!-- 表格分页  end-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../js/plugins/layer/laydate/laydate.js"></script>
+    <script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+        $(function(){
+            // 开始时间和结束时间
+            var start={elem:"#start",format:"YYYY/MM/DD",min:laydate.now(),max:"2099-06-16",istime:true,istoday:false,choose:function(datas){end.min=datas;end.start=datas}};
+            var end={elem:"#end",format:"YYYY/MM/DD",min:laydate.now(),max:"2099-06-16",istime:true,istoday:false,choose:function(datas){start.max=datas}};laydate(start);laydate(end);
+            
+
+            var table = $('#list').DataTable( {
+                "processing": true,
+                "serverSide": true,
+                "ordering" : false,
+                //"paging": false, 
+                "searching" : false,
+                //"bPaginate" : false,
+                "bInfo": true,
+                "lengthChange": false,
+                "ajax": {
+                    "url" : "../data/objects-7.php" 
+                },
+                "language": {
+                    "paginate": {
+                      "previous": "«"
+                      ,"next" : "»"
+                    },
+                    "info": '显示 \_START\_ 到 \_END\_ 项 共<em class="label label-warning data-num">\_TOTAL\_</em>'
+                            +'条数据'
+                },
+                fnDrawCallback: function ( data, type, row ) {
+
+                    if(table.ajax.json().data.length < 1){
+                        $("#table-content").find('tbody').html('<tr><td colspan="10">无数据</td></tr>');
+                    }
+                    return;
+                    //alert(table.ajax.json().data.length)
+                    console.log('fnDrawCallback');
+                    console.log(data); 
+                    console.log(table); 
+                    console.log(table.page()); 
+                    //alert(page.page().len())
+
+                    console.log(table.page.info());
+                    console.log(table.page.len()); 
+                    
+                }
+
+                
+            }) 
+
+            
+            table.on( 'draw', function () {
+                 
+            });
+
+            table.on( 'xhr', function ( e, settings, json ) {
+                //alert('1');
+                //console.log( 'Ajax event occurred. Returned data: ', json );
+            });
+
+            $("#find").click(function(){
+
+                var application_num = $("#application_num").val();
+                var application_name = $("#application_name").val(); 
+
+                table.ajax.url("../data/objects-7.php?"+jQuery.param({
+                    "application_num" : application_num,
+                    "application_name" : application_name 
+                }));
+                table.ajax.reload();
+            })
+        });
+        
+    </script>
+</body>
+
+</html>

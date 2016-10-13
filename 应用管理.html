@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            应用管理
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="css/plugins/dataTables/dataTables.bootstrap.css" />
+        <link href="css/animate.min.css" rel="stylesheet"/>
+        <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
+        <link href="css/style.min.css?v=4.1.0" rel="stylesheet"/>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <form action="" class="form-horizontal">
+                        <div class="form-group col-sm-4">
+                            <label class="col-sm-4 control-label">应用编号</label>
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="请输入应用编号" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label class="col-sm-4 control-label">应用名称</label>
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="请输入应用名称" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-primary" id="find">查询</button>
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addModal">新增</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                    <!-- 表格分页 -->
+                    <div class="table-content" id="table-content">
+                        <!-- 表格开始 -->
+                        <table class="table table-bordered table-striped dataTables" id="list">
+                            <thead>
+                                <tr>
+                                    <th>创建时间</th>
+                                    <th>应用编号</th>
+                                    <th>应用名称</th>
+                                    <th>应用备注</th>
+                                    <th>操作时间</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                        <!-- 表格结束 -->
+                        <!-- 分页开始 -->
+                        <!-- 分页结束 -->
+                    </div>
+                    <!-- 表格分页  end-->
+                </div>
+            </div>
+            <!-- 无应用时显示 start -->
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a class="add-apply text-center">
+                        <p class="fa fa-plus"></p>
+                        <p>点击创建您的第一个应用</p>
+                    </a>
+                </div>
+            </div>
+            <!-- 无应用时显示 -->
+        </div>
+    </div>
+    <!-- 应用管理新增 -->
+    <div class="modal inmodal in" id="addModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-header">
+                    <h4 class="modal-title">创建应用</h4>
+                    <div class="modal-body">
+                        <div class="form-group col-sm-12">
+                            <input type="text" placeholder="填写应用名称" class="form-control" name="applicationName" maxlength="15" />
+                            <p class="text-left m-t-sm">应用名称为1~15位大小写字母、数字、下划线，或组合。</p>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-primary" id="confirm-btn">确认</a>
+                        <a class="btn btn-white" data-dismiss="modal">
+                        取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 模态框 确认按钮点击
+            $('#confirm-btn').click(function(event) {
+                var applicationName=$("input[name='applicationName']").val();
+                if(applicationName==''){
+                    swal("应用名称不符合规范");
+                }else {
+                    swal({
+                        title: "",
+                        text: "您已成功创建应用！"
+                    }, 
+                    function(){
+                        $('#addModal').modal('hide');
+                    });
+                }
+            });
+
+            var table = $('#list').DataTable( {
+                "processing": true,
+                "serverSide": true,
+                "ordering" : false,
+                //"paging": false, 
+                "searching" : false,
+                //"bPaginate" : false,
+                "bInfo": true,
+                "lengthChange": false,
+                "ajax": {
+                    "url" : "data/objects-5.php"
+                },
+                "language": {
+                    "paginate": {
+                      "previous": "«"
+                      ,"next" : "»"
+                    },
+                    "info": '显示 \_START\_ 到 \_END\_ 项 共<em class="label label-warning data-num">\_TOTAL\_</em>'
+                            +'条数据'
+                },
+                columnDefs: [{
+                    //   指定第一列，从0开始，0表示第一列，1表示第二列……
+                    targets: 6,
+                    render: function(data, type, row, meta) {
+                        return '<a href="">查看</a>';
+                    }
+                }],
+                fnDrawCallback: function ( data, type, row ) {
+
+                    if(table.ajax.json().data.length < 1){
+                        $("#table-content").find('tbody').html('<tr><td colspan="7">无数据</td></tr>');
+                    }
+                    return;
+                    //alert(table.ajax.json().data.length)
+                    console.log('fnDrawCallback');
+                    console.log(data); 
+                    console.log(table); 
+                    console.log(table.page()); 
+                    //alert(page.page().len())
+
+                    console.log(table.page.info());
+                    console.log(table.page.len()); 
+                    
+                }
+
+                
+            }) 
+
+            
+            table.on( 'draw', function () {
+                 
+            });
+
+            table.on( 'xhr', function ( e, settings, json ) {
+                //alert('1');
+                //console.log( 'Ajax event occurred. Returned data: ', json );
+            });
+
+            $("#find").click(function(){
+
+                var application_num = $("#application_num").val();
+                var application_name = $("#application_name").val(); 
+
+                table.ajax.url("data/objects-5.php?"+jQuery.param({
+                    "application_num" : application_num,
+                    "application_name" : application_name 
+                }));
+                table.ajax.reload();
+            })
+        });
+    </script>
+</body>
+
+</html>

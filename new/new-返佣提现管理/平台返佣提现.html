@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
+        <link href="../js/plugins/layer/laydate/need/laydate.css" />
+        <link href="../css/plugins/dataTables/dataTables.bootstrap.css" />
+        <link href="../css/animate.min.css" rel="stylesheet"/>
+        <link href="../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        
+</head>
+    <style>
+        .fontSize20 {
+            font-size: 20px;
+        }
+    </style>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="ibox-title ibox-border pl0">
+                        <h3>平台返佣提现</h3>
+                        <p>最新余额（元）：<span class="text-danger fontSize20">233333.33</span></p>
+                    </div>
+                    <div class="clearfix"></div>
+                    <form action="" class="form-horizontal m-t">
+                        <div class="form-group col-sm-6 pl0">
+                            <label class="pull-left control-label pl20 pr20">日期</label>
+                            <div class="col-sm-10 pl0">
+                                <input placeholder="开始日期" class="form-control layer-date m-timetxt pull-left" id="start">
+                                <span>至</span>
+                                <input placeholder="结束日期" class="form-control layer-date m-timetxt pull-left" id="end">
+                            </div>
+                        </div>
+                        <div class="form-group pull-right">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-primary m-r-sm" id="find">搜索</button>
+                                <button type="button" class="btn btn-warning m-r-sm">下载</button>
+                                <button type="button" class="btn btn-info" id="tiXian">提现</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                    <!-- 表格分页 -->
+                    <div class="table-content" id="table-content">
+                        <!-- 表格开始 -->
+                        <table class="table table-bordered table-striped dataTables" id="list">
+                            <thead>
+                                <tr>
+                                    <th>交易时间</th>
+                                    <th>返佣金额（元）</th>
+                                    <th>提现金额（元）</th>
+                                    <th>账户余额（元）</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                        <!-- 表格结束 -->
+                    </div>
+                    <!-- 表格分页  end-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../js/plugins/layer/laydate/laydate.js"></script>
+    <script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+        $(document).ready(function(){
+            var start={elem:"#start",format:"YYYY/MM/DD",min:laydate.now(),max:"2099-06-16",istime:true,istoday:false,choose:function(datas){end.min=datas;end.start=datas}};
+            var end={elem:"#end",format:"YYYY/MM/DD",min:laydate.now(),max:"2099-06-16",istime:true,istoday:false,choose:function(datas){start.max=datas}};laydate(start);laydate(end);
+
+            var table = $('#list').DataTable( {
+                "processing": true,
+                "serverSide": true,
+                "ordering" : false,
+                //"paging": false, 
+                "searching" : false,
+                //"bPaginate" : false,
+                "bInfo": true,
+                "lengthChange": false,
+                "ajax": {
+                    "url" : "../data/objects-11.php" 
+                },
+                "language": {
+                    "paginate": {
+                      "previous": "«"
+                      ,"next" : "»"
+                    },
+                    "info": '显示 \_START\_ 到 \_END\_ 项 共<em class="label label-warning data-num">\_TOTAL\_</em>'
+                            +'条数据'
+                },
+                fnDrawCallback: function ( data, type, row ) {
+
+                    if(table.ajax.json().data.length < 1){
+                        $("#table-content").find('tbody').html('<tr><td colspan="4">无数据</td></tr>');
+                    }
+                    return;
+                    //alert(table.ajax.json().data.length)
+                    console.log('fnDrawCallback');
+                    console.log(data); 
+                    console.log(table); 
+                    console.log(table.page()); 
+                    //alert(page.page().len())
+
+                    console.log(table.page.info());
+                    console.log(table.page.len()); 
+                    
+                }
+
+                
+            }) 
+
+            
+            table.on( 'draw', function () {
+                 
+            });
+
+            table.on( 'xhr', function ( e, settings, json ) {
+                //alert('1');
+                //console.log( 'Ajax event occurred. Returned data: ', json );
+            });
+
+            $("#find").click(function(){
+
+                var application_num = $("#application_num").val();
+                var application_name = $("#application_name").val(); 
+
+                table.ajax.url("../data/objects-11.php?"+jQuery.param({
+                    "application_num" : application_num,
+                    "application_name" : application_name 
+                }));
+                table.ajax.reload();
+            })
+
+
+            // 提现点击事件
+            $('#tiXian').click(function(event) {
+                swal(
+                    {
+                        title: "提现金额",
+                        text: "",
+                        type: "input",
+                        showCancelButton:true,
+                        confirmButtonColor:"#00bfa9",
+                        confirmButtonText:"提交",
+                        cancelButtonText:"取消", 
+                        closeOnConfirm: false,   
+                        animation: "slide-from-top",   
+                        inputPlaceholder: "请输入提现金额"
+                    },
+                    function(inputValue){
+                        if (inputValue === false) return false;
+                        if (inputValue === "") {
+                            swal.showInputError("请输入提现金额");
+                            // 您的账户余额不足
+                        }else{
+                            swal(
+                                {
+                                    title: "申请成功",
+                                    text: "",
+                                    type: "success",
+                                    showCancelButton:false,
+                                    showConfirmButton: false,
+                                    confirmButtonColor:"#00bfa9", 
+                                    timer: 1500
+                                }
+                            );
+                        }
+                    }
+                )
+            });
+        });
+    </script>
+</body>
+
+</html>

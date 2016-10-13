@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            按交易量
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../css/animate.min.css" rel="stylesheet"/>
+        <link href="../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        <link type="text/css" rel="stylesheet" href="../js/plugins/layer/laydate/need/laydate.css" />
+        <link type="text/css" rel="stylesheet" href="../css/plugins/dataTables/dataTables.bootstrap.css" />
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row">
+           <div class="ibox">
+               <div class="ibox-content">
+                    <form action="" class="form-horizontal">
+                        <div class="form-group col-sm-3 pl0">
+                            <label class="pull-left control-label pl20 pr20">交易时间</label>
+                            <div class="col-sm-7 pl0">
+                                <input placeholder="交易时间" class="form-control layer-date pull-left" id="time">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3 pl0">
+                            <label class="pull-left control-label pl20 pr20">交易渠道</label>
+                            <div class="col-sm-7 pl0">
+                                <select class="form-control" name="">
+                                    <option>全部</option>
+                                    <option>支付宝</option>
+                                    <option>微信</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3 pl0">
+                            <label class="pull-left control-label pl20 pr20">应用</label>
+                            <div class="col-sm-7 pl0">
+                                <select class="form-control" name="">
+                                    <option>应用1</option>
+                                    <option>应用2</option>
+                                    <option>应用3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-primary">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th>总金额</th>
+                                <th>总笔数</th>
+                                <th>单日最高交易总额</th>
+                                <th>单日最低交易总额</th>
+                                <th>单日最高交易总笔数</th>
+                                <th>单日最低交易总笔数</th>
+                            </tr>
+                            <tr>
+                                <td  class="text-info">123456789012.34</td>
+                                <td  class="text-info">123456789012.34</td>
+                                <td  class="text-info">123456789012.34</td>
+                                <td  class="text-info">123456789012.34</td>
+                                <td  class="text-info">123456789012.34</td>
+                                <td  class="text-info">123456789012.34</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="main" style="width: 100%;height:400px;"></div>
+               </div>
+           </div>
+        </div>
+    </div>
+
+    <script src="../js/plugins/echarts/echarts-all.js"></script>
+    <script src="../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../js/plugins/layer/laydate/laydate.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // function reload(){
+            //     location.reload();
+            // }
+            // 交易时间
+            laydate({elem:"#time",event:"focus",format: 'YYYY-MM'});
+            var option = {
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    toolbox: {
+                        feature: {
+                            dataView: {show: true, readOnly: false},
+                            magicType: {show: true, type: ['line', 'bar']},
+                            restore: {show: true},
+                            saveAsImage: {show: true}
+                        }
+                    },
+                    legend: {
+                        data:['笔数','金额']
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            data: []
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            name: '交易笔数（笔）',
+                            min: 0,
+                            max: 50,
+                            interval: 10,
+                            axisLabel: {
+                                formatter: '{value}'
+                            }
+                        },
+                        {
+                            type: 'value',
+                            name: '交易金额（元）',
+                            min: 0,
+                            max: 50,
+                            interval: 10,
+                            axisLabel: {
+                                formatter: '{value}'
+                            }
+                        }
+                    ],
+                    series: [
+                        {
+                            name:'笔数',
+                            type:'bar',
+                            data:[]
+                        },
+                      
+                        {
+                            name:'金额',
+                            type:'line',
+                            yAxisIndex: 1,
+                            data:[]
+                        }
+                    ]
+
+                };
+
+            var myChart = echarts.init(document.getElementById('main'));
+                myChart.setOption(option);
+
+        })
+
+        
+    </script>
+
+</body>
+
+</html>

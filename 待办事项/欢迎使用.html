@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            欢迎使用
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../css/animate.min.css" rel="stylesheet"/>
+        <link href="../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="row">
+           <div class="ibox">
+               <div class="ibox-content">
+                   <div class="col-sm-12">
+                        <div class="tabs-container">
+                            <ul class="nav nav-tabs">
+                                <li>
+                                    <a data-index="23" href="所有未处理.html">
+                                    所有未处理
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-index="24" href="系统通知.html">
+                                    系统通知
+                                    </a>
+                                </li>
+                                 <li class="active">
+                                    <a data-toggle="tab" href="#tab-3" aria-expanded="false">
+                                    欢迎使用
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content m-b-sm">
+                                <div id="tab-3" class="tab-pane active">
+                                    <div class="panel-body">
+                                        <div class="col-sm-12">
+                                            <div id="vertical-timeline" class="vertical-container light-timeline">
+                                                <div class="vertical-timeline-block">
+                                                    <div class="vertical-timeline-icon navy-bg">
+                                                        <i class="fa">1</i>
+                                                    </div>
+                                                    <div class="vertical-timeline-content">
+                                                        <h2>创建应用<a class="btn btn-sm btn-primary name1">创建应用</a></h2>
+                                                        <p>
+                                                            创建您的应用，开始成长支付之旅！
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="vertical-timeline-block">
+                                                    <div class="vertical-timeline-icon navy-bg">
+                                                        <i class="fa">2</i>
+                                                    </div>
+                                                    <div class="vertical-timeline-content">
+                                                        <h2>实名认证（约2个工作日）<a href="#" class="btn btn-sm btn-primary">实名认证</a></h2>
+                                                        <p>
+                                                            提交企业信息，完成实名认证后，即可将应用设置了正常支付状态。
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="vertical-timeline-block">
+                                                    <div class="vertical-timeline-icon navy-bg">
+                                                        <i class="fa">3</i>
+                                                    </div>
+                                                    <div class="vertical-timeline-content">
+                                                        <h2>设置应用“正常状态”<a href="#" class="btn btn-sm btn-primary">设置状态</a></h2>
+                                                        <p>
+                                                            正常支付状态可以发起真实支付交易；测试状态可用于支付调试。
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="vertical-timeline-block">
+                                                    <div class="vertical-timeline-icon navy-bg">
+                                                        <i class="fa">4</i>
+                                                    </div>
+                                                    <div class="vertical-timeline-content">
+                                                        <h2>接口调试<a href="#" class="btn btn-sm btn-primary">调试</a></h2>
+                                                        <p>
+                                                            成长支付接口调试系统，可以让你快速在线调试，并监控相应信息。
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+               </div>
+           </div>
+        </div>
+    </div>
+    
+    <script src="../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+    <script>
+        $(function(){
+            $(".name1").on("click", function(){
+                self.$ = parent.$;
+                parent.$('#name1',parent.doucment).trigger('click');
+            });
+        })
+    </script>
+</body>
+
+</html>

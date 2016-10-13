@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            所有未处理
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../css/animate.min.css" rel="stylesheet"/>
+        <link href="../css/plugins/dataTables/dataTables.bootstrap.css" />
+        <link href="../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="row">
+           <div class="ibox">
+               <div class="ibox-content">
+                   <div class="col-sm-12">
+                        <div class="tabs-container">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#tab-1" aria-expanded="false">
+                                    所有未处理
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-index="24" href="系统通知.html">
+                                    系统通知
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a data-index="25" href="欢迎使用.html">
+                                    欢迎使用
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content m-b-sm">
+                                <div id="tab-1" class="tab-pane active">
+                                    <div class="panel-body">
+                                        <div class="col-sm-12 pl0">
+                                            <div class="col-sm-3 pl0">
+                                                <button class="btn btn-primary btn-outline" id="refreshBtn">
+                                                    <i class="fa fa-refresh"></i>刷新
+                                                </button>
+                                            </div>
+                                            <div class="pull-right">
+                                                <form role="form" class="form-inline">
+                                                    <div class="form-group">
+                                                        <input type="text" placeholder="搜索内容" class="form-control">
+                                                    </div>
+                                                    <button class="btn btn-primary" type="submit">搜索</button>
+                                                </form>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <!-- 表格分页 -->
+                                        <div class="table-content m-t-lg" id="table-content">
+                                            <!-- 表格开始 -->
+                                            <table class="table table-striped m-border" id="list">
+                                                <tbody>
+                                                    
+                                                </tbody>
+                                            </table>
+                                            <!-- 表格结束 -->
+                                            <!-- 分页开始 -->
+
+                                            <!-- 分页结束 -->
+                                        </div>
+                                        <!-- 表格分页  end-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+               </div>
+           </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+            var table = $('#list').DataTable( {
+                "processing": true,
+                "serverSide": true,
+                "ordering" : false,
+                //"paging": false, 
+                "searching" : false,
+                //"bPaginate" : false,
+                "bInfo": true,//如果这个参数不穿到后台去，服务器分页会报错，据说这个参数包含了表的所有信息
+                "lengthChange": false,
+                "ajax": {
+                    "url" : "../data/objects-4.php"
+                },
+                "language": {
+                    "paginate": {
+                      "previous": "«"
+                      ,"next" : "»"
+                    },
+                    "info": '显示 \_START\_ 到 \_END\_ 项 共<em class="label label-warning data-num">\_TOTAL\_</em>'
+                            +'条数据'
+                },
+                columnDefs: [
+                    {
+                        //   指定第一列，从0开始，0表示第一列，1表示第二列……
+                        targets: 0,
+                        render: function(data, type, row, meta) {
+                            
+                            return '<i class="ico-circle"></i>'+row[0];
+                        }
+                    },
+                    {
+                        //   指定第一列，从0开始，0表示第一列，1表示第二列……
+                        targets: 1,
+                        render: function(data, type, row, meta) {
+                            
+                            return '<a href="" class="text-left btn-block">'+row[1]+'</a>';
+                        }
+                    },
+                    {
+                        //   指定第一列，从0开始，0表示第一列，1表示第二列……
+                        targets: 2,
+                        render: function(data, type, row, meta) {
+                            $('thead').remove();
+                            return row[2];
+                            //return '<input type="checkbox" name="checklist" value="' + row.id + '" />'
+                        }
+                    }
+                ],
+                fnDrawCallback: function ( data, type, row ) {
+
+                    if(table.ajax.json().data.length < 1){
+                        $("#table-content").find('tbody').html('<tr><td colspan="6">无数据</td></tr>');
+                    }
+                    return;
+                    //alert(table.ajax.json().data.length)
+                    console.log('fnDrawCallback');
+                    console.log(data); 
+                    console.log(table); 
+                    console.log(table.page()); 
+                    //alert(page.page().len())
+
+                    console.log(table.page.info());
+                    console.log(table.page.len()); 
+                    
+                }
+            }) 
+
+            table.columns().flatten().each( function ( colIdx ) {
+                
+            });
+
+            table.on( 'draw', function () {
+                 
+            });
+
+            table.on( 'xhr', function ( e, settings, json ) {
+                //alert('1');
+                //console.log( 'Ajax event occurred. Returned data: ', json );
+            });
+            // 刷新点击事件
+            $("#refreshBtn").click(function(){
+
+                var application_num = $("#application_num").val();
+                var application_name = $("#application_name").val(); 
+
+                table.ajax.url("../data/objects-4.php?"+jQuery.param({
+                    "application_num" : application_num,
+                    "application_name" : application_name 
+                }));
+                table.ajax.reload();
+                $('#number', window.parent.document).html('13');
+            });
+        });
+    </script>
+</body>
+
+</html>
