@@ -86,17 +86,17 @@
                     <li data-index="5">
                         <a class="doctab" data-toggle="collapse" data-target="#interfaceReg">接口规范<span class="caret"></span></a>
                         <ul class="doc-cell collapse in" id="interfaceReg">
-                            <li><a class="doctab" href="#interfaceSign">签名机制</a></li>
-                            <li><a class="doctab" href="#interfaceRetrun">请求返回</a></li>
+                            <li><a class="doctab" data-href="#interfaceSign">签名机制</a></li>
+                            <li><a class="doctab" data-href="#interfaceRetrun">请求返回</a></li>
                         </ul>
                     </li>
                     <li  data-index="6">
                         <a class="doctab" data-toggle="collapse" data-target="#grewInterfaceList">接口列表<span class="caret"></span></a>
                         <ul class="doc-cell collapse in" id="grewInterfaceList">
-                            <li><a class="doctab" href="#prepay">prepay 预下单</a></li>
-                            <li><a class="doctab" href="#charges">charges支付</a></li>
-                            <li><a class="doctab" href="#query">query查询接口</a></li>
-                            <li><a class="doctab" href="#refund">refund退货接口</a></li>
+                            <li><a class="doctab" data-href="#prepay">prepay 预下单</a></li>
+                            <li><a class="doctab" data-href="#charges">charges支付</a></li>
+                            <li><a class="doctab" data-href="#query">query查询接口</a></li>
+                            <li><a class="doctab" data-href="#refund">refund退货接口</a></li>
                         </ul>
                     </li>
                     <li  data-index="7">
@@ -519,6 +519,13 @@
                     var Index=$(this).attr('data-index');
                     $('.doc-change[data-index='+ Index +']').show().siblings('.doc-change').hide();
                 });
+                $(".collapse li a").click(function(){
+                    var idName=$(this).attr("data-href");
+                    var scrollTotop = $(idName).offset().top;
+                        $('body,html').animate({
+                            scrollTop: (scrollTotop-105)
+                        },400);
+                })
            })
        </script>
     </body>
