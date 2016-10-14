@@ -509,6 +509,7 @@
         </footer>
        <script type="text/javascript">
            $(function(){
+                // alert($("a[data-href='#query']").offset().top)
                 $('.doctab').click(function(event) {
                     $(this).find("span").toggleClass('caret-close');
                     $('.doctab').removeClass('active');
@@ -518,13 +519,31 @@
                     var Index=$(this).attr('data-index');
                     $('.doc-change[data-index='+ Index +']').show().siblings('.doc-change').hide();
                 });
-                $(".collapse li a").click(function(){
+                // $(".collapse li a").click(function(){
+                //     var idName=$(this).attr("data-href");
+                //     console.log(idName)
+                //     var scrollTotop = $(idName).offset().top;
+                //     console.log(scrollTotop);
+                //     if(idName=="#prepay"){
+                //         $('body').animate({
+                //             scrollTop: (180)
+                //         },50);
+                //     }else if(idName=="#interfaceSign"){
+                //         $('body').animate({
+                //             scrollTop: (140)
+                //         },50);
+                //     }else{
+                //         $('body').animate({
+                //             scrollTop: (scrollTotop-105)
+                //         },50);
+                //     }
+                // })
+                $(".collapse li a").on("click",function(){
                     var idName=$(this).attr("data-href");
-                    var scrollTotop = $(idName).offset().top;
-                        $('body,html').animate({
-                            scrollTop: (scrollTotop-105)
-                        },400);
-                })
+                    var top=$(idName).offset().top;
+                    console.log(top)
+                    $(window).scrollTop(top-105);
+                });
            })
        </script>
     </body>
