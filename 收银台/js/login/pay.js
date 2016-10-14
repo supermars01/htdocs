@@ -30,6 +30,10 @@ $(function() {
                 minlength: 15,
                 idNum: !0
             },
+            expiryDate: {
+                required: !0,
+                number:!0
+            },
             telphone: {
                 required: !0,
                 telphone: !0
@@ -42,13 +46,17 @@ $(function() {
         },
         messages: {
             cardNum: {
-                required: "*请输入银行卡号"
+                required: "*请输入银行卡号",
+                creditcard:"请输入合法的银行卡号"
             },
             username: {
-                required: "*请输入持卡人姓名"
+                required: "*请输入持卡人姓名",
             },
             idNum: {
                 required: "*请输入身份证号"
+            },
+            expiryDate: {
+                required: "*请输入正确的卡有效期"
             },
             telphone: {
                 required: "*请输入手机号码"

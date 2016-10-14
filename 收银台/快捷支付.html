@@ -55,10 +55,11 @@
                <div class="pay-way pay-main">
                     <h3>仅限持卡本人操作，请如实填写以下信息用于实名身份验证</h3>
                     <form class="m-t form-horizontal" role="form"  id="payForm" action="支付成功.html">
-                        <div class="form-group col-sm-12">
+                        <div class="form-group col-sm-12 cns cardNotSup">
                             <label class="control-label col-sm-3">银行卡</label>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6" style="position:none">
                                 <input type="text" class="form-control" name="cardNum" id="cardNum" placeholder="请输入银行卡号" required="" maxlength="19" validate="{required:true, cardNum:true}">
+                                <span class="help-block m-b-none card-notsupport">该银行卡不支持</span>
                                 <span class="bankLogo"></span>
                             </div>
                             <a class="col-sm-3 aptBank">查看支持的银行卡</a>
@@ -73,6 +74,12 @@
                             <label class="control-label col-sm-3">身份证号</label>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" name="idNum" placeholder="请输入身份证号" required="" maxlength="18">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="control-label col-sm-3">卡有效期</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="expiryDate" placeholder="请输入格式：月年" required="" maxlength="4">
                             </div>
                         </div>
                         <div class="form-group col-sm-12">
