@@ -83,15 +83,15 @@
                         <a class="doctab">名词解释</a>
                     </li>
                     <li data-index="5">
-                        <a class="doctab" data-toggle="collapse" data-target="#interfaceReg">接口规范<span class="caret"></span></a>
-                        <ul class="doc-cell collapse in" id="interfaceReg">
+                        <a class="doctab lm" data-toggle="collapse" data-target="#interfaceReg">接口规范<span class="caret"></span></a>
+                        <ul class="doc-cell collapse" id="interfaceReg">
                             <li><a class="doctab" data-href="#interfaceSign">签名机制</a></li>
                             <li><a class="doctab" data-href="#interfaceRetrun">请求返回</a></li>
                         </ul>
                     </li>
                     <li  data-index="6">
-                        <a class="doctab" data-toggle="collapse" data-target="#grewInterfaceList">接口列表<span class="caret"></span></a>
-                        <ul class="doc-cell collapse in" id="grewInterfaceList">
+                        <a class="doctab lm" data-toggle="collapse" data-target="#grewInterfaceList">接口列表<span class="caret"></span></a>
+                        <ul class="doc-cell collapse" id="grewInterfaceList">
                             <li><a class="doctab" data-href="#prepay">prepay 预下单</a></li>
                             <li><a class="doctab" data-href="#charges">charges支付</a></li>
                             <li><a class="doctab" data-href="#query">query查询接口</a></li>
@@ -509,6 +509,7 @@
         </footer>
        <script type="text/javascript">
            $(function(){
+                // alert($("a[data-href='#query']").offset().top)
                 $('.doctab').click(function(event) {
                     $(this).find("span").toggleClass('caret-close');
                     $('.doctab').removeClass('active');
@@ -518,12 +519,19 @@
                     var Index=$(this).attr('data-index');
                     $('.doc-change[data-index='+ Index +']').show().siblings('.doc-change').hide();
                 });
-                $(".collapse li a").click(function(){
+                $(".collapse li a").on("click",function(){
+                    var index=$(this).index();
+                    alert(index)
                     var idName=$(this).attr("data-href");
-                    var scrollTotop = $(idName).offset().top;
-                        $('body,html').animate({
-                            scrollTop: (scrollTotop-105)
-                        },400);
+                    var top=$(idName).offset().top;
+                    console.log(top)
+                    $(window).scrollTop(top-105);
+                    // $(this).parents("doc-cell").addClass('in').siblings().addClass('collapse');
+                });
+                $("a[data-toggle='collapse']").each(function(ind){
+                    $(this).click(function(){
+                        $(this).parent().find('.doc-cell').addClass('in');
+                    })
                 })
            })
        </script>
