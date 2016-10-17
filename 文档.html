@@ -43,7 +43,7 @@
             .doc-l{width:251px;position:fixed;padding:0}
             .doc-l .doc-cell{overflow:hidden}
             .caret{margin-left:5px;border-top:6px solid;border-right:6px solid transparent;border-left:6px solid transparent;-webkit-transition:all .5 ease-out}
-            .caret-close{border-top:6px solid;border-left:6px solid;border-top:6px solid transparent;border-bottom:6px solid transparent}
+            .active .caret,.child .caret{border-top:6px solid;border-left:6px solid;border-top:6px solid transparent;border-bottom:6px solid transparent}
             .doc-l span.caret{display:inline-block;padding:0}
         </style>
         <script>
@@ -509,30 +509,27 @@
         </footer>
        <script type="text/javascript">
            $(function(){
-                // alert($("a[data-href='#query']").offset().top)
                 $('.doctab').click(function(event) {
-                    $(this).find("span").toggleClass('caret-close');
+                    $('.lm').removeClass('child');
+                    if($(this).attr('data-toggle')=='collapse'){
+                        $(window).scrollTop(0);
+                        $("a[data-toggle='collapse']").parent('li').find('ul.doc-cell').addClass('collapse').removeClass('in');
+                        $(this).parent('li').find('ul.doc-cell').toggleClass('collapse');
+                    }
                     $('.doctab').removeClass('active');
-                    $(this).addClass('active');
+                    $(this).addClass('active')
                 });
                 $('.doc-l>li').click(function(){
                     var Index=$(this).attr('data-index');
                     $('.doc-change[data-index='+ Index +']').show().siblings('.doc-change').hide();
                 });
                 $(".collapse li a").on("click",function(){
-                    var index=$(this).index();
-                    alert(index)
                     var idName=$(this).attr("data-href");
                     var top=$(idName).offset().top;
-                    console.log(top)
                     $(window).scrollTop(top-105);
-                    // $(this).parents("doc-cell").addClass('in').siblings().addClass('collapse');
+                    $('.lm').removeClass('child');
+                    $(this).parents('.doc-cell').siblings('.lm').addClass('child')
                 });
-                $("a[data-toggle='collapse']").each(function(ind){
-                    $(this).click(function(){
-                        $(this).parent().find('.doc-cell').addClass('in');
-                    })
-                })
            })
        </script>
     </body>
