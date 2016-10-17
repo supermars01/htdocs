@@ -510,9 +510,9 @@
        <script type="text/javascript">
            $(function(){
                 $('.doctab').click(function(event) {
-                    $('.lm').removeClass('child');
                     if($(this).attr('data-toggle')=='collapse'){
                         $(window).scrollTop(0);
+                        $('.lm').removeClass('child');
                         $("a[data-toggle='collapse']").parent('li').find('ul.doc-cell').addClass('collapse').removeClass('in');
                         $(this).parent('li').find('ul.doc-cell').toggleClass('collapse');
                     }
