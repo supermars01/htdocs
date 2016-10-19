@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../js/plugins/layer/laydate/need/laydate.css" />
+        <link href="../css/plugins/dataTables/dataTables.bootstrap.css" />
+        <link href="../css/animate.min.css" rel="stylesheet"/>
+        <link href="../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        
+</head>
+    <style>
+        .m-date-con {
+            position: relative;
+        }
+        .m-start,.m-end {
+            display: inline-block!important;
+            float: left;
+            width: 180px;
+            /*width: 46%;*/
+            height: 34px;
+            bottom: 0;
+            background-color: #FFF;
+            background-image: none;
+            border: 1px solid #e5e6e7;
+            border-radius: 1px;
+            padding: 6px 12px;
+            font-size: 14px;
+            color: #222;
+            margin-bottom: 0;
+        }
+        .m-start span,.m-end span {
+            color: #999;
+        }
+        #start,#end {
+            position: absolute;
+            top: 0;
+            width: 180px;
+            opacity: 0;
+            z-index: 10;
+        }
+        #start {
+            left: 0;
+        }
+        #end {
+            left: 200px;
+        }
+        .m-date-zhi {
+            float: left;
+            text-align: center;
+            display: inline-block;
+            width: 20px;
+            line-height: 34px;
+        }
+    </style>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="ibox-title ibox-border pl0">
+                        <h3>返佣列表</h3>
+                    </div>
+                    <div class="clearfix"></div>
+                    <form action="" class="form-horizontal m-t">
+                        <div class="form-group pull-left pl0">
+                            <label class="pull-left control-label pl20 pr20">日期</label>
+                            <div class="pull-left pl0 m-date-con">
+                                <input placeholder="开始日期" class="form-control layer-date pull-left" id="start" >
+                                <p class="m-start">
+                                    <span>开始时间</span>
+                                </p>
+                                <span class="m-date-zhi">至</span>
+                                <input placeholder="结束日期" class="form-control layer-date pull-left" id="end">
+                                <p class="m-end">
+                                    <span>结束时间</span>
+                                </p>
+                            </div>
+                           <!--  <div class="col-sm-8 pl0">
+                                <select class="form-control m-timetxt pull-left" name="">
+                                    <option>全部</option>
+                                    <option>微信</option>
+                                    <option>支付宝</option>
+                                </select>
+                                <span>至</span>
+                                <select class="form-control m-timetxt pull-left" name="">
+                                    <option>全部</option>
+                                    <option>微信</option>
+                                    <option>支付宝</option>
+                                </select>
+                            </div> -->
+                        </div>
+                        <div class="form-group col-sm-5">
+                            <label class="pull-left control-label pl20 pr20 m-l-lg">交易渠道</label>
+                            <div class="col-sm-7 pl0">
+                                <select class="form-control" name="">
+                                    <option>全部</option>
+                                    <option>微信</option>
+                                    <option>支付宝</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group pull-right">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-primary m-r-sm" id="find">搜索</button>
+                                <button type="button" class="btn btn-warning">下载</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th>总交易金额（元）</th>
+                                <th>交易笔数（笔）</th>
+                                <th>手续费（元）</th>
+                                <th>平台利润（元）</th>
+                            </tr>
+                            <tr>
+                                <td class="text-info">123456789012.34</td>
+                                <td class="text-info">123456789012.34</td>
+                                <td class="text-info">123456789012.34</td>
+                                <td class="text-info">1234564</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- 表格分页 -->
+                    <div class="table-content" id="table-content">
+                        <!-- 表格开始 -->
+                        <table class="table table-bordered table-striped dataTables" id="list">
+                            <thead>
+                                <tr>
+                                    <th>返佣周期</th>
+                                    <th>交易渠道</th>
+                                    <th>交易金额</th>
+                                    <th>交易笔数</th>
+                                    <th>手续费</th>
+                                    <th>平台利润</th>
+                                    <th>返佣金额</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                        <!-- 表格结束 -->
+                    </div>
+                    <!-- 表格分页  end-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../js/plugins/layer/laydate/laydate.js"></script>
+    <script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+        $(document).ready(function(){
+            var start={
+                elem:"#start",
+                format:"YYYY/MM/DD",
+                min:laydate.now(),
+                max:"2099-06-16",
+                istime:true,
+                istoday:false,
+                choose:function(datas){
+                    var startval=$('#start').val();
+                    console.log($('#start').val());
+                    end.min=datas;
+                    end.start=datas;
+                    var startDayval1=parseInt(startval.substr(0,4));
+                    var startDayval2=parseInt(startval.substr(5,2));
+                    var startDayval3=parseInt(startval.substr(8,2));
+                    var startDomVal=$('#laydate_table td[y='+startDayval1+'][m='+startDayval2+'][d='+startDayval3+']').parent('tr').find('td');
+                    var startValue1=startDomVal.eq(0).attr('y')+'/'+startDomVal.eq(0).attr('m')+'/'+startDomVal.eq(0).attr('d');
+                    var startValue2=startDomVal.eq(6).attr('y')+'/'+startDomVal.eq(6).attr('m')+'/'+startDomVal.eq(6).attr('d');
+                    $('.m-start').html(startValue1+"-"+startValue2);
+                }
+            };
+            var end={
+                elem:"#end",
+                format:"YYYY/MM/DD",
+                min:laydate.now(),
+                max:"2099-06-16",
+                istime:true,
+                istoday:false,
+                choose:function(datas){
+                    start.max=datas;
+                    var endval=$('#end').val();
+                    console.log($('#end').val());
+                    end.min=datas;
+                    end.end=datas;
+                    var endDayval1=parseInt(endval.substr(0,4));
+                    var endDayval2=parseInt(endval.substr(5,2));
+                    var endDayval3=parseInt(endval.substr(8,2));
+                    var endDomVal=$('#laydate_table td[y='+endDayval1+'][m='+endDayval2+'][d='+endDayval3+']').parent('tr').find('td');
+                    var endValue1=endDomVal.eq(0).attr('y')+'/'+endDomVal.eq(0).attr('m')+'/'+endDomVal.eq(0).attr('d');
+                    var endValue2=endDomVal.eq(6).attr('y')+'/'+endDomVal.eq(6).attr('m')+'/'+endDomVal.eq(6).attr('d');
+                    $('.m-end').html(endValue1+"-"+endValue2);
+                }
+            };
+            laydate(start);laydate(end);
+
+            var table = $('#list').DataTable( {
+                "processing": true,
+                "serverSide": true,
+                "ordering" : false,
+                //"paging": false, 
+                "searching" : false,
+                //"bPaginate" : false,
+                "bInfo": true,
+                "lengthChange": false,
+                "ajax": {
+                    "url" : "../data/objects-11.php" 
+                },
+                "language": {
+                    "paginate": {
+                      "previous": "«"
+                      ,"next" : "»"
+                    },
+                    "info": '显示 \_START\_ 到 \_END\_ 项 共<em class="label label-warning data-num">\_TOTAL\_</em>'
+                            +'条数据'
+                },
+                fnDrawCallback: function ( data, type, row ) {
+
+                    if(table.ajax.json().data.length < 1){
+                        $("#table-content").find('tbody').html('<tr><td colspan="7">无数据</td></tr>');
+                    }
+                    return;
+                    //alert(table.ajax.json().data.length)
+                    console.log('fnDrawCallback');
+                    console.log(data); 
+                    console.log(table); 
+                    console.log(table.page()); 
+                    //alert(page.page().len())
+
+                    console.log(table.page.info());
+                    console.log(table.page.len()); 
+                    
+                }
+
+                
+            }) 
+
+            
+            table.on( 'draw', function () {
+                 
+            });
+
+            table.on( 'xhr', function ( e, settings, json ) {
+                //alert('1');
+                //console.log( 'Ajax event occurred. Returned data: ', json );
+            });
+
+            $("#find").click(function(){
+
+                var application_num = $("#application_num").val();
+                var application_name = $("#application_name").val(); 
+
+                table.ajax.url("../data/objects-11.php?"+jQuery.param({
+                    "application_num" : application_num,
+                    "application_name" : application_name 
+                }));
+                table.ajax.reload();
+            })
+        });
+    </script>
+</body>
+
+</html>
