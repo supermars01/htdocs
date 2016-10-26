@@ -33,15 +33,15 @@
       <div class="ibox-content ibox-reversion"> 
        <!-- <form action="" class=""> --> 
        <div class="img form-group col-sm-4"> 
-        <label title="上传图片" for="inputImage1" class="imgLabel"> <input type="file" accept="image/*" name="file" id="inputImage1" class="hide" /> <span>上传图片</span> 
+        <label title="上传图片" for="inputImage1" class="imgLabel"> <input type="file" name="file" id="inputImage1" class="hide" /> <span>上传图片</span> 
          <div class="uploadBox"></div> </label> 
        </div> 
        <div class="img form-group col-sm-4"> 
-        <label title="上传图片" for="inputImage2" class="imgLabel"> <input type="file" accept="image/*" name="file" id="inputImage2" class="hide" /> <span>上传图片</span> 
+        <label title="上传图片" for="inputImage2" class="imgLabel"> <input type="file" name="file" id="inputImage2" class="hide" /> <span>上传图片</span> 
          <div class="uploadBox"></div> </label> 
        </div> 
        <div class="img form-group col-sm-4"> 
-        <label title="上传图片" for="inputImage3" class="imgLabel"> <input type="file" accept="image/*" name="file" id="inputImage3" class="hide" /> <span>上传图片</span> 
+        <label title="上传图片" for="inputImage3" class="imgLabel"> <input type="file" name="file" id="inputImage3" class="hide" /> <span>上传图片</span> 
          <div class="uploadBox"></div> </label> 
        </div> 
        <div class="clearfix"></div> 
@@ -177,7 +177,7 @@
         $(function(){
 
             //上传图片Start
-            $(document).find('.hide') && $(".hide").each(function(index){
+            ($(document).find('.hide')) && $(".hide").each(function(index){
                 $(this).click(function(){
                     new uplodeImg().init({
                         fileBtn:$('.hide').eq(index), // file表单
