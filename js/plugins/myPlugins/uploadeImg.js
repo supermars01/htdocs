@@ -26,7 +26,7 @@
         uplodeImg.prototype.judgeTypeSize=function(imgBox,fileObj, maxSize,callback){
             var value = fileObj.val();
             //判断图片格式并且value不为空
-            if (!value.match(/.jpg|.jpeg|png/i) && !value.replace(/\s/g,"")==null){
+            if (!value.match(/.jpg|.jpeg|.gif|png/i) || !value.replace(/\s/g,"")==null){
                 alert("图片格式必须是jpg或jpeg或png");
             }else {
                 var size = fileObj[0].files[0].size;//得到图片的大小[]
