@@ -52,28 +52,28 @@
        <div class="form-group col-sm-3 ml"> 
         <div class="input-group"> 
          <label class="input-group-addon wx">微信</label> 
-         <input type="text" class="form-control text-right" name="wxPay" required isDigits='true' /> 
+         <input type="text" class="form-control text-right" name="wxPay" required isFloat='true' /> 
          <span class="per">%</span> 
         </div> 
        </div> 
        <div class="form-group col-sm-3 ml"> 
         <div class="input-group"> 
          <label class="input-group-addon alipay">支付宝</label> 
-         <input type="text" class="form-control text-right" name="aliPay" required isDigits='true' /> 
+         <input type="text" class="form-control text-right" name="aliPay" required isFloat='true' /> 
          <span class="per">%</span> 
         </div> 
        </div> 
        <div class="form-group col-sm-3 ml"> 
         <div class="input-group"> 
          <label class="input-group-addon unionpay">银联</label> 
-         <input type="text" class="form-control text-right" name="unionPay" required isDigits='true' /> 
+         <input type="text" class="form-control text-right" name="unionPay" required isFloat='true' /> 
          <span class="per">%</span> 
         </div> 
        </div> 
        <div class="form-group col-sm-3 ml"> 
         <div class="input-group"> 
          <label class="input-group-addon others">扩展</label> 
-         <input type="text" class="form-control text-right" name="othersPay" required isDigits='true' /> 
+         <input type="text" class="form-control text-right" name="othersPay" required isFloat='true' /> 
          <span class="per">%</span> 
         </div> 
        </div>
@@ -279,8 +279,8 @@
                     var rows = myTable.rows.length;
                     if (rows < 12) {
                         var newTr = myTable.insertRow(rows - 1);
-                        newTr.insertCell(0).innerHTML = '<input name="pojo' + arr[index] + '.key' + item[index] + '" />';
-                        newTr.insertCell(1).innerHTML = '<input name="pojo' + arr[index] + '.value' + item[index] + '"/>';
+                        newTr.insertCell(0).innerHTML = '<input name="pojo' + arr[index] + '.key' + item[index] + '" required isInteger="true" />';
+                        newTr.insertCell(1).innerHTML = '<input name="pojo' + arr[index] + '.value' + item[index] + '" required isDigits="true"/>';
                     } else {
                         swal({
                             title: "最多可新增加10条",
