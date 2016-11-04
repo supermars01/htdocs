@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="webkit" name="renderer" />
+    <meta content="no-siteapp" http-equiv="Cache-Control" />
+    <title>
+    </title>
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+    <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+    <link href="favicon.ico" rel="shortcut icon" />
+    <link href="../../css/bootstrap.min.css?v=3.3.6" rel="stylesheet" />
+    <link href="../../css/font-awesome.min.css?v=4.4.0" rel="stylesheet" />
+    <link href="../../css/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <link href="../../css/plugins/dataTables/dataTables.bootstrap.css" />
+    <link href="../../css/animate.min.css" rel="stylesheet" />
+    <link href="../../css/style.min.css?v=4.1.0" rel="stylesheet" />
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="ibox-title ibox-border">
+                        <h3>
+                               批量代付申请
+                            </h3>
+                    </div>
+                    <form class="form-horizontal m-t">
+                        <p>发起代付申请：当前可用打款余额为<span class="balance">2500</span>元</p>
+                        <p class="remind">导入格式为Excel，目前暂不支持对公代付业务，请您确保信息格式、内容无误后再导入。</p>
+                        <div class="form-group">
+                            <div>
+                                <input id="add-file" type="file" class="form-control" style="display: none;">
+                                <label class="file-lable col-sm-3" for="add-file">
+                                    <div class="input-append input-group">
+                                        <span class="input-group-btn ">
+                                        <button class="btn btn-white" type="button">导入文件</button>
+                                        </span>
+                                        <i class="fa fa-btn fa-plus"></i>
+                                    </div>
+                                </label>
+                                <i class="file-val"></i>
+                                <a class="down-modle" href="">下载模版</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class="col-sm-3">合计代付数量（笔）：<span class="pbo-num"></span></p>
+                            <p class="col-sm-3">合计代付金额（元）：<span class="pbo-count"></span></p>
+                        </div>
+                        <div class="form-group text-center">
+                            <div class="col-sm-12 ">
+                                <button type="button" disabled class="btn btn-primary btn-default sub-btn" id="find">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearfix "></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/jquery.min.js?v=2.1.4 "></script>
+    <script src="../../js/bootstrap.min.js?v=3.3.6 "></script>
+    <script src="../../js/plugins/sweetalert/sweetalert.min.js "></script>
+    <script>
+    $(document).ready(function() {
+        // 驳回 弹窗
+        $(document).on('click', '.btn-refuse', function(event) {
+            $('.btn-refuse').removeAttr('refuseStatus');
+            $('#refuseModal').modal('show');
+            $(this).attr('refuseStatus', '1');
+
+        });
+        // 驳回模态框 确定 点击事件
+        $('#refuseConfirm').click(function(event) {
+            $('.btn-refuse[refuseStatus=1]').html('已驳回');
+            $('#refuseModal').modal('hide');
+        });
+        $("#add-file").change(function(){
+            $(".sub-btn").removeAttr("disabled").removeClass('btn-default')
+            var val=$(this).val();
+            $(".file-val").html(val);
+            $(".pbo-num").html(100); //此处填写 导入word表格的 代付笔数
+            $(".pbo-count").html(25000) //此处填写 导入word表格的 代付金额
+        })
+        $(document).on('click', '#find', function(event){
+            event.preventDefault();
+            swal({
+              title: "代付请求提交中",
+              text: "请稍等...",
+              type: "info",
+              timer: 2000,
+              showLoaderOnConfirm: true,
+              showConfirmButton: false,
+            },
+            function(){
+                swal("存在空白行/格");
+                // location.href="代付查询.html"
+            });
+        })
+    });
+    </script>
+</body>
+
+</html>
