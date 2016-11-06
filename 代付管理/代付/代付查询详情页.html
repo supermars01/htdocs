@@ -54,6 +54,15 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="form-group col-sm-3">
+                            <label for="ac">账户名：</label>
+                            <input type="text" name="account-name" id="ac">
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <label for="cc">银行卡号：</label>
+                            <input type="text" name="credit-card" id="cc">
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-3">
                             <label for="bn">批次号：</label>
                             <input type="text" name="batch-num" id="bn">
                         </div>
@@ -73,10 +82,13 @@
                                 <th>序号</th>
                                 <th>批次号</th>
                                 <th>代付时间</th>
+                                <th>账户名</th>
+                                <th>银行卡号</th>
+                                <th>银行名称</th>
                                 <th>请求金额（元）</th>
                                 <th>手续费（元）</th>
                                 <th>状态</th>
-                                <th>详情</th>
+                                <th>操作</th>
                             </tr>
                             <tr>
                                 <td>1</td>
@@ -85,59 +97,127 @@
                                     <p>2016-10-21</p>
                                     <p>19:10:10</p>
                                 </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>3200</td>
                                 <td>0.5</td>
                                 <td>等待审核</td>
-                                <td><a class="color-blue" href="代付查询详情页.html">详情</a></td>
+                                <td><span class="pbo-review color-blue">审核</span></td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>
-                                    </span>201627182738</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
+                                <td>3200</td>
+                                <td></td>
+                                <td>等待审核</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
+                                <td>3200</td>
+                                <td></td>
+                                <td>等待审核</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
+                                <td>3200</td>
+                                <td></td>
+                                <td>等待审核</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>201627182738</td>
                                 <td>
                                     <p>2016-10-21</p>
                                     <p>19:10:10</p>
                                 </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>3200</td>
                                 <td>0.5</td>
                                 <td>处理中</td>
-                                <td><a class="color-blue" href="代付查询详情页.html">详情</a></td>
+                                <td><span class="color-9">审核</span></td>
                             </tr>
                             <tr>
-                                <td>3</td>
+                                <td>6</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
+                                <td>3200</td>
+                                <td></td>
+                                <td>处理中</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
+                                <td>3200</td>
+                                <td></td>
+                                <td>处理中</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
                                 <td>201627182738</td>
                                 <td>
                                     <p>2016-10-21</p>
                                     <p>19:10:10</p>
                                 </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>3200</td>
                                 <td>0.5</td>
                                 <td>审核拒绝</td>
-                                <td><a class="color-blue" href="代付查询详情页.html">详情</a></td>
+                                <td><span class="color-9">审核</span></td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td>201627182738</td>
-                                <td>
-                                    <p>2016-10-21</p>
-                                    <p>19:10:10</p>
-                                </td>
+                                <td>9</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
                                 <td>3200</td>
-                                <td>0.5</td>
-                                <td><p>代付失败</p><p>成功5笔，失败5笔</p></td>
-                                <td><a class="color-blue" href="代付查询详情页.html">详情</a></td>
+                                <td></td>
+                                <td>审核拒绝</td>
+                                <td></td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td>201627182738</td>
-                                <td>
-                                    <p>2016-10-21</p>
-                                    <p>19:10:10</p>
-                                </td>
+                                <td>10</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
                                 <td>3200</td>
-                                <td>0.5</td>
-                                <td>代付失败</td>
-                                <td><a class="color-blue" href="代付查询详情页.html">详情</a></td>
+                                <td></td>
+                                <td>审核拒绝</td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>
@@ -150,10 +230,13 @@
                                     <th>序号</th>
                                     <th>批次号</th>
                                     <th>代付时间</th>
+                                    <th>账户名</th>
+                                    <th>银行卡号</th>
+                                    <th>银行名称</th>
                                     <th>请求金额（元）</th>
                                     <th>手续费（元）</th>
                                     <th>状态</th>
-                                    <th>详情</th>
+                                    <th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -221,9 +304,9 @@
             },
             columnDefs: [{
                 //   指定第一列，从0开始，0表示第一列，1表示第二列……
-                targets: 9,
+                targets: 8,
                 render: function(data, type, row, meta) {
-                    if (row[8] == '等待审核') {
+                    if (row[7] == '等待审核') {
                         return '<span class="color-blue">审核</span>';
                     } else {
                         return '<span class="color-9">审核</span>';
@@ -272,7 +355,62 @@
             }));
             table.ajax.reload();
         });
-})
+        // 批次详情面板Str
+        // $('td').each(function(index){
+        //     $(this).click(function(){
+        //         var idName=$(this).parent('tr').attr("id");
+        //         $(this).toggleClass('revolves');
+        //         $('tr[data-items='+ idName +']').toggleClass('tb-row');
+        //     })
+        // })
+        // 批次详情面板End
+        $(document).on('click', '.pbo-review', function(event) {
+            var _this = $(this);
+            event.preventDefault();
+            swal({
+                title: "",
+                text: "批次号：201601259000918<br>代付总笔数：10 笔<br>代付总金额：3200 元<br>请您确保信息无误后慎重选择",
+                html: true,
+                confirmButtonColor: "#1c84c6",
+                confirmButtonText: "通过",
+                showCancelButton: true,
+                cancelButtonText: "拒绝",
+                closeOnConfirm: false
+            }, function(isConfirm) {
+                _this.removeClass('pbo-review');
+                if (isConfirm) {
+                    swal({
+                        title: "",
+                        text: "登陆密码",
+                        type: "input",
+                        confirmButtonText: "确认",
+                        showCancelButton: true,
+                        cancelButtonText: "取消",
+                        closeOnConfirm: false,
+                        animation: "slide-from-top",
+                        inputPlaceholder: "请输入登陆密码"
+                    }, function(inputValue) {
+                        if (inputValue != "123456") {
+                            swal.showInputError("登陆密码不正确!");
+                            return false
+                        }
+                        _this.parents('tr').find('td').eq(8).html('处理中');
+                        _this.addClass('color-9').removeClass('color-blue');
+                        swal({
+                            title: "",
+                            text: "",
+                            timer: 0,
+                            showConfirmButton: false
+                        });
+                    })
+                } else {
+                    _this.removeClass('pbo-review');
+                    _this.parents('tr').find('td').eq(8).html('审核拒绝');
+                    _this.addClass('color-9').removeClass('color-blue');
+                }
+            })
+        });
+    });
     </script>
 </body>
 

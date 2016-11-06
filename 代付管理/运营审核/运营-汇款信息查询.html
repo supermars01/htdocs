@@ -16,11 +16,26 @@
         <![endif]-->
     <link href="favicon.ico" rel="shortcut icon" />
     <link href="../../css/bootstrap.min.css?v=3.3.6" rel="stylesheet" />
-    <link href="../../css/font-awesome.min.css?v=4.4.0" rel="stylesheet" />
+    <link href="../../css/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
     <link href="../../js/plugins/layer/laydate/need/laydate.css" />
     <link href="../../css/plugins/dataTables/dataTables.bootstrap.css" />
     <link href="../../css/animate.min.css" rel="stylesheet" />
     <link href="../../css/style.min.css?v=4.1.0" rel="stylesheet" />
+    <style type="text/css">
+    .cursor {
+        cursor: pointer;
+    }
+    
+    .r-ml {
+        margin-left: 10px
+    }
+    
+    .sweet-alert p {
+        text-align: left;
+        line-height: 23px;
+        margin-left: 12px
+    }
+    </style>
 </head>
 
 <body class="gray-bg">
@@ -63,6 +78,60 @@
                             </div>
                         </div>
                     </form>
+                    <table class="table table-bordered table-striped dataTables">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>汇款日期</th>
+                                <th>汇款账号</th>
+                                <th>汇款金额（元）</th>
+                                <th>补充说明</th>
+                                <th>状态</th>
+                                <th>操作人</th>
+                                <th>操作时间</th>
+                                <th>操作</th>
+                                <th>备注</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2016-11-07</td>
+                                <td>2323232323232</td>
+                                <td>25000</td>
+                                <td>啊实打实的撒</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><span class="cursor" id="agree">通过</span><span class="cursor" id="refuse" style="margin-left:10px">拒绝</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2016-11-07</td>
+                                <td>2323232323232</td>
+                                <td>25000</td>
+                                <td>啊实打实的撒</td>
+                                <td>通过</td>
+                                <td>xxxxxx</td>
+                                <td><span>2016-11-07</span><span class="r-ml">14:30:21</span></td>
+                                <td><span class="color-9">通过</span><span class="color-9 r-ml">拒绝</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2016-11-07</td>
+                                <td>2323232323232</td>
+                                <td>25000</td>
+                                <td>啊实打实的撒</td>
+                                <td>通过</td>
+                                <td>xxxxxx</td>
+                                <td><span>2016-11-07</span><span class="r-ml">14:30:21</span></td>
+                                <td><span class="color-9">通过</span><span class="color-9 r-ml">拒绝</span></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <!-- 表格分页 -->
                     <div class="table-content" id="table-content">
                         <!-- 表格开始 -->
@@ -71,11 +140,14 @@
                                 <tr>
                                     <th>序号</th>
                                     <th>汇款日期</th>
-                                    <th>金额（元）</th>
+                                    <th>汇款账号</th>
+                                    <th>汇款金额（元）</th>
+                                    <th>补充说明</th>
                                     <th>状态</th>
                                     <th>操作人</th>
                                     <th>操作时间</th>
                                     <th>操作</th>
+                                    <th>备注</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -88,36 +160,9 @@
             </div>
         </div>
     </div>
-    <!-- 审核模态框-->
-    <div class="modal inmodal in modal-center" id="applyModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content animated fadeIn">
-                <div class="modal-header">
-                    <div class="modal-body">
-                        <div class="money-modal">
-                            <h3>
-                                汇款日期：<span id="moneyTime">2016-10-21</span>
-                            </h3>
-                            <h3>
-                                汇款账号：<span id="bankNum">XXXXXXXXXX</span>
-                            </h3>
-                            <h3>
-                            汇款金额：<span><label id="bankNum">320</label>元</span>
-                            </h3>
-                            <h3 class="money-tip">请您确保信息无误后慎重选择</h3>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <a class="btn btn-primary J_menuItem pl20 pr20" id="agree" data-dismiss="modal">通过</a>
-                        <a class="btn btn-white pl20 pr20" id="refuse" data-dismiss="modal">
-                        拒绝</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <script src="../../js/jquery.min.js?v=2.1.4"></script>
     <script src="../../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
     <script src="../../js/plugins/layer/laydate/laydate.js"></script>
     <script src="../../js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="../../js/plugins/dataTables/dataTables.bootstrap.js"></script>
@@ -169,15 +214,15 @@
                 "info": '显示 \_START\_ 到 \_END\_ 项 共<em class="label label-warning data-num">\_TOTAL\_</em>' + '条数据'
             },
             columnDefs: [{
-                //   指定第一列，从0开始，0表示第一列，1表示第二列……
-                targets: 6,
-                render: function(data, type, row, meta) {
-                    if (row[3] == '通过') {
-                        return '<a class="color-b3">审核</a>';
-                    } else {
-                        return '<a class="color-status-2 shenheBtn">审核</a>';
-                    }
-                }
+                // //   指定第一列，从0开始，0表示第一列，1表示第二列……
+                // targets: 6,
+                // render: function(data, type, row, meta) {
+                //     if (row[3] == '通过') {
+                //         return '<a class="color-b3">审核</a>';
+                //     } else {
+                //         return '<a class="color-status-2 shenheBtn">审核</a>';
+                //     }
+                // }
             }],
             fnDrawCallback: function(data, type, row) {
 
@@ -222,25 +267,41 @@
             table.ajax.reload();
         })
     });
-    $(document).on('click', '.shenheBtn', function(event) {
+    $(document).on('click', '.cursor', function(event) {
+        var _this = $(this);
         event.preventDefault();
-
-        $('#moneyTime').html('2016-10-21');
-        $('#bankNum').html('XXXXXXXXXX');
-        $('#price').html('320');
-        // 异步获取数据成功后模态框显示
-        $('#applyModal').modal('show');
-        $(this).addClass('shenheBtnActive');
-    });
-    $('#agree').click(function(event) {
-        $('.shenheBtnActive').parents('tr').find('td').eq(3).html('通过');
-        $('.shenheBtnActive').addClass('color-b3').removeClass('color-status-2');
-        $('.shenheBtn').removeClass('shenheBtnActive');
-    });
-    $('#refuse').click(function(event) {
-        $('.shenheBtnActive').parents('tr').find('td').eq(3).html('拒绝');
-        $('.shenheBtnActive').addClass('color-b3').removeClass('color-status-2');
-        $('.shenheBtn').removeClass('shenheBtnActive');
+        if (_this.attr('id') == 'agree') {
+            swal({
+                title: "",
+                text: "汇款日期：<span class='sub-time'>2016-10-21</span><br>汇款账号：XXXXXXXXXX<br>汇款金额：320  元<br>备注：因为所以巴拉<br>*请您确保信息无误后慎重选择",
+                html: true,
+                confirmButtonColor: "#1c84c6",
+                confirmButtonText: "通过",
+                closeOnConfirm: true
+            }, function() {
+                $(".cursor").attr('class', 'color-9');
+                _this.parents('tr').find('td').eq(5).html('通过');
+                _this.parents('tr').find('td').eq(6).html('xxxxxx');
+                _this.parents('tr').find('td').eq(7).html('<span>2016-11-07</span><span class="r-ml">14:30:21</span>');
+            })
+        } else {
+            swal({
+                title: "",
+                text: "汇款日期：<span class='sub-time'>2016-10-21<span><br>汇款账号：XXXXXXXXXX<br>汇款金额：320  元<br>备注：<span class='sub-bz'>因为所以巴拉<span><br>*请填写拒绝原因,",
+                html: true,
+                type: "input",
+                confirmButtonColor: "#1c84c6",
+                confirmButtonText: "通过",
+                closeOnConfirm: true,
+                inputPlaceholder: "请填写拒绝理由"
+            }, function(inputValue) {
+                $(".cursor").attr('class', 'color-9');
+                _this.parents('tr').find('td').eq(5).html('拒绝');
+                _this.parents('tr').find('td').eq(6).html('xxxxxx');
+                _this.parents('tr').find('td').eq(7).html('<span>2016-11-07</span><span class="r-ml">14:30:21</span>');
+                _this.parents('tr').find('td').eq(9).html(inputValue);
+            })
+        }
     });
     </script>
 </body>
