@@ -22,19 +22,7 @@
     <link href="../../css/animate.min.css" rel="stylesheet" />
     <link href="../../css/style.min.css?v=4.1.0" rel="stylesheet" />
     <style type="text/css">
-    .cursor {
-        cursor: pointer;
-    }
-    
-    .r-ml {
-        margin-left: 10px
-    }
-    
-    .sweet-alert p {
-        text-align: left;
-        line-height: 23px;
-        margin-left: 12px
-    }
+    .sweet-alert p {text-align: left;line-height: 23px;margin-left: 12px}.cursor {cursor: pointer;}.r-ml {margin-left: 10px}
     </style>
 </head>
 
@@ -292,14 +280,24 @@
                 type: "input",
                 confirmButtonColor: "#1c84c6",
                 confirmButtonText: "通过",
-                closeOnConfirm: true,
+                closeOnConfirm: false,
                 inputPlaceholder: "请填写拒绝理由"
             }, function(inputValue) {
-                $(".cursor").attr('class', 'color-9');
-                _this.parents('tr').find('td').eq(5).html('拒绝');
-                _this.parents('tr').find('td').eq(6).html('xxxxxx');
-                _this.parents('tr').find('td').eq(7).html('<span>2016-11-07</span><span class="r-ml">14:30:21</span>');
-                _this.parents('tr').find('td').eq(9).html(inputValue);
+                if(inputValue){
+                    $(".cursor").attr('class', 'color-9');
+                    _this.parents('tr').find('td').eq(5).html('拒绝');
+                    _this.parents('tr').find('td').eq(6).html('xxxxxx');
+                    _this.parents('tr').find('td').eq(7).html('<span>2016-11-07</span><span class="r-ml">14:30:21</span>');
+                    _this.parents('tr').find('td').eq(9).html(inputValue);
+                    swal({
+                        title: "",
+                        text: "",
+                        timer: 0,
+                        showConfirmButton: false
+                    });
+                }else{
+                    swal.showInputError("请输入拒绝信息!");
+                }
             })
         }
     });
