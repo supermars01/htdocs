@@ -21,7 +21,11 @@
     <link href="../../css/animate.min.css" rel="stylesheet" />
     <link href="../../css/style.min.css?v=4.1.0" rel="stylesheet" />
     <style type="text/css">
-    .sweet-alert p {text-align: left;line-height: 23px;margin-left: 12px}
+    .sweet-alert p {
+        text-align: left;
+        line-height: 23px;
+        margin-left: 12px
+    }
     </style>
 </head>
 
@@ -378,9 +382,9 @@
                 confirmButtonText: "通过",
                 showCancelButton: true,
                 cancelButtonText: "拒绝",
-                closeOnConfirm: false
+                closeOnConfirm: false,
+                closeOnCancel: false,
             }, function(isConfirm) {
-                _this.removeClass('pbo-review');
                 if (isConfirm) {
                     swal({
                         title: "",
@@ -395,21 +399,42 @@
                     }, function(inputValue) {
                         if (inputValue != "123456") {
                             swal.showInputError("登陆密码不正确!");
-                            return false
+                            return false;
                         }
                         _this.parents('tr').find('td').eq(8).html('处理中');
                         _this.addClass('color-9').removeClass('color-blue');
                         swal({
                             title: "",
                             text: "",
-                            timer: 0,
-                            showConfirmButton: false
+                            timer: 0
                         });
                     })
                 } else {
-                    _this.removeClass('pbo-review');
-                    _this.parents('tr').find('td').eq(8).html('审核拒绝');
-                    _this.addClass('color-9').removeClass('color-blue');
+                    swal({
+                        title: "",
+                        text: "登陆密码",
+                        type: "input",
+                        confirmButtonText: "确认",
+                        showCancelButton: true,
+                        cancelButtonText: "取消",
+                        closeOnConfirm: false,
+                        closeOnCancel: true,
+                        animation: "slide-from-top",
+                        inputPlaceholder: "请输入登陆密码"
+                    }, function(inputValue) {
+                        if (inputValue != "123456") {
+                            swal.showInputError("登陆密码不正确!");
+                            return false;
+                        }
+                        _this.removeClass('pbo-review');
+                        _this.parents('tr').find('td').eq(8).html('审核拒绝');
+                        _this.addClass('color-9').removeClass('color-blue');
+                        swal({
+                            title: "",
+                            text: "",
+                            timer: 0
+                        });
+                    })
                 }
             })
         });
