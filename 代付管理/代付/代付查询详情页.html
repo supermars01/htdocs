@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="webkit" name="renderer" />
+    <meta content="no-siteapp" http-equiv="Cache-Control" />
+    <title>
+    </title>
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+    <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+    <link href="favicon.ico" rel="shortcut icon" />
+    <link href="../../css/bootstrap.min.css?v=3.3.6" rel="stylesheet" />
+    <link href="../../css/plugins/layer/laydate/need/laydate.css" />
+    <link href="../../css/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <link href="../../css/plugins/dataTables/dataTables.bootstrap.css" />
+    <link href="../../css/animate.min.css" rel="stylesheet" />
+    <link href="../../css/style.min.css?v=4.1.0" rel="stylesheet" />
+    <style type="text/css">
+    .sweet-alert p {text-align: left;line-height: 23px;margin-left: 12px}
+    </style>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="ibox-title ibox-border">
+                        <h3>代付查询</h3>
+                    </div>
+                    <form action="" class="form-horizontal mt">
+                        <div class="form-group col-sm-4 pl0">
+                            <label class="pull-left control-label pl20 pr20">交易日期</label>
+                            <div class="col-sm-8 pl0">
+                                <input placeholder="开始日期" class="form-control layer-date m-timetxt pull-left" id="start">
+                                <span>至</span>
+                                <input placeholder="结束日期" class="form-control layer-date m-timetxt pull-left" id="end">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3 pl0">
+                            <label class="pull-left control-label pl20 pr20">状态</label>
+                            <div class="col-sm-7 pl0">
+                                <select class="form-control" name="form-st">
+                                    <option>全部</option>
+                                    <option>等待审核</option>
+                                    <option>审核拒绝</option>
+                                    <option>处理中</option>
+                                    <option>代付完成</option>
+                                    <option>代付失败</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-3">
+                            <label for="ac">账户名：</label>
+                            <input type="text" name="account-name" id="ac">
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <label for="cc">银行卡号：</label>
+                            <input type="text" name="credit-card" id="cc">
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-3">
+                            <label for="bn">批次号：</label>
+                            <input type="text" name="batch-num" id="bn">
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <label for="sn">序号：</label>
+                            <input type="text" name="seq-num" id="sn">
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="button" class="btn btn-primary m-r-sm" id="find">查询</button>
+                            <button type="button" class="btn btn-warning">下载查询结果</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                    <table class="table table-bordered table-striped dataTables">
+                        <tbody>
+                            <tr>
+                                <th>序号</th>
+                                <th>批次号</th>
+                                <th>代付时间</th>
+                                <th>账户名</th>
+                                <th>银行卡号</th>
+                                <th>银行名称</th>
+                                <th>请求金额（元）</th>
+                                <th>手续费（元）</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>201627182738</td>
+                                <td>
+                                    <p>2016-10-21</p>
+                                    <p>19:10:10</p>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>3200</td>
+                                <td>0.5</td>
+                                <td>等待审核</td>
+                                <td><span class="pbo-review color-blue">审核</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
+                                <td>3200</td>
+                                <td></td>
+                                <td>等待审核</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
+                                <td>3200</td>
+                                <td></td>
+                                <td>等待审核</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
+                                <td>3200</td>
+                                <td></td>
+                                <td>等待审核</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>201627182738</td>
+                                <td>
+                                    <p>2016-10-21</p>
+                                    <p>19:10:10</p>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>3200</td>
+                                <td>0.5</td>
+                                <td>处理中</td>
+                                <td><span class="color-9">审核</span></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
+                                <td>3200</td>
+                                <td></td>
+                                <td>处理中</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
+                                <td>3200</td>
+                                <td></td>
+                                <td>处理中</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>201627182738</td>
+                                <td>
+                                    <p>2016-10-21</p>
+                                    <p>19:10:10</p>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>3200</td>
+                                <td>0.5</td>
+                                <td>审核拒绝</td>
+                                <td><span class="color-9">审核</span></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
+                                <td>3200</td>
+                                <td></td>
+                                <td>审核拒绝</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td></td>
+                                <td></td>
+                                <td>北京XXXXXXXXXX</td>
+                                <td>2392302029299</td>
+                                <td>光大银行</td>
+                                <td>3200</td>
+                                <td></td>
+                                <td>审核拒绝</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- 表格分页 -->
+                    <div class="table-content" id="table-content">
+                        <!-- 表格开始 -->
+                        <table class="table table-bordered table-striped dataTables" id="list">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>批次号</th>
+                                    <th>代付时间</th>
+                                    <th>账户名</th>
+                                    <th>银行卡号</th>
+                                    <th>银行名称</th>
+                                    <th>请求金额（元）</th>
+                                    <th>手续费（元）</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <!-- 表格结束 -->
+                    </div>
+                    <!-- 表格分页  end-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../../js/plugins/layer/laydate/laydate.js"></script>
+    <script src="../../js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="../../js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+    $(document).ready(function() {
+        var start = {
+            elem: "#start",
+            format: "YYYY/MM/DD",
+            min: laydate.now(),
+            max: "2099-06-16",
+            istime: true,
+            istoday: false,
+            choose: function(datas) {
+                end.min = datas;
+                end.start = datas
+            }
+        };
+        var end = {
+            elem: "#end",
+            format: "YYYY/MM/DD",
+            min: laydate.now(),
+            max: "2099-06-16",
+            istime: true,
+            istoday: false,
+            choose: function(datas) {
+                start.max = datas
+            }
+        };
+        laydate(start);
+        laydate(end);
+
+        var table = $('#list').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ordering": false,
+            //"paging": false, 
+            "searching": false,
+            //"bPaginate" : false,
+            "bInfo": true,
+            "lengthChange": false,
+            "ajax": {
+                "url": "../data/objects-10.php"
+            },
+            "language": {
+                "paginate": {
+                    "previous": "«",
+                    "next": "»"
+                },
+                "info": '显示 \_START\_ 到 \_END\_ 项 共<em class="label label-warning data-num">\_TOTAL\_</em>' + '条数据'
+            },
+            columnDefs: [{
+                //   指定第一列，从0开始，0表示第一列，1表示第二列……
+                targets: 8,
+                render: function(data, type, row, meta) {
+                    if (row[7] == '等待审核') {
+                        return '<span class="color-blue">审核</span>';
+                    } else {
+                        return '<span class="color-9">审核</span>';
+                    }
+                }
+            }],
+            fnDrawCallback: function(data, type, row) {
+
+                if (table.ajax.json().data.length < 1) {
+                    $("#table-content").find('tbody').html('<tr><td colspan="11">无数据</td></tr>');
+                }
+                return;
+                //alert(table.ajax.json().data.length)
+                console.log('fnDrawCallback');
+                console.log(data);
+                console.log(table);
+                console.log(table.page());
+                //alert(page.page().len())
+
+                console.log(table.page.info());
+                console.log(table.page.len());
+
+            }
+
+
+        })
+
+
+        table.on('draw', function() {
+
+        });
+
+        table.on('xhr', function(e, settings, json) {
+            //alert('1');
+            //console.log( 'Ajax event occurred. Returned data: ', json );
+        });
+
+        $("#find").click(function() {
+
+            var application_num = $("#application_num").val();
+            var application_name = $("#application_name").val();
+
+            table.ajax.url("../data/objects-10.php?" + jQuery.param({
+                "application_num": application_num,
+                "application_name": application_name
+            }));
+            table.ajax.reload();
+        });
+        // 批次详情面板Str
+        // $('td').each(function(index){
+        //     $(this).click(function(){
+        //         var idName=$(this).parent('tr').attr("id");
+        //         $(this).toggleClass('revolves');
+        //         $('tr[data-items='+ idName +']').toggleClass('tb-row');
+        //     })
+        // })
+        // 批次详情面板End
+        $(document).on('click', '.pbo-review', function(event) {
+            var _this = $(this);
+            event.preventDefault();
+            swal({
+                title: "",
+                text: "批次号：201601259000918<br>代付总笔数：10 笔<br>代付总金额：3200 元<br>请您确保信息无误后慎重选择",
+                html: true,
+                confirmButtonColor: "#1c84c6",
+                confirmButtonText: "通过",
+                showCancelButton: true,
+                cancelButtonText: "拒绝",
+                closeOnConfirm: false
+            }, function(isConfirm) {
+                _this.removeClass('pbo-review');
+                if (isConfirm) {
+                    swal({
+                        title: "",
+                        text: "登陆密码",
+                        type: "input",
+                        confirmButtonText: "确认",
+                        showCancelButton: true,
+                        cancelButtonText: "取消",
+                        closeOnConfirm: false,
+                        animation: "slide-from-top",
+                        inputPlaceholder: "请输入登陆密码"
+                    }, function(inputValue) {
+                        if (inputValue != "123456") {
+                            swal.showInputError("登陆密码不正确!");
+                            return false
+                        }
+                        _this.parents('tr').find('td').eq(8).html('处理中');
+                        _this.addClass('color-9').removeClass('color-blue');
+                        swal({
+                            title: "",
+                            text: "",
+                            timer: 0,
+                            showConfirmButton: false
+                        });
+                    })
+                } else {
+                    _this.removeClass('pbo-review');
+                    _this.parents('tr').find('td').eq(8).html('审核拒绝');
+                    _this.addClass('color-9').removeClass('color-blue');
+                }
+            })
+        });
+    });
+    </script>
+</body>
+
+</html>

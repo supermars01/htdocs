@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="webkit" name="renderer" />
+    <meta content="no-siteapp" http-equiv="Cache-Control" />
+    <title>
+        运营-汇款信息查询
+    </title>
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+    <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+    <link href="favicon.ico" rel="shortcut icon" />
+    <link href="../../css/bootstrap.min.css?v=3.3.6" rel="stylesheet" />
+    <link href="../../css/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <link href="../../js/plugins/layer/laydate/need/laydate.css" />
+    <link href="../../css/plugins/dataTables/dataTables.bootstrap.css" />
+    <link href="../../css/animate.min.css" rel="stylesheet" />
+    <link href="../../css/style.min.css?v=4.1.0" rel="stylesheet" />
+    <style type="text/css">
+    .sweet-alert p {text-align: left;line-height: 23px;margin-left: 12px}.cursor {cursor: pointer;}.r-ml {margin-left: 10px}
+    </style>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="ibox-title ibox-border">
+                        <h3>汇款信息查询</h3>
+                    </div>
+                    <form action="" class="form-horizontal mt">
+                        <div class="form-group col-sm-5 pl0">
+                            <label class="pull-left control-label pl20 pr20">汇款日期</label>
+                            <div class="col-sm-9 pl0">
+                                <input placeholder="开始日期" class="form-control layer-date m-timetxt pull-left" id="start">
+                                <span>至</span>
+                                <input placeholder="结束日期" class="form-control layer-date m-timetxt pull-left" id="end">
+                            </div>
+                        </div>
+                        <div class="form-group pull-left pl0">
+                            <label class="pull-left control-label pl20 pr20">汇款账号</label>
+                            <div class="col-sm-7 pl0">
+                                <input placeholder="汇款账号" class="form-control pull-left">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3 pl0">
+                            <label class="pull-left control-label pl20 pr20">状态</label>
+                            <div class="col-sm-6 pl0">
+                                <select class="form-control" name="">
+                                    <option>全部</option>
+                                    <option>微信</option>
+                                    <option>支付宝</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group pull-left">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-primary" id="find">查询</button>
+                                <button type="button" class="btn btn-success">导出</button>
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table table-bordered table-striped dataTables">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>汇款日期</th>
+                                <th>汇款账号</th>
+                                <th>汇款金额（元）</th>
+                                <th>补充说明</th>
+                                <th>状态</th>
+                                <th>操作人</th>
+                                <th>操作时间</th>
+                                <th>操作</th>
+                                <th>备注</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2016-11-07</td>
+                                <td>2323232323232</td>
+                                <td>25000</td>
+                                <td>啊实打实的撒</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><span class="cursor" id="agree">通过</span><span class="cursor" id="refuse" style="margin-left:10px">拒绝</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2016-11-07</td>
+                                <td>2323232323232</td>
+                                <td>25000</td>
+                                <td>啊实打实的撒</td>
+                                <td>通过</td>
+                                <td>xxxxxx</td>
+                                <td><span>2016-11-07</span><span class="r-ml">14:30:21</span></td>
+                                <td><span class="color-9">通过</span><span class="color-9 r-ml">拒绝</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2016-11-07</td>
+                                <td>2323232323232</td>
+                                <td>25000</td>
+                                <td>啊实打实的撒</td>
+                                <td>通过</td>
+                                <td>xxxxxx</td>
+                                <td><span>2016-11-07</span><span class="r-ml">14:30:21</span></td>
+                                <td><span class="color-9">通过</span><span class="color-9 r-ml">拒绝</span></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- 表格分页 -->
+                    <div class="table-content" id="table-content">
+                        <!-- 表格开始 -->
+                        <table class="table table-bordered table-striped dataTables" id="list">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>汇款日期</th>
+                                    <th>汇款账号</th>
+                                    <th>汇款金额（元）</th>
+                                    <th>补充说明</th>
+                                    <th>状态</th>
+                                    <th>操作人</th>
+                                    <th>操作时间</th>
+                                    <th>操作</th>
+                                    <th>备注</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <!-- 表格结束 -->
+                    </div>
+                    <!-- 表格分页  end-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../../js/plugins/layer/laydate/laydate.js"></script>
+    <script src="../../js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="../../js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+    $(document).ready(function() {
+        var start = {
+            elem: "#start",
+            format: "YYYY/MM/DD",
+            min: laydate.now(),
+            max: "2099-06-16",
+            istime: true,
+            istoday: false,
+            choose: function(datas) {
+                end.min = datas;
+                end.start = datas
+            }
+        };
+        var end = {
+            elem: "#end",
+            format: "YYYY/MM/DD",
+            min: laydate.now(),
+            max: "2099-06-16",
+            istime: true,
+            istoday: false,
+            choose: function(datas) {
+                start.max = datas
+            }
+        };
+        laydate(start);
+        laydate(end);
+
+        var table = $('#list').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ordering": false,
+            //"paging": false, 
+            "searching": false,
+            //"bPaginate" : false,
+            "bInfo": true,
+            "lengthChange": false,
+            "ajax": {
+                "url": "../../data/objects-9.php"
+            },
+            "language": {
+                "paginate": {
+                    "previous": "«",
+                    "next": "»"
+                },
+                "info": '显示 \_START\_ 到 \_END\_ 项 共<em class="label label-warning data-num">\_TOTAL\_</em>' + '条数据'
+            },
+            columnDefs: [{
+                // //   指定第一列，从0开始，0表示第一列，1表示第二列……
+                // targets: 6,
+                // render: function(data, type, row, meta) {
+                //     if (row[3] == '通过') {
+                //         return '<a class="color-b3">审核</a>';
+                //     } else {
+                //         return '<a class="color-status-2 shenheBtn">审核</a>';
+                //     }
+                // }
+            }],
+            fnDrawCallback: function(data, type, row) {
+
+                if (table.ajax.json().data.length < 1) {
+                    $("#table-content").find('tbody').html('<tr><td colspan="6">无数据</td></tr>');
+                }
+                return;
+                //alert(table.ajax.json().data.length)
+                console.log('fnDrawCallback');
+                console.log(data);
+                console.log(table);
+                console.log(table.page());
+                //alert(page.page().len())
+
+                console.log(table.page.info());
+                console.log(table.page.len());
+
+            }
+
+
+        })
+
+
+        table.on('draw', function() {
+
+        });
+
+        table.on('xhr', function(e, settings, json) {
+            //alert('1');
+            //console.log( 'Ajax event occurred. Returned data: ', json );
+        });
+
+        $("#find").click(function() {
+
+            var application_num = $("#application_num").val();
+            var application_name = $("#application_name").val();
+
+            table.ajax.url("../../data/objects-10.php?" + jQuery.param({
+                "application_num": application_num,
+                "application_name": application_name
+            }));
+            table.ajax.reload();
+        })
+    });
+    $(document).on('click', '.cursor', function(event) {
+        var _this = $(this);
+        event.preventDefault();
+        if (_this.attr('id') == 'agree') {
+            swal({
+                title: "",
+                text: "汇款日期：<span class='sub-time'>2016-10-21</span><br>汇款账号：XXXXXXXXXX<br>汇款金额：320  元<br>备注：因为所以巴拉<br>*请您确保信息无误后慎重选择",
+                html: true,
+                confirmButtonColor: "#1c84c6",
+                confirmButtonText: "通过",
+                closeOnConfirm: true
+            }, function() {
+                $(".cursor").attr('class', 'color-9');
+                _this.parents('tr').find('td').eq(5).html('通过');
+                _this.parents('tr').find('td').eq(6).html('xxxxxx');
+                _this.parents('tr').find('td').eq(7).html('<span>2016-11-07</span><span class="r-ml">14:30:21</span>');
+            })
+        } else {
+            swal({
+                title: "",
+                text: "汇款日期：<span class='sub-time'>2016-10-21<span><br>汇款账号：XXXXXXXXXX<br>汇款金额：320  元<br>备注：<span class='sub-bz'>因为所以巴拉<span><br>*请填写拒绝原因,",
+                html: true,
+                type: "input",
+                confirmButtonColor: "#1c84c6",
+                confirmButtonText: "通过",
+                closeOnConfirm: false,
+                inputPlaceholder: "请填写拒绝理由"
+            }, function(inputValue) {
+                if(inputValue){
+                    $(".cursor").attr('class', 'color-9');
+                    _this.parents('tr').find('td').eq(5).html('拒绝');
+                    _this.parents('tr').find('td').eq(6).html('xxxxxx');
+                    _this.parents('tr').find('td').eq(7).html('<span>2016-11-07</span><span class="r-ml">14:30:21</span>');
+                    _this.parents('tr').find('td').eq(9).html(inputValue);
+                    swal({
+                        title: "",
+                        text: "",
+                        timer: 0,
+                        showConfirmButton: false
+                    });
+                }else{
+                    swal.showInputError("请输入拒绝信息!");
+                }
+            })
+        }
+    });
+    </script>
+</body>
+
+</html>
