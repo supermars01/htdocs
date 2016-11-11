@@ -39,52 +39,6 @@
                     <div class="ibox-title ibox-border">
                         <h3>代付查询</h3>
                     </div>
-                    <!-- <form action="" class="form-horizontal mt">
-                        <div class="form-group col-sm-4 pl0">
-                            <label class="pull-left control-label pl20 pr20">交易日期</label>
-                            <div class="col-sm-8 pl0">
-                                <input placeholder="开始日期" class="form-control layer-date m-timetxt pull-left" id="start">
-                                <span>至</span>
-                                <input placeholder="结束日期" class="form-control layer-date m-timetxt pull-left" id="end">
-                            </div>
-                        </div>
-                        <div class="form-group col-sm-3 pl0">
-                            <label class="pull-left control-label pl20 pr20">状态</label>
-                            <div class="pl0">
-                                <select class="form-control" name="form-st">
-                                    <option>全部</option>
-                                    <option>等待审核</option>
-                                    <option>审核拒绝</option>
-                                    <option>处理中</option>
-                                    <option>代付完成</option>
-                                    <option>代付失败</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="form-group col-sm-3">
-                            <label for="ac">账户名：</label>
-                            <input type="text" name="account-name" id="ac">
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <label for="cc">银行卡号：</label>
-                            <input type="text" name="credit-card" id="cc">
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="form-group col-sm-3">
-                            <label for="bn">批次号：</label>
-                            <input type="text" name="batch-num" id="bn">
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <label for="sn">序号：</label>
-                            <input type="text" name="seq-num" id="sn">
-                        </div>
-                        <div class="col-sm-4">
-                            <button type="button" class="btn btn-primary m-r-sm" id="find">查询</button>
-                            <button type="button" class="btn btn-warning">下载查询结果</button>
-                        </div>
-                        <div class="clearfix"></div>
-                    </form> -->
                     <div class="col-sm-12 sh">
                         <button type="button" class="btn btn-success" id="review">审核</button>
                         <div class="form-group col-sm-3 pl0 anarchy">
@@ -196,17 +150,6 @@
                 },
                 "info": '显示 \_START\_ 到 \_END\_ 项 共<em class="label label-warning data-num">\_TOTAL\_</em>' + '条数据'
             },
-            // columnDefs: [{
-            //     //   指定第一列，从0开始，0表示第一列，1表示第二列……
-            //     targets: 6,
-            //     render: function(data, type, row, meta) {
-            //         if (row[5] == '等待审核') {
-            //             $("#review").removeAttr('disabled')
-            //         } else {
-            //             $("#review").addAttr('disabled')
-            //         }
-            //     }
-            // }],
             fnDrawCallback: function(data, type, row) {
 
                 if (table.ajax.json().data.length < 1) {
