@@ -1,0 +1,17 @@
+.text-danger{font-size: 26px}
+.text-danger a {font-size: 14px}
+			.info{text-align: left}
+			.info span{margin-left: 15px}
+			.speNum{color:#999;line-height: 50px}
+			.ibox-content h3{margin: 15px 0}
+			.title span{color:#0099FF;font-size: 14px;padding-left: 15px;font-weight: normal;}
+			.upload-img li div{display: none;width:160px;height:160px;position:absolute;left: 0;top: 0;}
+			.bgc{background-color: rgba(68,68,65,0.4);}
+			.prompts{text-align: center;line-height: 20px;padding-top: 60px;color: #000;}
+			.upload-img li:hover .prompts,.upload-img li:hover .bgc{display: block}
+			#form-info{width: 450px;margin: 0 auto; padding-top: 15px}
+        	.mgl{margin-left: 140px}
+        	.txt-right{text-align: right}
+        	.col-lg-4{line-height: 35px}
+	    .ml{margin-left: 61px}
+	    
