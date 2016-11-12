@@ -29,21 +29,21 @@
            <div class="ibox">
                <div class="ibox-content">
                    <form action="" class="form-horizontal">
-                        <div class="form-group col-sm-6 pl0">
+                        <!-- <div class="form-group col-sm-6 pl0">
                             <label class="pull-left control-label pl20 pr20">提交时间</label>
                             <div class="col-sm-9 pl0">
                                 <input placeholder="开始日期" class="form-control layer-date m-timetxt pull-left" id="start">
                                 <span>至</span>
                                 <input placeholder="结束日期" class="form-control layer-date m-timetxt pull-left" id="end">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group col-sm-3 pl0">
                             <label class="pull-left control-label pl20 pr20">状态</label>
                             <div class="col-sm-7 pl0">
                                 <select class="form-control" name="">
                                     <option>未处理</option>
                                     <option>已认证</option>
-                                    <option>支付宝</option>
+                                    <option>未通过</option>
                                 </select>
                             </div>
                         </div>
@@ -60,8 +60,8 @@
                         <table class="table table-bordered table-striped dataTables" id="list">
                             <thead>
                                 <tr>
-                                    <th>提交时间</th>
                                     <th>商户号</th>
+                                    <th>提交时间</th>
                                     <th>处理时间</th>
                                     <th>审核人</th>
                                     <th>状态</th>
@@ -86,8 +86,8 @@
     <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script>
         $(document).ready(function(){
-            var start={elem:"#start",format:"YYYY/MM/DD",min:laydate.now(),max:"2099-06-16",istime:false,istoday:false,choose:function(datas){end.min=datas;end.start=datas}};
-            var end={elem:"#end",format:"YYYY/MM/DD",min:laydate.now(),max:"2099-06-16",istime:false,istoday:false,choose:function(datas){start.max=datas}};laydate(start);laydate(end);
+            // var start={elem:"#start",format:"YYYY/MM/DD",min:laydate.now(),max:"2099-06-16",istime:false,istoday:false,choose:function(datas){end.min=datas;end.start=datas}};
+            // var end={elem:"#end",format:"YYYY/MM/DD",min:laydate.now(),max:"2099-06-16",istime:false,istoday:false,choose:function(datas){start.max=datas}};laydate(start);laydate(end);
 
             var table = $('#list').DataTable( {
                 "processing": true,
@@ -109,18 +109,18 @@
                     "info": '显示 \_START\_ 到 \_END\_ 项 共<em class="label label-warning data-num">\_TOTAL\_</em>'
                             +'条数据'
                 },
-                columnDefs: [{
-                    //   指定第一列，从0开始，0表示第一列，1表示第二列……
-                    targets: 5,
-                    render: function(data, type, row, meta) {
-                        if(row[4]=='未处理'){
-                            return '<a class="text-warning"  href="./实名认证/审核处理.html">审核</a>';
-                        }else {
-                            return '<a  href="./实名认证/审核详情.html">详情</a>';
-                        }
-                        //return '<input type="checkbox" name="checklist" value="' + row.id + '" />'
-                    }
-                }],
+                // columnDefs: [{
+                //     //   指定第一列，从0开始，0表示第一列，1表示第二列……
+                //     targets: 5,
+                //     render: function(data, type, row, meta) {
+                //         if(row[4]=='未处理'){
+                //             return '<a class="text-warning"  href="./实名认证/审核处理.html">审核</a>';
+                //         }else {
+                //             return '<a  href="./实名认证/审核详情.html">详情</a>';
+                //         }
+                //         //return '<input type="checkbox" name="checklist" value="' + row.id + '" />'
+                //     }
+                // }],
                 fnDrawCallback: function ( data, type, row ) {
 
                     if(table.ajax.json().data.length < 1){

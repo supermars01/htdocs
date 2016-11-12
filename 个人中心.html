@@ -1,90 +1,126 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8"/>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-        <meta content="webkit" name="renderer"/>
-        <meta content="no-siteapp" http-equiv="Cache-Control"/>
-        <title>
-            个人中心
-        </title>
-        <meta content="" name="keywords"/>
-        <meta content="" name="description"/>
-        <!--[if lt IE 9]>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="webkit" name="renderer" />
+    <meta content="no-siteapp" http-equiv="Cache-Control" />
+    <title>
+        个人中心
+    </title>
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+    <!--[if lt IE 9]>
         <meta http-equiv="refresh" content="0;ie.html" />
         <![endif]-->
-        <link href="favicon.ico" rel="shortcut icon"/>
-        <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
-        <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
-        <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
-        <link href="css/animate.min.css" rel="stylesheet"/>
-        <link href="css/style.min.css?v=4.1.0" rel="stylesheet"/>
-        <link href="css/u-center.css" rel="stylesheet"/>
+    <link href="favicon.ico" rel="shortcut icon" />
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet" />
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet" />
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <link href="css/animate.min.css" rel="stylesheet" />
+    <link href="css/style.min.css?v=4.1.0" rel="stylesheet" />
+    <link href="css/u-center.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/platform.css">
+    <style type="text/css">
+    .input-group-addon{padding-left:6px;border:1px solid #E5E6E7;}.modal-content{border:1px solid #ccc}.inmodal .modal-header{padding:20px 15px;text-align:center;border:0;}.modal-body input{width:100%;line-height:32px;margin-bottom:10px}.login{width:100%;line-height:35px;text-align:center;border-radius:6px;border:0}.m-t-sm{float:right;color:#169BD5}#file{display:none}.img-circle{width:100px;height:100px;position:relative;text-align:center;line-height:100px}.imgBg{display:none;width:100px;height:100px;background-color:#fff;opacity:0.6;position:absolute;left:0;top:0}.img-circle:hover .imgBg{display:block}.middle-box{max-width:800px}.u-ct{max-width:800px}.u-ct .u-item{border:none}.form-inline .input-group .gbg{background-color:rgb(153,153,153);color:rgb(204,204,204);border:1px solid rgb(153,153,153);cursor:pointer;width:90px;height:34px;padding-left:6px}.verbom{margin-top:10px}.inmodal .modal-body{height:auto;overflow:hidden;}
+    </style>
 </head>
 
 <body class="gray-bg">
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
-           <div class="ibox">
-               <div class="ibox-content">
-                    <div class="u-center">
-                        <div class="middle-box u-item u-item-1 col-sm-12">
-                            <label class="control-label col-sm-3">头像</label>
-                            <div class="col-sm-9">
-                                <img src="img/temp/profile_small.jpg" class="img-circle" id="photo" />
-                                <a class="btn btn-primary btn-outline m-l-lg">上传新头像
-                                    <input name="file" id="file" class="upload-file" multiple="multiple" size="100" accept="image/*" type="file">
-                                </a>
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="u-center u-ct">
+                        <div class="middle-box u-item col-sm-12">
+                            <label class="control-label col-sm-2">头像</label>
+                            <div class="col-sm-6">
+                                <label for="file" class="img-circle">
+                                    <img src="img/temp/profile_small.jpg" class="img-circle" id="photo" />
+                                    <div class="imgBg">点击绑定</div>
+                                </label>
+                                <input name="file" id="file" class="upload-file" multiple="multiple" size="100" accept="image/gif,image/jpeg,image/jpg,image/png" type="file">
+                            </div>
+                            <div class="u-item  col-sm-12">
+                                <label class="control-label col-sm-2">姓名</label>
+                                <div class="col-sm-4">
+                                    <label class="color-black">zhaobaiang</label>
+                                </div>
+                                <div class="clearfix"></div>
+                                <label class="control-label col-sm-2">商户号</label>
+                                <div class="col-sm-4">
+                                    <label class="color-black">68000001</label>
+                                </div>
+                                <div class="clearfix"></div>
+                                <label class="control-label col-sm-2">角色</label>
+                                <div class="col-sm-4">
+                                    <label class="color-black">管理员</label>
+                                </div>
                             </div>
                         </div>
+                        <div class="u-item  col-sm-12">
+                            <label class="control-label col-sm-2">邮箱登录：</label>
+                            <div class="col-sm-3">
+                                <label class="color-black">zhaobaiang@68000001</label>
+                            </div>
+                            <label class="control-label col-sm-2">主登录账户</label>
+                        </div>
                         <div class="u-item u-item-2 col-sm-12">
-                            <label class="control-label col-sm-3">微信登陆</label>
-                             <div class="col-sm-9">
-                                 <div class="bind-tab" style="display:none">
+                            <label class="control-label col-sm-2">手机号登录：</label>
+                            <form class="form-inline col-sm-7" id="verPhone">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">+86</div>
+                                        <input class="form-control" type="text" name="user_mobile" placeholder="请输入手机号码">
+                                    </div>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" name="vercode" style="width:80px">
+                                        <input type="submit" class="input-group-addon gbg" value="获取验证码" />
+                                    </div>
+                                </div>
+                            </form>
+                            <label class="control-label col-sm-2 verbom">辅助帐号</label>
+                            <label class="control-label col-sm-7 col-sm-offset-2">绑定后，可直接使用手机号登录成长支付，密码不变</label>
+                        </div>
+                        <div class="u-item u-item-2 col-sm-12">
+                            <label class="control-label col-sm-2">微信登陆：</label>
+                            <div class="col-sm-9">
+                                <div class="bind-tab" style="display:none">
                                     <label class="color-black">未绑定</label>
                                     <button class="btn btn-primary btn-outline m-l-lg" data-toggle="modal" data-target="#bindWechatModal">绑定</button>
                                 </div>
                                 <div class="bind-tab">
                                     <label class="color-black">已绑定(微信名称为百ang的账号)</label>
-                                    <button class="btn btn-primary btn-outline" id="cancelBind">取消绑定</button>
+                                    <button class="btn btn-primary btn-outline" id="wxCancelBind">取消绑定</button>
                                 </div>
-                                
                             </div>
-                        </div>
-                        <div class="u-item  col-sm-12">
-                            <label class="control-label col-sm-3">登录账户</label>
-                             <div class="col-sm-9">
-                                 <label class="color-black">zhaobaiang@68000001</label>
-                            </div>
-                        </div>
-                        <div class="u-item  col-sm-12">
-                            <label class="control-label col-sm-3">姓名</label>
-                             <div class="col-sm-9">
-                                 <label class="color-black">zhaobaiang</label>
-                            </div>
-                        </div>
-                        <div class="u-item  col-sm-12">
-                            <label class="control-label col-sm-3">商户号</label>
-                             <div class="col-sm-9">
-                                 <label class="color-black">68000001</label>
-                            </div>
-                        </div>
-                        <div class="u-item  col-sm-12">
-                            <label class="control-label col-sm-3">角色</label>
-                             <div class="col-sm-9">
-                                 <label class="color-black">管理员</label>
-                            </div>
+                            <label class="control-label col-sm-7 col-sm-offset-2">绑定后，可直接使用微信扫描二维码登录成长支付</label>
                         </div>
                         <div class="u-item u-item-2 col-sm-12">
-                            <label class="control-label col-sm-3">登陆密码</label>
+                            <label class="control-label col-sm-2">QQ登陆：</label>
+                            <div class="col-sm-9">
+                                <div class="bind-tab" style="display:none">
+                                    <label class="color-black">未绑定</label>
+                                    <button class="btn btn-primary btn-outline m-l-lg" data-toggle="modal" data-target="#bindWechatModal">绑定</button>
+                                </div>
+                                <div class="bind-tab">
+                                    <label class="color-black">已绑定(微信名称为百ang的账号)</label>
+                                    <button class="btn btn-primary btn-outline" id="qqCancelBind">取消绑定</button>
+                                </div>
+                            </div>
+                            <label class="control-label col-sm-7 col-sm-offset-2">绑定后，可直接使用QQ登录成长支付</label>
+                        </div>
+                        <div class="u-item u-item-2 col-sm-12">
+                            <label class="control-label col-sm-2">登陆密码</label>
                             <div class="col-sm-9 tabchange">
-                                 <input name="" type="password" disabled="disabled" value="微笑" class="form-control form-control-1" placeholder="">
-                                 <button class="btn btn-primary btn-outline" id="modifyPwd">修改密码</button>
+                                <input name="" type="password" disabled="disabled" value="微笑" class="form-control form-control-1" placeholder="">
+                                <button class="btn btn-primary btn-outline" id="modifyPwd">修改密码</button>
                             </div>
                             <div class="col-sm-9 tabchange" style="display:none">
-                                 <input name="" type="text" value="" class="form-control m-b-sm" placeholder="旧密码">
-                                 <input name="" type="text" value="" class="form-control m-b-sm" placeholder="新密码">
-                                 <input name="" type="text" value="" class="form-control m-b-sm" placeholder="确认新密码">
+                                <input name="" type="text" value="" class="form-control m-b-sm" placeholder="旧密码">
+                                <input name="" type="text" value="" class="form-control m-b-sm" placeholder="新密码">
+                                <input name="" type="text" value="" class="form-control m-b-sm" placeholder="确认新密码">
                             </div>
                         </div>
                         <div class="col-sm-12 m-t-lg text-center">
@@ -92,8 +128,8 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
-               </div>
-           </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- 绑定弹窗 -->
@@ -101,28 +137,19 @@
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">成长支付</h4>
+                    <h4 class="modal-title">成长支付验证</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="wechat-body">
-                        <img src="img/temp/erweima.png" width="100%" alt="">
-                        <!-- 二维码失效显示 start -->
-                        <div class="wechat-abs wechat-timeout" >
-                            <p class="text-center">二维码已失效</p>
-                            <button class="btn btn-primary" id="refreshBtn">请点击刷新</button>
+                    <form action="" method="get" name="a" id="merchant-form">
+                        <div class="form-group col-sm-12">
+                            <input type="text" name="userName" placeholder="请输入登录邮箱/已验证邮箱号">
                         </div>
-                        <!-- 二维码失效显示 end -->
-                        
-                        <!-- 二维码绑定成功 start -->
-                        <div class="wechat-abs wechat-bind" style="display:none;">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fa fa-check"></i>&nbsp;绑定成功(2s)
-                            </button>
+                        <div class="form-group col-sm-12">
+                            <input type="password" name="password" placeholder="请输入登录密码">
                         </div>
-                        <!-- 二维码绑定成功 end -->
-                    </div>
-                   <p class="text-center m-t-sm">绑定后，可直接使用微信扫描二维码登录成长支付</p>
+                        <input type="submit" class="login btn-primary" value="登录">
+                        <a class="text-center m-t-sm">忘记密码</a>
+                    </form>
                 </div>
             </div>
         </div>
@@ -131,31 +158,74 @@
     <script src="js/bootstrap.min.js?v=3.3.6"></script>
     <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
     <script src="js/u-center/u-center.js"></script>
+    <script src="js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="js/plugins/validate/jquery.validate.methods.min.js"></script>
+    <script src="js/plugins/validate/messages_zh.min.js"></script>
     <script>
-        $(function(){
-            // 取消绑定
-            $('#cancelBind').click(function(event) {
-                var _this=$(this);
-                swal({
-                        title:"取消微信绑定？",
-                        showCancelButton:true,
-                        confirmButtonColor:"#00bfa9",
-                        confirmButtonText:"确定",
-                        cancelButtonText:"取消",
-                        showCancelButton: true,
-                        closeOnConfirm: false,
-                        showLoaderOnConfirm: true,
-                    },
-                    function(){
-                        swal("成功取消绑定！");
-                        _this.parents('.bind-tab').hide().siblings('.bind-tab').show();
-                    })
-            });
-            // 点击刷新
-            $('#refreshBtn').click(function(event) {
-                $('.wechat-timeout').hide();
-            });
+    $(function() {
+        // 取消绑定
+        $('#wxCancelBind,#qqCancelBind').click(function(event) {
+            var _this = $(this);
+            swal({
+                    title: "取消微信绑定？",
+                    showCancelButton: true,
+                    confirmButtonColor: "#00bfa9",
+                    confirmButtonText: "确定",
+                    cancelButtonText: "取消",
+                    showCancelButton: true,
+                    closeOnConfirm: false,
+                    showLoaderOnConfirm: true,
+                },
+                function() {
+                    swal({
+                        title: "成功取消绑定！",
+                        timer: 1000
+                    });
+                    _this.parents('.bind-tab').hide().siblings('.bind-tab').show();
+                })
         });
+        // 获取验证码手机号验证
+        $().ready(function() {
+            $("#verPhone").validate({
+                rules: {
+                    user_mobile: {
+                        required: true,
+                        isMobile: true
+                    }
+                },
+                submitHandler: function(form) {
+                    if ($(".gbg").val() == "获取验证码") {
+                        var num = 90;
+                        $(".gbg").attr("disabled");
+                        var timer = setInterval(function() {
+                            num--;
+                            if (num == 0) {
+                                clearInterval(timer);
+                                $(".gbg").val("获取验证码").removeAttr("disabled");
+                                return false;
+                            }
+                            $(".gbg").val(num)
+                        }, 1000);
+                    }
+                }
+            });
+            // 登陆框 用户名 密码验证
+            $("#merchant-form").validate({
+                rules: {
+                    userName: {
+                        required: true,
+                        isTelEmail: true
+                    },
+                    password: {
+                        required: true
+                    }
+                },
+                submitHandler: function(form) {
+                    form.submit()
+                }
+            })
+        })
+    });
     </script>
 </body>
 

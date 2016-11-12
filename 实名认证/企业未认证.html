@@ -19,6 +19,8 @@
         <link href="../css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
         <link href="../css/animate.min.css" rel="stylesheet"/>
         <link href="../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="../css/platform.css">
+        <link href="../css/qualification.css" rel="stylesheet"/>
 </head>
 
 <body class="gray-bg">
@@ -26,51 +28,74 @@
         <div class="row">
            <div class="ibox">
                <div class="ibox-content">
-	               	<h3 class="text-danger">未实名认证！</h3>
-	               	<p>
-	               		完成实名认证，您只需上传
-	               		<a class="btn btn-primary btn-outline">营业执照</a>
-	               		<a class="btn btn-primary btn-outline">组织机构代码</a>
-	               		<a class="btn btn-primary btn-outline">开户行许可证</a>
-	               		<a class="btn btn-primary btn-outline">法人身份证</a>
-	               		<a class="btn btn-primary btn-outline">照片</a>
-	               	</p>
+	               	<h3 class="text-danger">未实名认证</h3>
 	               	<div class="row">
 	               		<div class="col-sm-12">
-	               			<div class="ibox-title ibox-border pl0">
-		                        <h3>批量上传资料</h3>
+		                    <div class="title">
+								<h3>第一步：上传照片<span>提示：鼠标移入图片即可点击更改</span></h3>
 		                    </div>
 	               			<div class="col-sm-12">
 	                            <ul class="upload-img">
 	                            	<li>
 	                            		<img src="../img/upload_default.png" alt="" id="img1">
 	                            		<input type="file"  name="file" multiple="multiple" accept="image/*" onchange="setImagePreviews(this,'img1')"/>
-	                            		<p>营业执照</p>
+	                            		<div class="bgc"></div>
+	                            		<div class="prompts">营业执照<br/>点击上传</div>
 	                            	</li>
 	                            	<li>
 	                            		<img src="../img/upload_default.png" alt="" id="img2">
 	                            		<input type="file"  name="file" multiple="multiple" accept="image/*" onchange="setImagePreviews(this,'img2')"/>
-	                            		<p>组织机构代码</p>
+	                            		<div class="bgc"></div>
+	                            		<div class="prompts">组织机构代码<br/>点击上传</div>
 	                            	</li>
 	                            	<li>
 	                            		<img src="../img/upload_default.png" alt="" id="img3">
 	                            		<input type="file"  name="file" multiple="multiple" accept="image/*" onchange="setImagePreviews(this,'img3')"/>
-	                            		<p>开户行许可证</p>
+	                            		<div class="bgc"></div>
+	                            		<div class="prompts">开户行许可证<br/>点击上传</div>
 	                            	</li>
 	                            	<li>
 	                            		<img src="../img/upload_default.png" alt="" id="img4">
 	                            		<input type="file"  name="file" multiple="multiple" accept="image/*" onchange="setImagePreviews(this,'img4')"/>
-	                            		<p>法人身份证</p>
+	                            		<div class="bgc"></div>
+	                            		<div class="prompts">法人身份证<br/>点击上传</div>
 	                            	</li>
 	                            </ul>
 	               			</div>
 	               			<div class="clearfix"></div>
-	               			<div class="m-t-sm">
-	               				<p class="pull-left">图片上传说明：<br />1、所有证件照均上传复印件，必须加盖公章；<br />2、法人身份证照需要有正、反面身份证照片；<br />3、证件照格式为：jpg、png、gif、jpeg；<br />4、图片大小请在2M以内5、请上传最新年份的证件照片</p>
-	               			</div>
-	               			<div class="form-group col-md-12 text-center">
-	                            <button type="button" class="btn btn-primary pl20 pr20" id="confirm">提交认证</button>
-	                        </div>
+	               			<div class="title">
+								<h3>第二步：填写结算账户<span>提示：结算账户的开户名称需与开户许可证一致</span></h3>
+		                    </div>
+							<form class="form-horizontal" id="form-info">
+			                        <div class="form-group">
+			                            <label class="col-sm-4 control-label">开户名</label>
+			                            <div class="col-sm-8">
+			                                <input name="userName" type="text" class="form-control" placeholder="请输入开户名">
+			                            </div>
+			                        </div> 
+			                        <div class="form-group">
+			                            <label class="col-sm-4 control-label">开户行（含支行）</label>
+			                            <div class="col-sm-8">
+			                                <input name="bankName" type="text" class="form-control" placeholder="请输入开户行（含支行）">
+			                            </div>
+			                        </div>
+			                        <div class="form-group">
+			                            <label class="col-sm-4 control-label">银行账号</label>
+			                            <div class="col-sm-8">
+			                                <input id="bankAccount1" name="bankAccount1" type="text" class="form-control" placeholder="请输入银行账号">
+			                            </div>
+			                        </div>
+			                        <div class="form-group">
+			                            <label class="col-sm-4 control-label">确认银行账号</label>
+			                            <div class="col-sm-8">
+			                                <input id="bankAccount2" name="bankAccount2" type="text" class="form-control" placeholder="请确认银行账号">
+			                            </div>
+			                        </div>
+			                        <div class="form-group col-md-12 text-center">
+			                            <button type="submit" class="btn btn-primary pl20 pr20" id="confirm">提交认证</button>
+			                        </div>
+			                </form>
+	               			
 	               		</div>
 	               		
 	               	</div>
@@ -82,12 +107,56 @@
     <script src="../js/jquery.min.js?v=2.1.4"></script>
     <script src="../js/bootstrap.min.js?v=3.3.6"></script>
     <script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../js/plugins/validate/jquery.validate.methods.min.js"></script>
+    <script src="../js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="../js/plugins/validate/messages_zh.min.js"></script> 
     <script src="../js/authenticate/uploadImg.js"></script>
     <script>
     	$(function(){
     		// 提交认证 验证表单
-    		$('#confirm').click(function(event) {
-    			imgUploadReg();
+    		$().ready(function() {
+    			// 表单验证
+    			$("#form-info").validate({
+	            	rules: {
+	            		userName:{
+	            			required:true,
+	            			isDigitsEnglishchinese:true
+	            		},
+	            		bankName:{
+	            			required:true,
+	            			isDigitsEnglishchinese:true
+	            		},
+	            		bankAccount1:{
+	            			required: true,
+	                        maxlength:19,
+	                        creditcard: true
+	            		},
+	            		bankAccount2:{
+	            			required: true,
+	                        maxlength:19,
+	                        creditcard: true,
+	                        equalTo: "#bankAccount1"
+	            		}
+	            	},
+	            	messages: {
+	            		bankAccount2: {
+			            	equalTo: "两次输入密码不一致"
+			            }
+	            	},
+	            	submitHandler: function(form) {
+	                  swal({
+	                        title:"资料认证已提交",
+	                        text:"工作人员会尽快审核您的实名认证申请",
+	                        confirmButtonColor:"#00bfa9",
+	                        confirmButtonText:"确定",
+	                    },
+	                    function(){
+	                        form.submit();
+	                        location.href='./企业认证中.html';
+	                    })
+                	}
+            	})
+    			// imgUploadReg();
     		});
     	});
     	//下面用于多图片上传预览功能
