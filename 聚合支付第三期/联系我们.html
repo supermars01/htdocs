@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>
+            
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../css/sweetalert.css" rel="stylesheet"/>
+        <link href="../css/animate.min.css" rel="stylesheet"/>
+        <link href="../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        <link href="../css/common.css" rel="stylesheet"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <script>
+            if(window.top !== window.self){ window.top.location = window.location;}
+        </script>
+    </head>
+    <body class="gray-bg2  animated fadeInDown">
+        <header class="login-h">
+            <div class="login-header-main">
+                <img src="../img/logo.png" class="logo" alt="">
+                <ul class="nav-menu">
+                    <li><a href="">首页</a></li>
+                    <li><a href="">开发者中心</a></li>
+                    <li><a href="联系我们.html" class="active">联系我们</a></li>
+                </ul>
+                <ul class="nav-btn">
+                    <li><a href="">登录</a></li>
+                    <li><a href="">注册</a></li>
+                </ul>
+            </div>
+        </header>
+        <section class="m-sec">
+            <div class="container">
+                <div class="contactus">
+                    <h3>联系我们</h3>
+                    <form class="m-t form-horizontal" role="form"  id="contactForm">
+                        <div class="form-group col-sm-6">
+                            <label>姓名</label>
+                           <input type="text" class="form-control" name="username" id="username" placeholder="请输入姓名" required="">
+                        </div>
+                        <div class="form-group col-sm-6 pull-right">
+                            <label>手机号码</label>
+                            <input type="text" class="form-control" name="telphone" id="telphone" placeholder="请输入手机号码" required="" maxlength="11">
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-6">
+                            <label>邮箱地址</label>
+                            <input type="email" class="form-control" placeholder="请输入邮箱地址" required="" name="email">
+                        </div>
+                        <div class="form-group col-sm-6 pull-right">
+                            <label>公司名称</label>
+                            <input type="text" class="form-control" name="companyname" placeholder="请输入公司名称" required="" >
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-6">
+                            <label>公司规模</label>
+                            <select class="form-control">
+                                <option>请选择</option>
+                                <option selected>应用1</option>
+                            </select>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-sm-12">
+                            <label>您需要帮助的内容</label>
+                            <textarea name="helpcontent" class="form-control m-t-sm"></textarea>
+                        </div>
+                        <div class="form-group col-sm-12 text-center">
+                            <button type="submit" class="btn btn-primary pull-right pl20 pr20" id="sendBtn">发送</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <footer class="m-sec">
+            <ul>
+                <li><a href="">帮助中心</a></li>
+                <li><a href="">招聘</a></li>
+                <li><a href="">联系我们</a></li>
+                <li><a href="">关于我们</a></li>
+            </ul>
+           <p>京公网安备 11000002000088号 | 京ICP 备123456789   号 1  | Copyright © 2004 - 2016  成长支付 版权所有</p>
+       </footer>
+        <script src="../js/jquery.min.js?v=2.1.4"></script>
+        <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+        <script src="../js/plugins/validate/jquery.validate.min.js"></script>
+        <script src="../js/common/form-validate-common.js"></script>
+        <script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
+        <script>
+            $(function(){
+                // 表单验证
+                $("#contactForm").validate({
+                    rules: {
+                        username: {
+                            required:!0,
+                        },
+                        telphone: {
+                            required:!0,
+                            telphone:!0
+                        },
+                        email: {
+                            required:!0,
+                            email:!0
+                        },
+                        companyname: {
+                            required:!0
+                        },
+
+                        helpcontent: {
+                            required:!0
+                        }
+                    },
+                    messages: {
+                        username: {
+                            required: "*请输入姓名"
+                        },
+                        telphone: {
+                            required: "*请输入手机号码"
+                        },
+                        email: {
+                            required: "*请输入邮箱"
+                        },
+                        companyname: {
+                            required: "*请输入公司名称"
+                        },
+                        helpcontent: {
+                            required: "*请输入您需要帮助的内容"
+                        }
+                    },
+                    submitHandler:function(){
+	                		swal("您的反馈我们已经收到，感谢您的宝贵意见");
+	                }
+                });
+            })
+        </script>
+    </body>
+</html>
