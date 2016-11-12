@@ -23,7 +23,7 @@
     <link href="css/u-center.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="css/platform.css">
     <style type="text/css">
-    .input-group-addon{padding-left:6px;border:1px solid #E5E6E7;}.modal-content{border:1px solid #ccc}.inmodal .modal-header{padding:20px 15px;text-align:center;border:0;}.modal-body input{width:100%;line-height:32px;margin-bottom:10px}.login{width:100%;line-height:35px;text-align:center;border-radius:6px;border:0}.m-t-sm{float:right;color:#169BD5}#file{display:none}.img-circle{width:100px;height:100px;position:relative;text-align:center;line-height:100px}.imgBg{display:none;width:100px;height:100px;background-color:#fff;opacity:0.6;position:absolute;left:0;top:0}.img-circle:hover .imgBg{display:block}.middle-box{max-width:800px}.u-ct{max-width:800px}.u-ct .u-item{border:none}.form-inline .input-group .gbg{background-color:rgb(153,153,153);color:rgb(204,204,204);border:1px solid rgb(153,153,153);cursor:pointer;width:90px;height:34px;padding-left:6px}.verbom{margin-top:10px}.inmodal .modal-body{height:auto;overflow:hidden;}
+    .inmodal .modal-title {font-size: 18px;}.input-group-addon{padding-left:6px;border:1px solid #E5E6E7;}.modal-content{border:1px solid #ccc}.inmodal .modal-header{padding:20px 15px;text-align:center;border:0;}.modal-body input{width:100%;line-height:32px;margin-bottom:10px}.login{width:100%;line-height:35px;text-align:center;border-radius:6px;border:0}.m-t-sm{float:right;color:#169BD5}#file{display:none}.img-circle{width:100px;height:100px;position:relative;text-align:center;line-height:100px}.imgBg{display:none;width:100px;height:100px;background-color:#fff;opacity:0.6;position:absolute;left:0;top:0}.img-circle:hover .imgBg{display:block}.middle-box{max-width:800px}.u-ct{max-width:800px}.u-ct .u-item{border:none}.emailName{line-height: 34px}.form-inline .input-group .gbg{background-color:rgb(153,153,153);color:rgb(204,204,204);border:1px solid rgb(153,153,153);cursor:pointer;width:90px;height:34px;padding-left:6px}.verbom{margin-top:10px}.inmodal .modal-body{height:auto;overflow:hidden;}
     </style>
 </head>
 
@@ -61,7 +61,7 @@
                         </div>
                         <div class="u-item  col-sm-12">
                             <label class="control-label col-sm-2">邮箱登录：</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-3 emailName">
                                 <label class="color-black">zhaobaiang@68000001</label>
                             </div>
                             <label class="control-label col-sm-2">主登录账户</label>
@@ -147,8 +147,10 @@
                         <div class="form-group col-sm-12">
                             <input type="password" name="password" placeholder="请输入登录密码">
                         </div>
-                        <input type="submit" class="login btn-primary" value="登录">
-                        <a class="text-center m-t-sm">忘记密码</a>
+                        <div class="form-group col-sm-12">
+                            <input type="submit" class="login btn-primary" value="登录">
+                        </div>
+                        <a href="#" class="text-center m-t-sm">忘记密码</a>
                     </form>
                 </div>
             </div>
