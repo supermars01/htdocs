@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            应用管理
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../../css/plugins/dataTables/dataTables.bootstrap.css" />
+        <link href="../../css/animate.min.css" rel="stylesheet"/>
+        <link href="../../css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
+        <link href="../../css/plugins/iCheck/custom.css" rel="stylesheet">
+        <link href="../../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+</head>
+<style>
+    .radio {
+        display: block;
+        text-align: left;
+    }
+    .radio div {
+        display: inline-block;
+    }
+    .radio label {
+        padding-left: 0;
+    }
+    label.error {
+        display: block;
+        text-align: left;
+    }
+</style>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <form action="" class="form-horizontal">
+                        <div class="form-group col-sm-4">
+                            <label class="col-sm-4 control-label">姓名：</label>
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="请输入员工姓名" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label class="col-sm-4 control-label">手机号：</label>
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="请输入员工手机号" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-primary" id="find">查询</button>
+                                <button type="button" id="addAmount" class="btn btn-warning">
+                                <i class="fa fa-plus-circle"></i> 创建员工账号</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                    <!-- 表格分页 -->
+                    <div class="table-content" id="table-content">
+                        <!-- 表格开始 -->
+                        <table class="table table-bordered table-striped dataTables" id="list">
+                            <thead>
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>手机号</th>
+                                    <th>所属角色</th>
+                                    <th>登录账号</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                        <!-- 表格结束 -->
+                        <!-- 分页开始 -->
+                        <!-- 分页结束 -->
+                    </div>
+                    <!-- 表格分页  end-->
+                </div>
+            </div>
+            <!-- 无应用时显示 start -->
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a class="add-apply text-center">
+                        <p class="fa fa-plus"></p>
+                        <p>创建员工账号</p>
+                    </a>
+                </div>
+            </div>
+            <!-- 无应用时显示 -->
+        </div>
+    </div>
+    <!-- 新增员工账号 -->
+    <div class="modal inmodal in" id="addModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">新增员工</h4>
+                    <form action="" id="addForm">
+                        <div class="modal-body">
+                            <div class="form-group col-sm-12">
+                                <label class="col-sm-3 control-label line-h34">姓名：</label>
+                                <div class="col-sm-9 pl0">
+                                    <input type="text" placeholder="请输入姓名" class="form-control" name="username" maxlength="20" />
+                                </div>
+                            </div>
+
+                            <div class="form-group col-sm-12">
+                                <label class="col-sm-3 control-label line-h34">手机号：</label>
+                                <div class="col-sm-9 pl0">
+                                    <input type="text" placeholder="请输入手机号" class="form-control"  maxlength="11" name="telphone" />
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label class="col-sm-3 control-label line-h34">登录账号：</label>
+                                <div class="col-sm-9 pl0">
+                                    <input type="text" placeholder="姓名全拼" class="form-control" maxlength="24" name="amount" />
+                                    <span class="amount-fixed">@10000003</span>
+                                    <p class="text-left m-t-sm fontSize12">提示：默认格式为“员工姓名全拼@商户号”</p>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label class="col-sm-3 control-label line-h34">登录密码：</label>
+                                <div class="col-sm-9 pl0">
+                                    <input type="text" placeholder="填写登录密码" value="123456" class="form-control"  maxlength="15" name="pwd" />
+                                    <p class="text-left m-t-sm fontSize12">提示：系统默认密码，登录后可更改</p>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label class="col-sm-3 control-label line-h34">所属角色：</label>
+                                <div class="col-sm-9 pl0">
+                                    <span class="radio i-checks checks">
+                                        <label>
+                                            <input type="radio" checked="checked" value="1" name="a"> <i></i> 最高管理员</label>
+                                    </span>
+                                    <span class="radio i-checks checks">
+                                        <label>
+                                            <input type="radio" checked="" value="2" name="a"> <i></i> 最高管理员</label>
+                                    </span>
+
+                                    <span class="radio i-checks checks">
+                                        <label>
+                                            <input type="radio" checked="" value="3" name="a"> <i></i> 最高管理员</label>
+                                    </span>
+                                    <span class="radio i-checks checks">
+                                        <label>
+                                            <input type="radio" checked="" value="4" name="a"><i></i> 最高管理员</label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input class="btn btn-primary" type="submit" value="保存" id="saveSubmit" />
+                           <!--  <a class="btn btn-white" data-dismiss="modal">
+                            取消</a> -->
+                        </div>  
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 修改员工账号 -->
+    <div class="modal inmodal in" id="maddModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">员工详情</h4>
+                    <form action="" id="maddForm">
+                        <div class="modal-body">
+                            <div class="form-group col-sm-12">
+                                <label class="col-sm-3 control-label line-h34">姓名：</label>
+                                <div class="col-sm-9 pl0">
+                                    <input type="text" placeholder="请输入姓名" class="form-control" name="musername" maxlength="20" value="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group col-sm-12">
+                                <label class="col-sm-3 control-label line-h34">手机号：</label>
+                                <div class="col-sm-9 pl0">
+                                    <input type="text" placeholder="请输入手机号" class="form-control"  maxlength="11" name="mtelphone" />
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label class="col-sm-3 control-label line-h34">登录账号：</label>
+                                <div class="col-sm-9 pl0">
+                                    <input type="text" placeholder="姓名全拼" class="form-control" maxlength="24" name="mamount" />
+                                    <span class="amount-fixed">@10000003</span>
+                                    <p class="text-left m-t-sm fontSize12">提示：默认格式为“员工姓名全拼@商户号”</p>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label class="col-sm-3 control-label line-h34">登录密码：</label>
+                                <div class="col-sm-9 pl0">
+                                    <input type="text" placeholder="填写登录密码" value="123456" class="form-control"  maxlength="15" name="mpwd" />
+                                    <p class="text-left m-t-sm fontSize12">提示：系统默认密码，登录后可更改</p>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label class="col-sm-3 control-label line-h34">所属角色：</label>
+                                <div class="col-sm-9 pl0">
+                                    <span class="radio i-checks mchecks">
+                                        <label>
+                                            <input type="radio" checked="" value="0" name="ma"> <i></i> 最高管理员</label>
+                                    </span>
+                                    <span class="radio i-checks mchecks">
+                                        <label>
+                                            <input type="radio" checked="" value="1" name="ma"> <i></i> 财务</label>
+                                    </span>
+
+                                    <span class="radio i-checks mchecks">
+                                        <label>
+                                            <input type="radio" checked="" value="2" name="ma"> <i></i> 运营</label>
+                                    </span>
+                                    <span class="radio i-checks mchecks">
+                                        <label>
+                                            <input type="radio" checked="" value="3" name="ma"><i></i> 开发</label>
+                                    </span>
+                                    <span class="radio i-checks mchecks">
+                                        <label>
+                                            <input type="radio" checked="" value="2" name="ma"> <i></i> 运营</label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input class="btn btn-primary" type="submit" value="保存" id="msaveSubmit" />
+                           <!--  <a class="btn btn-white" data-dismiss="modal">
+                            取消</a> -->
+                        </div>  
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../../js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="../../js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="../../js/plugins/iCheck/icheck.min.js"></script>
+    <script src="../../js/plugins/validate/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 创建员工账号
+            $('#addAmount').click(function(event) {
+                $('#saveSubmit').val('保存');
+                $('#saveSubmit').removeAttr('disabled');
+                $("#addModal").modal('show');
+            });
+            $('#addForm').validate({
+                rules: {
+                    username: {
+                        required:!0,
+                    },
+                    telphone: {
+                        required:!0,
+                        telphone:!0
+                    },
+                    amount: {
+                        required:!0
+                    },
+                    pwd: {
+                        required:!0
+                    }
+                },
+                messages: {
+                    username: {
+                        required: "*请输入姓名"
+                    },
+                    telphone: {
+                        required: "*请输入手机号码"
+                    },
+                    amount: {
+                        required: "*请输入登录账号"
+                    },
+                    pwd: {
+                        required: "*请输入登录密码"
+                    }
+                },
+                submitHandler:function(){
+                    var username=$('input[name=username]').val();
+                    var telphone=$('input[name=telphone]').val();
+                    var amount=$('input[name=amount]').val();
+                    var pwd=$('input[name=pwd]').val();
+                    var checkedval=$('.checks .checked input').val();
+                    $('#saveSubmit').val('加载中...');
+                    $('#saveSubmit').attr('disabled','disabled');
+                    
+                    // ajax加载完成隐藏模态框
+                    $('#addModal').modal('hide');
+                    swal({
+                      title: "创建成功",
+                      text: "",
+                      type: "success",
+                      timer: 1000,
+                      showConfirmButton: false
+                    });
+                    
+                    
+                }
+            });
+            // 修改员工信息
+            $(document).on('click', '.mupdate', function(event) {
+                event.preventDefault();
+                var musername=$(this).parents('tr').find('td').eq(0).html();
+                var mtelphone=$(this).parents('tr').find('td').eq(1).html();
+                var mamount=$(this).parents('tr').find('td').eq(3).html();
+                var mpwd;
+                var mcheckedval=$(this).parents('tr').find('td').eq(2).find('span').attr('value');
+                $('input[name=musername]').val(musername);
+                $('input[name=mtelphone]').val(mtelphone);
+                $('input[name=mamount]').val(mamount);
+                $('input[name=mpwd]').val(mpwd);
+                $('.mchecks input[value='+mcheckedval+']').iCheck('check');
+
+                $('#msaveSubmit').val('保存');
+                $('#msaveSubmit').removeAttr('disabled');
+                $("#maddModal").modal('show');
+            });
+            $('#maddForm').validate({
+                rules: {
+                    musername: {
+                        required:!0,
+                    },
+                    mtelphone: {
+                        required:!0,
+                        telphone:!0
+                    },
+                    mamount: {
+                        required:!0
+                    },
+                    mpwd: {
+                        required:!0
+                    }
+                },
+                messages: {
+                    musername: {
+                        required: "*请输入姓名"
+                    },
+                    mtelphone: {
+                        required: "*请输入手机号码"
+                    },
+                    mamount: {
+                        required: "*请输入登录账号"
+                    },
+                    mpwd: {
+                        required: "*请输入登录密码"
+                    }
+                },
+                submitHandler:function(){
+                    
+                    $('#msaveSubmit').val('加载中...');
+                    $('#msaveSubmit').attr('disabled','disabled');
+                    
+                    // ajax加载完成隐藏模态框
+                    $('#maddModal').modal('hide');
+                    swal({
+                      title: "创建成功",
+                      text: "",
+                      type: "success",
+                      timer: 1000,
+                      showConfirmButton: false
+                    });
+                    
+                    
+                }
+            });
+
+
+
+
+            $(".i-checks").iCheck({
+                radioClass:"iradio_square-green",
+            });
+            $(document).on('click', '.pwd-initialise', function(event) {
+                event.preventDefault();
+                swal({
+                  title: "已完成",
+                  text: "",
+                  type: "success",
+                  timer: 1000,
+                  showConfirmButton: false
+                });
+            });
+            $(document).on('click', '.amount-del', function(event) {
+                event.preventDefault();
+                swal({
+                  title: "删除后，该员工的信息将被清除。",
+                  text: "是否确定删除？",
+                  type: "warning",
+                  showCancelButton: true,
+                  closeOnConfirm: false,
+                  confirmButtonText: "确定",
+                  cancelButtonText:"取消"
+                },function(){
+                    swal({
+                      title: "删除成功",
+                      text: "",
+                      type: "success",
+                      timer: 1000,
+                      showConfirmButton: false
+                    });
+                });
+            });
+
+            var table = $('#list').DataTable( {
+                "processing": true,
+                "serverSide": true,
+                "ordering" : false,
+                //"paging": false, 
+                "searching" : false,
+                //"bPaginate" : false,
+                "bInfo": true,
+                "lengthChange": false,
+                "ajax": {
+                    "url" : "../../data/objects-5.php"
+                },
+                "language": {
+                    "paginate": {
+                      "previous": "«"
+                      ,"next" : "»"
+                    },
+                    "info": '显示 \_START\_ 到 \_END\_ 项 共<em class="label label-warning data-num">\_TOTAL\_</em>'
+                            +'条数据'
+                },
+                columnDefs: [{
+                        //   指定第一列，从0开始，0表示第一列，1表示第二列……
+                        targets: 2,
+                        render: function(data, type, row, meta) {
+                            if(row[2]==0){
+                                return '<span value='+row[2]+'>最高管理员</span>'
+                            }else if(row[2]==1){
+                                return '<span value='+row[2]+'>财务</span>'
+                            }else if(row[2]==2){
+                                return '<span value='+row[2]+'>运营</span>'
+                            }else{
+                                return '<span value='+row[2]+'>开发</span>'
+                            }
+                        }
+                    },
+                    {
+                    //   指定第一列，从0开始，0表示第一列，1表示第二列……
+                    targets: 4,
+                    render: function(data, type, row, meta) {
+                        return '<a class="mupdate">修改</a><a class="m-l-sm pwd-initialise">密码初始化</a><a class="m-l-sm amount-del">删除账号 </a>';
+                    }
+                }],
+                fnDrawCallback: function ( data, type, row ) {
+
+                    if(table.ajax.json().data.length < 1){
+                        $("#table-content").find('tbody').html('<tr><td colspan="5">无数据</td></tr>');
+                    }
+                    return;
+                    //alert(table.ajax.json().data.length)
+                    console.log('fnDrawCallback');
+                    console.log(data); 
+                    console.log(table); 
+                    console.log(table.page()); 
+                    //alert(page.page().len())
+
+                    console.log(table.page.info());
+                    console.log(table.page.len()); 
+                    
+                }
+
+                
+            }) 
+
+            
+            table.on( 'draw', function () {
+                 
+            });
+
+            table.on( 'xhr', function ( e, settings, json ) {
+                //alert('1');
+                //console.log( 'Ajax event occurred. Returned data: ', json );
+            });
+
+            $("#find").click(function(){
+
+                var application_num = $("#application_num").val();
+                var application_name = $("#application_name").val(); 
+
+                table.ajax.url("../../data/objects-5.php?"+jQuery.param({
+                    "application_num" : application_num,
+                    "application_name" : application_name 
+                }));
+                table.ajax.reload();
+            })
+        });
+    </script>
+</body>
+
+</html>
