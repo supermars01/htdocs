@@ -1,17 +1,102 @@
-.text-danger{font-size: 26px}
-.text-danger a {font-size: 14px}
-			.info{text-align: left}
-			.info span{margin-left: 15px}
-			.speNum{color:#999;line-height: 50px}
-			.ibox-content h3{margin: 15px 0}
-			.title span{color:#0099FF;font-size: 14px;padding-left: 15px;font-weight: normal;}
-			.upload-img li div{display: none;width:160px;height:160px;position:absolute;left: 0;top: 0;}
-			.bgc{background-color: rgba(68,68,65,0.4);}
-			.prompts{text-align: center;line-height: 20px;padding-top: 60px;color: #000;}
-			.upload-img li:hover .prompts,.upload-img li:hover .bgc{display: block}
-			#form-info{width: 450px;margin: 0 auto; padding-top: 15px}
-        	.mgl{margin-left: 140px}
-        	.txt-right{text-align: right}
-        	.col-lg-4{line-height: 35px}
-	    .ml{margin-left: 61px}
-	    
+.form-horizontal .control-label{padding-top:0}
+.m-t{text-align:center}
+.text-danger {
+    font-size: 26px
+}
+
+.text-danger a {
+    font-size: 14px
+}
+
+.info {
+    text-align: left
+}
+
+.info span {
+    margin-left: 15px
+}
+.info label{
+	width:117px;
+	text-align:right;
+	font-weight:normal
+}
+.speNum {
+    color: #999;
+    line-height: 50px
+}
+
+.ibox-content h3 {
+    margin: 15px 0
+}
+.sweet-alert p{
+	font-size:18px
+}
+
+.title span {
+    color: #0099FF;
+    font-size: 14px;
+    font-weight: normal;
+}
+.upload-img{margin:0 auto;display:inline-block;}
+.upload-img li div {
+    display: none;
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.upload-img li input{width:140px;height:140px}
+.upload-img li{width:140px;height:140px}
+.upload-img li img{width:140px;height:140px}
+.upload-img li.explan{width: 290px;height: auto;overflow: hidden;}
+.explan ul{padding:15px 10px;height:auto;overflow:hidden}
+.bgc {
+    background-color: rgba(204, 204, 204, 0.3);
+}
+
+.prompts {
+    text-align: center;
+    line-height: 20px;
+    padding-top: 60px;
+    color: #000;
+}
+
+.upload-img li:hover .prompts,
+.upload-img li:hover .bgc {
+    display: block
+}
+
+#form-info {
+    width: 450px;
+    margin: 0 auto;
+    padding-top: 15px
+}
+
+.mgl {
+    margin-left: 140px;
+    line-height: 35px
+}
+
+.txt-right {
+    text-align: right
+}
+
+.col-lg-4 {
+    line-height: 35px
+}
+
+.ml {
+    margin-left: 52px
+}
+.upload-img li.explan li{width:290px;height:auto;line-height:18px;color#999;font-size:13px}
+.sub-btn{margin-top: 15px}
+.review-btn{margin-top:30px}
+.sign-col{position: absolute;
+    left: 41.3333%;
+    margin-left: 5px;}
+    .sweet-alert h2{font-size:18px}
+     .modal-dialog {
+    width: 240px;
+    margin: 110px auto;
+}

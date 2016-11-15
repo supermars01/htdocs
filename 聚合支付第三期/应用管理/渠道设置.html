@@ -39,15 +39,15 @@
                 <div class="ibox-content">
                     <div class="row">
                         <div class="ibox-title ibox-border">
-                            <h5>渠道设置
-                                <a class="btn btn-xs m-l-sm"><span class="fa fa-angle-left"></span> 返回</a>
+                            <h5>
+                                <a class="btn btn-xs m-r-sm"><span class="fa fa-angle-left"></span> 返回</a>渠道设置
                             </h5>
                         </div>
                     </div>
                     <div class="row m-t-lg m-channel-set"> 
                         <div class="col-sm-12">
                             <label class="pull-left control-label">
-                                <img src="../../../img/new-wechat.png" class="icon">微信支付
+                                <img src="../../img/new-wechat.png" class="icon">微信支付
                             </label>
                             <div class="col-sm-6">
                                 <div class="m-channel-list">
@@ -57,6 +57,7 @@
                                     </h3>
                                     <div class="m-channel-cell m-channel-cell-1">
                                         <div class="m-channel-layer">
+                                            <i class="fa fa-close"></i>
                                             <p class="text-center">设置APPID，即刻关联高汇通渠道</p>
                                             <form action="" id="appidForm">
                                                 <input type="text" name="appId" class="form-control" placeholder="请输入您的APPID">
@@ -96,7 +97,7 @@
                                                 <i class="ico-channel ico-channel-scanner"></i>扫码支付
                                             </span>
                                             <span class="pull-right">
-                                                <input  data-id="123"  js-switch type="checkbox" checked="checked" class="js-switch"/>
+                                                <input  data-id="123"  js-switch type="checkbox"  class="js-switch"/>
                                             </span>
                                             
                                         </p>
@@ -105,7 +106,7 @@
                                                 <i class="ico-channel ico-channel-user"></i>公众号支付
                                             </span>
                                             <span class="pull-right">
-                                                <input  data-id="456"  js-switch type="checkbox" checked="checked" class="js-switch"/>
+                                                <input  data-id="456"  js-switch type="checkbox"  class="js-switch"/>
                                             </span>
                                         </p>
 
@@ -134,7 +135,7 @@
                         </div>
                         <div class="col-sm-12 m-border-t">
                             <label class="pull-left control-label">
-                                <img src="../../../img/new-zhifu.png" class="icon">支付宝
+                                <img src="../../img/new-zhifu.png" class="icon">支付宝
                             </label>
                             <div class="col-sm-6">
                                 <div class="m-channel-list">
@@ -148,7 +149,7 @@
                                                 <i class="ico-channel ico-channel-scanner"></i>扫码支付
                                             </span>
                                             <span class="pull-right">
-                                                <input  data-id="123"  js-switch type="checkbox" checked="checked" class="js-switch"/>
+                                                <input  data-id="123"  js-switch type="checkbox" class="js-switch"/>
                                             </span>
                                             
                                         </p>
@@ -167,7 +168,7 @@
                                                 <i class="ico-channel ico-channel-scanner"></i>扫码支付
                                             </span>
                                             <span class="pull-right">
-                                                <input  data-id="123"  js-switch type="checkbox" checked="checked" class="js-switch"/>
+                                                <input  data-id="123"  js-switch type="checkbox"  class="js-switch"/>
                                             </span>
                                             
                                         </p>
@@ -550,6 +551,10 @@
                 $('.m-channel-change').tooltip({
                     selector: "i[data-toggle='tooltip']",
                     html:true,
+                });
+                // 微信支付遮罩
+                $('.m-channel-layer .fa-close').click(function() {
+                    $(this).parents('.m-channel-layer').hide();
                 });
                 
                 // 切换渠道 确定按钮点击
