@@ -17,7 +17,7 @@
         <link href="../../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
         <link href="../../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
         <link href="../../css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
-        <link href="../js/plugins/fancybox/jquery.fancybox.css" rel="stylesheet">
+        <link href="../../js/plugins/fancybox/jquery.fancybox.css" rel="stylesheet">
         <link href="../../css/animate.min.css" rel="stylesheet"/>
         <link href="../../css/style.min.css?v=4.1.0" rel="stylesheet"/>
         <link href="../../css/qualification.css" rel="stylesheet"/>
@@ -33,7 +33,7 @@
 	               			<div class="">
 		                        <h3>第一步：上传照片</h3>
 		                    </div>
-		                    <div class="col-sm-12 m-t mgl">
+		                    <div class="col-sm-12 m-t">
 		                        <a class="fancybox m-fancybox" href="../../img/login_bg.jpg">
 		                            <img src="../../img/temp/profile_small.jpg" width="160" />
 		                        </a>
@@ -51,34 +51,11 @@
 	               			<div class="">
 		                        <h3>第二步：填写结算账户</h3>
 		                    </div>
-	               			<div class="col-sm-12 m-t mgl">
-			                    <div class="row">
-									<div class="col-xs-2 col-lg-4 txt-right">
-										开户名
-									</div>
-									<div class="col-xs-2 col-lg-4">
-										北京高汇通
-									</div>
-			                    </div>
-			                    <div class="clearfix"></div>
-			                    <div class="row">
-									<div class="col-xs-2 col-lg-4 txt-right">
-										开户行（含支行）
-									</div>
-									<div class="col-xs-2 col-lg-4">
-										工商银行酒仙桥支行
-									</div>
-			                    </div>
-			                    <div class="clearfix"></div>
-			                    <div class="row">
-									<div class="col-xs-2 col-lg-4 txt-right">
-										银行账号
-									</div>
-									<div class="col-xs-2 col-lg-4">
-										6222000000000000000
-									</div>
-			                    </div>
-		                    </div>
+	               			<div class="col-lg-12 col-md-offset-4 info">
+								<p><label>开户名</label><span>北京高汇通商业管理有限公司</span></p>
+								<p><label>开户行（含支行）</label><span>银行账号工商银行酒仙桥支行</span></p>
+								<p><label>银行账号</label><span>6217002710000684874</span></p>
+	               			</div>
 	               			<div class="clearfix"></div>
 	               		</div>
 	               		
@@ -91,5 +68,11 @@
     <script src="../../js/jquery.min.js?v=2.1.4"></script>
     <script src="../../js/bootstrap.min.js?v=3.3.6"></script>
     <script src="../../js/plugins/fancybox/jquery.fancybox.js"></script>
+    <script>
+    	$(function(){
+    		// 图片放大
+    		$(".fancybox").fancybox({openEffect:"none",closeEffect:"none"});
+    	})
+    </script>
 </body>
 </html>
