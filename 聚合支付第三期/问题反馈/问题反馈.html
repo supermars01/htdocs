@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../../css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
+        <link href="../../css/plugins/summernote/summernote.css" rel="stylesheet">
+        <link href="../../css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+        <link href="../../js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+        <link href="../../css/animate.min.css" rel="stylesheet"/>
+        <link href="../../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row"> 
+                        <div class="ibox-title ibox-border">
+                            <h5>问题反馈</h5>
+                        </div>
+                    </div>
+
+                    <div class="row"> 
+                        <div class="col-sm-12">
+                            <div class="panel-body">
+                                <div class="form-group col-sm-12">
+                                <label class="col-sm-2 control-label line-h34">请选择分类<b class="text-danger">*</b></label>
+                                    <div class="col-sm-6 pl0">
+                                        <select name="" class="form-control" id="questionSort">
+                                            <option value="-1">
+                                                请选择问题类型
+                                            </option>
+                                            <option value="">
+                                                业务咨询
+                                            </option>
+                                            <option value="">
+                                                接入问题
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label class="col-sm-2 control-label line-h34">请描述问题<b class="text-danger">*</b></label>
+                                    <div class="col-sm-6 pl0">
+                                        <div id="editor"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-sm-12">
+                                    <label class="col-sm-2 control-label line-h34">上传附件<b class="text-danger">*</b></label>
+                                    <div class="col-sm-6 pl0 ">
+                                        <div class="file-container">
+                                            <a class="btn btn-default btn-outline mfile-btn m-b-sm m-r-sm" onchange="showPicPath('mpFile1')">
+                                                <input type="file" id="mpFile1" class="mfile" />
+                                                <span>上传附件</span>
+                                                <i class="fa fa-close mfile-close"></i>
+                                            </a>
+                                            <!-- <div class="clearfix"></div> -->
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <p class="color-9 fontSize12 m-t-md">可上传3个附件。每个附件大小不得超过2M。
+                                        </p>
+                                        <p class="color-9 fontSize12 m-t-sm">附件支持的格式有：‘jpg’,'bmp','png'.'gif','txt','rar','zip','doc','docx','ini','conf','eml','pdf'</p>
+                                    </div>
+
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <div class="col-sm-2"></div>
+                                    <div class="form-group col-sm-6 text-center">
+                                        <button class="btn btn-primary pl20 pr20" id="confirmFrom">提交</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script src="../../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../../js/plugins/summernote/summernote.min.js"></script>
+    <script src="../../js/plugins/summernote/summernote-zh-CN.js"></script>
+    <script src="../../js/plugins/gritter/jquery.gritter.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            setTimeout(function(){
+                $.gritter.add({
+                    title:"<img src='../../img/new-telphone.png' class='gritter-tel'><h4>成长支付客服电话</h4><h4 class=' text-info'>400-888-9926</h4>",
+                    text:'<h4>全方位咨询，一对一服务</h4>',
+                    time:100000000,
+                })
+            });
+            $('#confirmFrom').click(function() {
+                var questionSortVal=$('#questionSort').val();
+                var editorVal;
+                editorVal=$('#editor').summernote('code');
+                if(questionSortVal==-1){
+                    swal("请选择分类!");
+                }else if(editorVal=='<p><br></p>'){
+                    swal("请描述问题!");
+                }else if(editorVal.length>1011){
+                    swal("问题描述长度不能超过1000字!");
+                }else if($('.mfile-btn').length==1 && $('.mfile-btn').find('i').css('display')=='none'){
+                    swal("请上传附件!");
+                }else {
+                    swal({
+                      title: "提交成功",
+                      text: "",
+                      type: "success",
+                      timer: 2000,
+                      showConfirmButton: false
+                    });
+                    setTimeout(function(){
+                        location.reload();
+                    },1500);
+                }
+            });
+            $('#editor').summernote({
+                lang:"zh-CN",
+                height:'200',
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                  ]
+            });
+            // 取消保存
+            $('#btnCancel').click(function(event) {
+                swal({
+                    title:"确定放弃编辑内容？",
+                    showCancelButton:true,
+                    confirmButtonColor:"#00bfa9",
+                    confirmButtonText:"确定",
+                    cancelButtonText:"取消",
+                    showCancelButton: true,
+                    closeOnConfirm: false,
+                    showLoaderOnConfirm: true,
+                },function(){
+                    setTimeout(function(){
+                        swal("成功放弃编辑！");
+                    },1000);
+                    
+                })
+            });
+            $(document).on('click', '.mfile-close', function(event) {
+                event.preventDefault();
+                var fileshowLen=$('.mfile-btn').length;
+                $(this).parent('a').find('input').val('');
+                $(this).hide();
+                $(this).parent('a').find('span').html('上传附件');
+                $(this).parent('a').find('span').attr('status',0);
+                if(fileshowLen!=1){
+                    $(this).parent('a').remove();
+                }
+            });
+        });
+         var index=1;
+         function showPicPath(dom){
+            var mpFile=document.getElementById(dom);
+            var filepath = mpFile.files[0];
+            var fileshowLen=$('.mfile-btn').length;
+            index++;
+            var mpFileIndex="mpFile"+index;
+            if (filepath) {
+              $('#'+dom).next('span').html(filepath.name);
+              $('#'+dom).parent('a').find('.mfile-close').show();
+            }
+            if(fileshowLen<3){
+                $('#'+dom).parents('.file-container').append('<a class="btn btn-default btn-outline mfile-btn m-b-sm m-r-sm" onchange=showPicPath("'+mpFileIndex+'")><input type="file" id="'+mpFileIndex+'" class="mfile" /><span>上传附件</span><i class="fa fa-close mfile-close"></i></a>')
+            }
+         }
+    </script>
+</body>
+
+</html>

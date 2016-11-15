@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            应用管理
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../../css/plugins/switchery/switchery.css" rel="stylesheet">
+        <link href="../../css/animate.min.css" rel="stylesheet"/>
+        
+        <link href="../../css/plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
+        <link href="../../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+        <link href="../../css/shouyintai.css" rel="stylesheet"/>
+        <link href="../../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        
+</head>
+
+<body class="gray-bg">
+    <div class="apply-tip">
+        <div class="alert alert-warning alert-dismissable">
+            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+            成长支付为您提供开发调试工具，<a class="alert-link" href="">点击体验！</a>
+        </div> 
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="ibox-title ibox-border">
+                            <h5>
+                                <a class="btn btn-xs m-r-sm"><span class="fa fa-angle-left"></span> 返回</a>渠道设置
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row m-t-lg m-channel-set"> 
+                        <div class="col-sm-12">
+                            <label class="pull-left control-label">
+                                <img src="../../img/new-wechat.png" class="icon">微信支付
+                            </label>
+                            <div class="col-sm-6">
+                                <div class="m-channel-list">
+                                    <h3>
+                                        高汇通渠道
+                                        <span class="pull-right m-channel-toggle"><i class="fa fa-angle-up"></i>收起</span>
+                                    </h3>
+                                    <div class="m-channel-cell m-channel-cell-1">
+                                        <div class="m-channel-layer">
+                                            <i class="fa fa-close"></i>
+                                            <p class="text-center">设置APPID，即刻关联高汇通渠道</p>
+                                            <form action="" id="appidForm">
+                                                <input type="text" name="appId" class="form-control" placeholder="请输入您的APPID">
+                                                <p class="text-center">高汇通微信支付需关联您已认证的微信公众账号哦</p>
+                                                <input class="btn btn-primary pl20 pr20" type="submit" value="提交" />
+                                            </form>
+                                        </div>
+                                        <p>
+                                            <span class="m-channel-l">
+                                                <i class="ico-channel ico-channel-scanner"></i>扫码支付
+                                            </span>
+                                            <span class="pull-right">
+                                                <input  data-id="123"  js-switch type="checkbox" checked="checked" class="js-switch"/>
+                                            </span>
+                                            
+                                        </p>
+                                        <p>
+                                            <span class="m-channel-l">
+                                                <i class="ico-channel ico-channel-user"></i>公众号支付
+                                            </span>
+                                            <span class="pull-right">
+                                                <input  data-id="456"  js-switch type="checkbox" checked="checked" class="js-switch"/>
+                                            </span>
+                                        </p>
+                                        <p class="text-right">当前服务渠道</p>
+                                    </div>
+                                </div>
+
+                                <div class="m-channel-list">
+                                    <h3>
+                                        自申请渠道
+                                        <span class="pull-right m-channel-toggle"><i class="fa fa-angle-down"></i>展开</span>
+                                    </h3>
+                                    <div class="m-channel-cell" style="display:none">
+                                        <p>
+                                            <span class="m-channel-l">
+                                                <i class="ico-channel ico-channel-scanner"></i>扫码支付
+                                            </span>
+                                            <span class="pull-right">
+                                                <input  data-id="123"  js-switch type="checkbox"  class="js-switch"/>
+                                            </span>
+                                            
+                                        </p>
+                                        <p>
+                                            <span class="m-channel-l">
+                                                <i class="ico-channel ico-channel-user"></i>公众号支付
+                                            </span>
+                                            <span class="pull-right">
+                                                <input  data-id="456"  js-switch type="checkbox"  class="js-switch"/>
+                                            </span>
+                                        </p>
+
+                                        <!-- 未设置状态 -->
+                                        <p class="text-right">
+                                        <a href="">设置自申请渠道</a></p>
+                                        <p class="text-warning">*如果您已自行开通微信支付，即可在成长支付设置自申请渠道，享受自如切换支付渠道服务</p>
+
+                                        <!-- 当前渠道状态 -->
+                                        <!-- <p class="text-right">当前服务渠道</p> -->
+                                        <!-- <p class="text-warning">*切换至高汇通渠道后，结算服务将正常为您提供<a href="">查看详情</a></p> -->
+
+                                        <!-- 已设置状态 -->
+                                        <!-- <p class="text-right">已设置</p>
+                                        <p class="text-warning"><a href="">查看详情</a></p> -->
+                                    </div>
+                                </div>
+
+                                <div class="m-channel-change">
+                                    <a class="text-right changeChannel" status='weixin' channel='0'>
+                                        切换微信支付渠道
+                                    </a>
+                                    <i class="fa fa-question-circle" status="weixin" data-toggle="tooltip" data-placement="right" title="" data-original-title="<h3 class='text-center'>切换微信支付渠道</h3><p class='text-left m-channel-tooltip'>成长支付为您提供支付渠道切换服务。</p><p class='text-left'>当您已开通微信平台支付业务，即可在成长支付设置微信平台支付“自申请渠道”。</p><p class='text-left'>设置成功后，每个自然月您可享受2次自如切换微信支付渠道服务。</p><p class='text-left'>自申请渠道下的交易将不享受高汇通为您提供的结算服务。</p>"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 m-border-t">
+                            <label class="pull-left control-label">
+                                <img src="../../img/new-zhifu.png" class="icon">支付宝
+                            </label>
+                            <div class="col-sm-6">
+                                <div class="m-channel-list">
+                                    <h3>
+                                        高汇通渠道
+                                        <span class="pull-right m-channel-toggle"><i class="fa fa-angle-up"></i>收起</span>
+                                    </h3>
+                                    <div class="m-channel-cell">
+                                        <p>
+                                            <span class="m-channel-l">
+                                                <i class="ico-channel ico-channel-scanner"></i>扫码支付
+                                            </span>
+                                            <span class="pull-right">
+                                                <input  data-id="123"  js-switch type="checkbox" class="js-switch"/>
+                                            </span>
+                                            
+                                        </p>
+                                        <p class="text-right">当前服务渠道</p>
+                                    </div>
+                                </div>
+
+                                <div class="m-channel-list">
+                                    <h3>
+                                        自申请渠道
+                                        <span class="pull-right m-channel-toggle"><i class="fa fa-angle-down"></i>展开</span>
+                                    </h3>
+                                    <div class="m-channel-cell" style="display:none">
+                                        <p>
+                                            <span class="m-channel-l">
+                                                <i class="ico-channel ico-channel-scanner"></i>扫码支付
+                                            </span>
+                                            <span class="pull-right">
+                                                <input  data-id="123"  js-switch type="checkbox"  class="js-switch"/>
+                                            </span>
+                                            
+                                        </p>
+
+                                        <!-- 未设置状态 -->
+                                        <p class="text-right">
+                                        <a href="">设置自申请渠道</a></p>
+                                        <p class="text-warning">*如果您已自行开通支付宝支付，即可在成长支付设置自申请渠道，享受自如切换支付渠道服务</p>
+
+                                        <!-- 当前渠道状态 -->
+                                        <!-- <p class="text-right">当前服务渠道</p> -->
+                                        <!-- <p class="text-warning">*切换至高汇通渠道后，结算服务将正常为您提供<a href="">查看详情</a></p> -->
+
+                                        <!-- 已设置状态 -->
+                                        <!-- <p class="text-right">已设置</p>
+                                        <p class="text-warning"><a href="">查看详情</a></p> -->
+
+                                    </div>
+                                </div>
+
+                                <div class="m-channel-change">
+                                    <a class="text-right changeChannel" status='zfb'>
+                                        切换支付宝支付渠道
+                                    </a>
+                                    <i class="fa fa-question-circle" status="zfb" data-toggle="tooltip" data-placement="right" title="" data-original-title="<h3 class='text-center'>切换支付宝支付渠道</h3><p class='text-left m-channel-tooltip'>成长支付为您提供支付渠道切换服务。</p><p class='text-left'>当您已开通微信平台支付业务，即可在成长支付设置微信平台支付“自申请渠道”。</p><p class='text-left'>设置成功后，每个自然月您可享受2次自如切换微信支付渠道服务。</p><p class='text-left'>自申请渠道下的交易将不享受高汇通为您提供的结算服务。</p>"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 m-border-t">
+                            <label class="pull-left control-label">
+                                <img src="../../img/new-bank.png" class="icon">银行卡支付
+                            </label>
+                            <div class="col-sm-6">
+                                <div class="m-channel-list m-channel-list-1">
+                                    <h3>
+                                        高汇通渠道
+                                        <span class="pull-right m-channel-toggle1"><i class="fa fa-angle-down"></i>
+                                        查看银行列表</span>
+                                    </h3>
+                                </div>
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="cash channel-cash" style="display:none">
+                                <div class="pay-way">
+                                    <div class="list-way list-way-2">
+                                        <p>银行借记卡及信用卡(B2C)<span class="fontSize12 text-warning">(银行渠道进行筛选：预排序、过滤掉部分银行，保持一定的渠道数量)</span></p>
+                                        <div class="bank-all">
+                                            <a class="show" style="">
+                                                <img src="../../img/pay/bank-1.png" title="中国银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show" style="">
+                                                <img src="../../img/pay/bank-2.png" title="中国工商银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show" style="">
+                                                <img src="../../img/pay/bank-3.png" title="中国建设银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show" style="">
+                                                <img src="../../img/pay/bank-4.png" title="中国农业银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show" style="">
+                                                <img src="../../img/pay/bank-5.png" title="招商银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show" style="">
+                                                <img src="../../img/pay/bank-6.png" title="中信银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show" style="">
+                                                <img src="../../img/pay/bank-7.png" title="北京银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show" style="">
+                                                <img src="../../img/pay/bank-8.png" title="中国民生银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a style="display: inline;">
+                                                <img src="../../img/pay/bank-9.png" title="交通银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a style="display: inline;">
+                                                <img src="../../img/pay/bank-10.png" title="兴业银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a style="display: inline;">
+                                                <img src="../../img/pay/bank-11.png" title="华夏银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a style="display: inline;">
+                                                <img src="../../img/pay/bank-12.png" title="上海浦东发展银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a style="display: inline;">
+                                                <img src="../../img/pay/bank-13.png" title="平安银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a style="display: inline;">
+                                                <img src="../../img/pay/bank-14.png" title="中国光大银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                         
+                                   </div>
+                                </div>
+
+                                <div class="pay-way">
+                                    <div class="list-way list-way-2 list-way-3">
+                                    <p>快捷支付<span class="fontSize12 text-warning">(支持以下各银行信用卡以及部分银行借记卡)</span></p>
+                                        <div class="bank-all">
+                                            <a class="show">
+                                                <img src="../../img/pay/bank-1.png" title="中国银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <img src="../../img/pay/bank-2.png" title="中国工商银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <img src="../../img/pay/bank-3.png" title="中国建设银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <img src="../../img/pay/bank-4.png" title="中国农业银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <img src="../../img/pay/bank-5.png" title="招商银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <img src="../../img/pay/bank-6.png" title="中信银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <img src="../../img/pay/bank-7.png" title="北京银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <img src="../../img/pay/bank-8.png" title="中国民生银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <img src="../../img/pay/bank-9.png" title="交通银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <img src="../../img/pay/bank-10.png" title="兴业银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <img src="../../img/pay/bank-11.png" title="华夏银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <img src="../../img/pay/bank-12.png" title="上海浦东发展银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <img src="../../img/pay/bank-13.png" title="平安银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <img src="../../img/pay/bank-14.png" title="中国光大银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <img src="../../img/pay/bank-15.png" title="中国邮政储蓄银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                   </div>
+                               </div>
+
+
+
+                               <div class="pay-way">
+                                    <div class="list-way list-way-2 list-way-3">
+                                        <p>企业银行借记卡(B2C)</p>
+                                        <div class="bank-all">
+                                            <a class="show">
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-1.png" title="中国银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-2.png" title="中国工商银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-3.png" title="中国建设银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-4.png" title="中国农业银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-5.png" title="招商银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-6.png" title="中信银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-7.png" title="北京银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a class="show">
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-8.png" title="中国民生银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-9.png" title="交通银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-10.png" title="兴业银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-11.png" title="华夏银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-12.png" title="上海浦东发展银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-13.png" title="平安银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-14.png" title="中国光大银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-15.png" title="中国邮政储蓄银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-16.png" title="宁波银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-17.png" title="天津银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-18.png" title="河北银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                            <a>
+                                                <i class="pos-flag"></i>
+                                                <img src="../../img/pay/bank-19.png" title="微商银行">
+                                                <span>单笔限额：5000   日累计限额：50000</span>
+                                            </a>
+                                        </div>
+                                        <div class="clearfix"></div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    
+    <!-- 切换渠道弹窗 -->
+    <div class="modal inmodal fade" id="changeModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p class="channel-text-1">您的微信支付服务渠道将切换为：</p>
+                    <h3 class="text-center channel-text-2">自申请渠道</h3>
+                    <p class="text-center channel-text-3">自申请渠道将不享受高汇通结算服务</p>
+                </div>
+                <div class="modal-footer">
+                    <input class="btn btn-primary" type="submit" value="确定" id="mchannelSubmit" />
+                    <a class="btn btn-white" data-dismiss="modal">
+                    取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 未开通渠道弹窗 -->
+    <div class="modal inmodal fade" id="nochangeModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p class="m-t-md text-center">您还没有设置自申请渠道</p>
+                    <p class="text-center">开通后即可切换哦！</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary">现在设置</a>
+                    <a class="btn btn-white pl20 pr20" data-dismiss="modal">
+                    取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 切换渠道次数已用光弹窗 -->
+    <div class="modal inmodal fade" id="notimesModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p class="m-t-md text-center">本月切换次数已用光，</p>
+                    <p class="text-center">下个自然月可再切换哦！</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary btn-outline pl20 pr20" data-dismiss="modal">
+                    我知道了</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../../js/plugins/switchery/switchery.js"></script> 
+    <script src="../../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../../js/plugins/toastr/toastr.min.js"></script>
+    <script src="../../js/plugins/validate/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+            $(function(){
+                // appid验证
+                $.validator.addMethod("checkAppId",function(value,element,params){  
+                     
+                    if(/^wx[\da-z]+$/.test(value)){
+                        return true;
+                    } 
+                        return false;
+                },"均为小写字母+数字");
+
+                $('#appidForm').validate({
+                    messages: {
+                       appId:{
+                            required : "微信 App ID不能为空" 
+                        },
+                    },
+                    rules:{
+                        appId : {
+                            required:true,
+                            checkAppId : ''
+                        },
+                    },
+                    submitHandler:function(form){
+                        
+                    },
+                });
+
+                // 问号悬浮操作
+                $('.m-channel-change').tooltip({
+                    selector: "i[data-toggle='tooltip']",
+                    html:true,
+                });
+                // 微信支付遮罩
+                $('.m-channel-layer .fa-close').click(function() {
+                    $(this).parents('.m-channel-layer').hide();
+                });
+                
+                // 切换渠道 确定按钮点击
+                $('#mchannelSubmit').click(function() {
+                    $('#changeModal').modal('hide');
+                    swal({
+                      title: "渠道切换成功",
+                      text: "",
+                      type: "success",
+                      timer: 1000,
+                      showConfirmButton: false
+                    },function(){
+                        location.reload();
+                    });
+                });
+                // 渠道切换
+                $('.changeChannel').click(function() {
+                    /**
+                     * 切换渠道
+                     */
+                    // weixin(切换微信支付渠道)  zfb（切换支付宝渠道）
+                    var cstatus=$(this).attr('status');
+                    //0 代表当前是高汇通渠道  1代表当前是自申请渠道
+                    var cchannel=$(this).attr('channel');
+                    if(cchannel=='0'){
+                        $('.channel-text-2').html('高汇通渠道');
+                        $('.channel-text-3').html('高汇通结算服务将正常为您提供');
+                    }else if(cchannel=='1'){
+                        $('.channel-text-2').html('自申请渠道');
+                        $('.channel-text-3').html('自申请渠道将不享受高汇通结算服务');
+                    }
+                    if(cstatus=='weixin'){
+                        $('.channel-text-1').html('您的微信支付服务渠道将切换为：');
+                        
+                    }else if(cstatus=='zfb'){
+                        $('.channel-text-1').html('您的支付宝支付服务渠道将切换为：');
+                    }
+                    $('#changeModal').modal('show');
+                    //---------- 切换渠道 end
+
+
+                    /**
+                     * 未开通渠道
+                     */
+                    // $('#nochangeModal').modal('show');
+                    //----------未开通渠道 end
+                    
+                    /**
+                     * 切换渠道次数已用光
+                     */
+                    // $('#notimesModal').modal('show');
+                    //----------切换渠道次数已用光 end
+                });
+
+                // 渠道展开收起
+                $('.m-channel-toggle').click(function() {
+                    if($(this).find('i').hasClass('fa-angle-up')){
+                        $(this).html('<i class="fa fa-angle-down"></i>展开');
+                        $(this).parent('h3').next('.m-channel-cell').slideUp();
+                    }else {
+                        $(this).html('<i class="fa fa-angle-up"></i>收起');
+                        $(this).parent('h3').next('.m-channel-cell').slideDown();
+                    }
+                });
+
+                // 查看银行列表
+                $('.m-channel-toggle1').click(function() {
+                    if($(this).find('i').hasClass('fa-angle-up')){
+                        $(this).html('<i class="fa fa-angle-down"></i>查看银行列表');
+                        $('.channel-cash').slideUp();
+                    }else {
+                        $(this).html('<i class="fa fa-angle-up"></i>收起银行列表');
+                        $('.channel-cash').slideDown();
+                    }
+
+                });
+
+                // 切换按钮点击事件
+                toastr.options = {
+                  "closeButton": true,
+                  "debug": false,
+                  "progressBar": true,
+                  "positionClass": "toast-top-right",
+                  "onclick": null,
+                  "showDuration": "400",
+                  "hideDuration": "500",
+                  "timeOut": "1500",
+                  "extendedTimeOut": "500",
+                  "showEasing": "swing",
+                  "hideEasing": "linear",
+                  "showMethod": "fadeIn",
+                  "hideMethod": "fadeOut"
+                };
+
+                var elems = document.querySelectorAll('.js-switch');
+                
+                var bind_switch = function(el){
+
+                        $(el).change(function(){
+                            toastr.success("操作成功！", "提示");
+                            set_switch({
+                                'xxx' : this.checked
+                            },function(res){
+
+                            }) 
+                        })
+                }
+
+
+                var set_switch = function(param,callback){
+                        $.ajax({
+                           type: "POST",
+                           url: "some.php",
+                           data: jQuery.param(param),
+                           success: function(res){
+                                callback(res);
+                           }
+                        });
+                }
+
+                for (var i = 0; i < elems.length; i++) {
+                    var switchery = new Switchery(elems[i]);
+                        bind_switch(elems[i]);
+                }
+            })
+            
+    </script>
+</body>
+
+</html>

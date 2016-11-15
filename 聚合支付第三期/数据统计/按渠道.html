@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="webkit" name="renderer"/>
+        <meta content="no-siteapp" http-equiv="Cache-Control"/>
+        <title>
+            按渠道
+        </title>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link href="favicon.ico" rel="shortcut icon"/>
+        <link href="../../css/bootstrap.min.css?v=3.3.6" rel="stylesheet"/>
+        <link href="../../css/font-awesome.min.css?v=4.4.0" rel="stylesheet"/>
+        <link href="../../css/animate.min.css" rel="stylesheet"/>
+        <link href="../../css/style.min.css?v=4.1.0" rel="stylesheet"/>
+        <link type="text/css" rel="stylesheet" href="../../js/plugins/layer/laydate/need/laydate.css" />
+        <link type="text/css" rel="stylesheet" href="../../css/plugins/dataTables/dataTables.bootstrap.css" />
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row">
+           <div class="ibox">
+               <div class="ibox-content">
+                    <form action="" class="form-horizontal">
+                        <div class="form-group col-sm-6 pl0">
+                            <label class="pull-left control-label pl20 pr20">到账时间</label>
+                            <div class="col-sm-9 pl0">
+                                <input placeholder="开始日期" class="form-control layer-date m-timetxt pull-left" id="start">
+                                <span>至</span>
+                                <input placeholder="结束日期" class="form-control layer-date m-timetxt pull-left" id="end">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3 pl0">
+                            <label class="pull-left control-label pl20 pr20">应用</label>
+                            <div class="col-sm-7 pl0">
+                                <select class="form-control" name="">
+                                    <option>应用1</option>
+                                    <option>应用2</option>
+                                    <option>应用3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-primary">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                    <div class="alert alert-warning m-alert">
+                        当前为测试环境数据
+                    </div>
+                    <table class="table table-bordered m-t-sm">
+                        <tbody>
+                            <tr>
+                                <th>总金额</th>
+                                <th>总笔数</th>
+                                <th>单日最高交易总额</th>
+                                <th>单日最低交易总额</th>
+                                <th>单日最高交易总笔数</th>
+                                <th>单日最低交易总笔数</th>
+                            </tr>
+                            <tr>
+                                <td  class="text-info">123456789012.34</td>
+                                <td  class="text-info">123456789012.34</td>
+                                <td  class="text-info">123456789012.34</td>
+                                <td  class="text-info">123456789012.34</td>
+                                <td  class="text-info">123456789012.34</td>
+                                <td  class="text-info">123456789012.34</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div id="main" style="width: 100%;height:400px;"></div>
+               </div>
+           </div>
+        </div>
+    </div>
+
+    <script src="../../js/plugins/echarts/echarts-all.js"></script>
+    <script src="../../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../../js/plugins/layer/laydate/laydate.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 开始时间 结束时间
+            var start={elem:"#start",format:"YYYY/MM/DD",min:laydate.now(),max:"2099-06-16",istime:false,istoday:false,choose:function(datas){end.min=datas;end.start=datas}};
+            var end={elem:"#end",format:"YYYY/MM/DD",min:laydate.now(),max:"2099-06-16",istime:false,istoday:false,choose:function(datas){start.max=datas}};laydate(start);laydate(end);
+
+
+            var option = { 
+            		tooltip: {
+                    trigger: 'item',
+                    formatter: "{b} <br/>{a}: {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data:['微信支付','支付宝支付','微乐付支付','百度钱包','其他']
+                },
+                series: [
+                    {
+                        name:'交易金额',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: '30',
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        data:[
+                            {value:335, name:'微信支付'},
+                            {value:310, name:'百度钱包'},
+                            {value:234, name:'支付宝支付'},
+                            {value:135, name:'微乐付支付'},
+                            {value:1548, name:'其他'}
+                        ]
+                    },
+                ]
+
+            };
+
+            var myChart = echarts.init(document.getElementById('main'));
+                myChart.setOption(option);
+
+        })
+
+        
+    </script>
+</body>
+
+</html>
