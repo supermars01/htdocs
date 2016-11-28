@@ -22,7 +22,7 @@
     <link href="../../css/animate.min.css" rel="stylesheet" />
     <link href="../../css/style.min.css?v=4.1.0" rel="stylesheet" />
     <style type="text/css">
-    .sweet-alert p {text-align: left;line-height: 23px;margin-left: 12px}.cursor {cursor: pointer;}.r-ml {margin-left: 10px}.money-modal h3{padding-left:100px;text-align:left;color:#666;font-weight:normal;font-size:14px;}.money-modal h3 span{color:#ff4e3c;font-size:16px;}.money-modal h3.money-tip{margin-top:10px;font-size:12px;color:#222;}.modal-footer{float:left;padding-left:110px;}.modal-dialog{width:400px;margin:30px auto;}
+    .sweet-alert p {text-align: left;line-height: 23px;margin-left: 12px}.cursor {cursor: pointer;}.cursor:hover{color:#ff4e3c;}.r-ml {margin-left: 10px}.money-modal h3{padding-left:100px;text-align:left;color:#666;font-weight:normal;font-size:14px;}.money-modal h3 span{color:#ff4e3c;font-size:16px;}.money-modal h3.money-tip{margin-top:10px;font-size:12px;color:#222;}.modal-footer{float:left;padding-left:110px;}.modal-dialog{width:400px;margin:30px auto;}.sub-red{color:#ff4e3c;}
     </style>
 </head>
 
@@ -73,12 +73,12 @@
                                 <th>汇款日期</th>
                                 <th>汇款账号</th>
                                 <th>汇款金额（元）</th>
-                                <th>补充说明</th>
+                                <th width="120">补充说明</th>
                                 <th>状态</th>
                                 <th>操作人</th>
                                 <th>操作时间</th>
                                 <th>操作</th>
-                                <th>备注</th>
+                                <th width="80">备注</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -211,6 +211,13 @@
                 //         return '<a class="color-status-2 shenheBtn">审核</a>';
                 //     }
                 // }
+                
+                // ｛
+                //     render:function(data,type,row){
+                //         return row.DTRACE_NET
+                //     },
+                //     targets:3
+                // ｝
             }],
             fnDrawCallback: function(data, type, row) {
 
@@ -232,7 +239,6 @@
 
 
         })
-
 
         table.on('draw', function() {
 
@@ -261,7 +267,7 @@
         if (_this.attr('id') == 'agree') {
             swal({
                 title: "",
-                text: "汇款日期：<span class='sub-time'>2016-10-21</span><br>汇款账号：XXXXXXXXXX<br>汇款金额：320  元<br>备注：因为所以巴拉<br>*请您确保信息无误后慎重选择",
+                text: "汇款日期：<span class='sub-time'>2016-10-21</span><br>汇款账号：XXXXXXXXXX<br>汇款金额：320  元<br>备注：因为所以巴拉<br><span class='sub-red'>*请您确保信息无误后慎重选择</span>",
                 html: true,
                 confirmButtonColor: "#1c84c6",
                 confirmButtonText: "通过",
@@ -275,7 +281,7 @@
         } else {
             swal({
                 title: "",
-                text: "汇款日期：<span class='sub-time'>2016-10-21<span><br>汇款账号：XXXXXXXXXX<br>汇款金额：320  元<br>备注：<span class='sub-bz'>因为所以巴拉<span><br>*请填写拒绝原因,",
+                text: "汇款日期：<span class='sub-time'>2016-10-21<span><br>汇款账号：XXXXXXXXXX<br>汇款金额：320  元<br>备注：<span class='sub-bz'>因为所以巴拉<span><br><span class='sub-red'>*请填写拒绝原因,</span>",
                 html: true,
                 type: "input",
                 confirmButtonColor: "#1c84c6",

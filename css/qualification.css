@@ -1,5 +1,7 @@
 .form-horizontal .control-label{padding-top:0}
-.m-t{text-align:center}
+.form-group{margin-bottom: 22px}
+.col-sm-12 .col-sm-12{text-align:center}
+.m-t{text-align:center;font-weight: 700;}
 .text-danger {
     font-size: 26px
 }
@@ -36,6 +38,7 @@
     color: #0099FF;
     font-size: 14px;
     font-weight: normal;
+    margin-left:10px
 }
 .upload-img{margin:0 auto;display:inline-block;}
 .upload-img li div {
@@ -52,7 +55,7 @@
 .upload-img li.explan{width: 290px;height: auto;overflow: hidden;}
 .explan ul{padding:15px 10px;height:auto;overflow:hidden}
 .bgc {
-    background-color: rgba(204, 204, 204, 0.3);
+    background-color: rgba(95,90,90,0.5);
 }
 
 .prompts {
